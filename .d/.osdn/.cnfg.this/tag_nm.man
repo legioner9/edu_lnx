@@ -1,2 +1,4 @@
-$$cnt - context
-$$cli - singl cli
+$$cnt NAME_DR.dr.md - d
+
+$$cnt - $`$cnt context
+$$cli - $`$cli singl cli
