@@ -1,0 +1,4 @@
+ @@cnt jq - json to nice color output   
+    
+    docker run --name nginx-bridge -d -p 8080:80 nginx:alpine
+    docker inspect nginx-bridge --format '{{json .NetworkSettings.Networks}}' | jq

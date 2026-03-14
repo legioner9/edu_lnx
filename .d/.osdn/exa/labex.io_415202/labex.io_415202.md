@@ -1,10 +1,10 @@
 [labex.io 415202](https://labex.io/ru/tutorials/docker-how-to-configure-a-docker-container-to-use-the-host-network-415202)
 
-$$ Как настроить контейнер Docker для использования сети хоста
+$$cnt Как настроить контейнер Docker для использования сети хоста
 
-$$ Вывести список всех сетей Docker `docker network ls`
+$$cnt Вывести список всех сетей Docker `docker network ls`
 
-    docker network ls
+    $$cli docker network ls
 
     NETWORK ID     NAME             DRIVER    SCOPE
     1bfeb9b0e651   bridge           bridge    local
