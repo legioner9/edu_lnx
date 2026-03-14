@@ -1,6 +1,6 @@
-git remote add origin git@github.com:legioner9/aer_foe.git
+git remote add origin git@github.com:legioner9/edu_lnx.git
 or
-git remote add origin git@gitflic.ru:legioner9/aer_foe.git
+git remote add origin git@gitflic.ru:legioner9/edu_lnx.git
 
 git clone git@gitflic.ru:legioner9/aer_foe.git
 
