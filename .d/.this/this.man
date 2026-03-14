@@ -1,0 +1,60 @@
+git remote add origin git@github.com:legioner9/aer_foe.git
+or
+git remote add origin git@gitflic.ru:legioner9/aer_foe.git
+
+git clone git@gitflic.ru:legioner9/aer_foe.git
+
+git config --global user.email "legioner9@inbox.ru"
+git config --global user.name "legioner9"
+
+git remote add gh git@github.com:legioner9/aer_foe.git
+git remote add gf git@gitflic.ru:legioner9/aer_foe.git
+
+
+powershall git_bash
+winget install --id Git.Git -e --source winget
+winget install obsidian
+
+
+"terminal.integrated.defaultProfile.windows": "Git Bash"
+
+
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_rsa
+
+install choco PwSh
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+
+~ $ wget https://raw.githubusercontent.com/legioner9/st_rc_d/refs/heads/master/.d/.install.ax/main_install_stl.sh
+~ $ . main_install_stl.sh
+
+~ $ wget https://gitflic.ru/project/legioner9/st_rc_d/blob/raw?file=.d%2F.install.ax%2Fmain_install_stl.sh
+~ $ . main_install_stl.sh
+
+https://selectel.ru/blog/ssh-authentication/
+# Key enters
+## Генерация (not now)
+добавление комментария с информацией о том, кто, на какой машине и когда создал ключ:
+
+     home_host
+     hh# ssh-keygen -C "$(whoami)@$(uname -n)-$(date -I)"
+
+## Copy to remote_host
+
+    hh# ssh-copy-id username@remote_host
+
+    hh#cat ~/.ssh/id_rsa.pub | ssh username@remote_host "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+
+## check status ssh
+
+    rh#sudo systemctl status ssh
+
+## sshpass
+
+#!/bin/bash
+
+    USER="your_username"
+    HOST="your_hostname"
+    PASSWORD="your_password"
+
+    sshpass -p "$PASSWORD" ssh "$USER"@"$HOST" "$COMMAND"

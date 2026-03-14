@@ -1,0 +1,42 @@
+#!/bin/bash
+
+fn_caewmjfh345etr4g(){
+
+    # aer="aer_foe"
+    aer="edu_lnx"
+    
+    # alias dkr="docker"
+    
+    pro_pth=$HOME/$aer
+    fn_nm=$pro_pth/.d/.repo.d/.repo.rc
+    als_nm=$pro_pth/.d/.repo.d/.repo.als
+    
+    
+    echo "start $fn_nm"
+    
+    . "$als_nm"
+    
+    if [[ -f "$pro_pth/.d/.sh/l.sh" ]];then
+        . "$pro_pth/.d/.sh/l.sh" || {
+            echo ". $pro_pth/.d/.sh/l.sh - EXEC_ERROR" >&2
+        }
+    else
+        echo ". $pro_pth/.d/.sh/l.sh - NOT_EXIST" >&2
+    fi
+    
+    l_01_c_up $pro_pth/.d/.sh/.lib.sh || {
+        echo -e "${ECHO_RET1}in file://${fn_nm} , line=${LINENO} :: EXEC : 'l_01_c_up $pro_pth/.d/.sh/.lib.sh', 'RESUME :: LIBERR' return 1${NRM}" >&2
+        return 1
+    }
+    
+    [[ $(type -t lfoe_is_fn) == "function" ]] || {
+        echo -e "${ECHO_RET1}in file://${fn_nm} , line=${LINENO} :: EXEC : '[[ \$(type -t lfoe_is_fn) == \"function\" ]]', 'RESUME :: in $HOME/aer_foe/.d/.sh/.lib.sh ERROR' return 1${NRM}" >&2
+        return 1
+    }
+    
+    # if [[ -z "$(sudo systemctl status docker| grep running)" ]] ;then
+    #     sudo systemctl start docker
+    # fi
+}
+
+fn_caewmjfh345etr4g @ > "$HOME"/null
