@@ -1,0 +1,28 @@
+#!/bin/bash
+set -x -e -o pipefail
+
+GH="$(git remote get-url origin | sed -e 's/.*://' -e 's/\.git$//')"
+GH_USER="${GH%%/*}"
+GH_REPO="${GH##*/}"
+
+TAG=$(git describe --match='v*' --exact-match 2>/dev/null)
+if ! test "$TAG"; then
+	echo "no tag to release"
+	exit 1
+fi
+
+mkdir -p bin
+
+export CGO_ENABLED=0
+for os in Linux Darwin Windows; do
+	test $os = Windows && ext=.exe || ext=
+	export GOOS=$(echo $os | tr A-Z a-z)
+	for arch in amd64 386; do
+		 export GOARCH=$arch
+		 go build -mod=readonly -v \
+			-ldflags "-X 'main.ver=$TAG'" \
+			-o "bin/${GH_REPO}-${os}-${arch/amd/x86_}$ext"
+	done
+done
+
+ghr -u "$GH_USER" -r "$GH_REPO" -replace "$TAG" bin
