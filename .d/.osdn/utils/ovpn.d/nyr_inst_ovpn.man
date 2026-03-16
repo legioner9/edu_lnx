@@ -1,0 +1,4 @@
+wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
+
+    cd <DirName>
+    scp root@185.228.234.178:/root/openvpn-install.sh . 

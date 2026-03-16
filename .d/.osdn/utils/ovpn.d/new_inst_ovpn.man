@@ -1,0 +1,71 @@
+curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh
+chmod +x openvpn-install.sh
+
+Управление клиентами
+# Add a new client
+./openvpn-install.sh client add alice
+
+# Add a password-protected client
+./openvpn-install.sh client add bob --password
+
+# Revoke a client
+./openvpn-install.sh client revoke alice
+
+# Renew a client certificate
+./openvpn-install.sh client renew bob --cert-days 365
+Список всех клиентов:
+
+$ ./openvpn-install.sh client list
+══ Client Certificates ══
+[INFO] Found 3 client certificate(s)
+
+   Name      Status   Expiry      Remaining
+   ----      ------   ------      ---------
+   alice     Valid    2035-01-15  3650 days
+   bob       Valid    2035-01-15  3650 days
+   charlie   Revoked  2035-01-15  unknown
+Вывод в формате JSON для скриптов:
+
+$ ./openvpn-install.sh client list --format json | jq
+{
+  "clients": [
+    {
+      "name": "alice",
+      "status": "valid",
+      "expiry": "2035-01-15",
+      "days_remaining": 3650
+    },
+    {
+      "name": "bob",
+      "status": "valid",
+      "expiry": "2035-01-15",
+      "days_remaining": 3650
+    },
+    {
+      "name": "charlie",
+      "status": "revoked",
+      "expiry": "2035-01-15",
+      "days_remaining": null
+    }
+  ]
+}
+
+Управление серверами
+# Renew server certificate
+./openvpn-install.sh server renew
+
+# Uninstall OpenVPN
+./openvpn-install.sh uninstall
+Показать подключенных клиентов (данные обновляются каждые 60 секунд):
+
+$ ./openvpn-install.sh server status
+══ Connected Clients ══
+[INFO] Found 2 connected client(s)
+
+   Name    Real Address          VPN IP      Connected Since   Transfer
+   ----    ------------          ------      ---------------   --------
+   alice   203.0.113.45:52341    10.8.0.2    2025-01-15 14:32  ↓1.2M ↑500K
+   bob     198.51.100.22:41892   10.8.0.3    2025-01-15 09:15  ↓800K ↑200K
+
+[INFO] Note: Data refreshes every 60 seconds.
+
