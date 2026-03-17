@@ -19,7 +19,7 @@ fn_efgaerfe2342fasd(){
         
         mkdir "$dr_nm"
         echo -e "$ECHO_EXEC cp -r $exa/labex.io.sh/tml_labex.io_dkr.d/ $dr_nm ${NRM}"
-        cp -r "$exa"/labex.io.sh/tml_labex.io_dkr.d/ "$dr_nm"
+        cp -rv "$exa"/labex.io.sh/tml_labex.io_dkr.d/* "$dr_nm"
         
     else
         
