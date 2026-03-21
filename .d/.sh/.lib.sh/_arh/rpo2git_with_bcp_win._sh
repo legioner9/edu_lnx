@@ -13,15 +13,15 @@ fn_vewtfwefc34267346(){
     
     # return 0
     
-    # unset yes
-    # read -rp "Rewrite Snippets VSCode :: only 'y'" yes
-    # if [ "y" == "$yes" ]; then
-    #     echo "Copy start"
-    #     rm -rf ".d\.bcp_dpl\vs_code\Snippets"
-    #     mkdir ".d\.bcp_dpl\vs_code\Snippets"
-    #     cp -rv "$HOME\AppData\Roaming\Code\User\snippets" ".d\.bcp_dpl\vs_code\Snippets"
-    #     cp -fv "$HOME\AppData\Roaming\Code\User\settings.json" ".d\.bcp_dpl\vs_code\settings.json"
-    # fi
+    unset yes
+    read -rp "Rewrite Snippets VSCode :: only 'y'" yes
+    if [ "y" == "$yes" ]; then
+        echo "Copy start"
+        rm -rf ".d/.bcp_dpl/vs_code/Snippets"
+        mkdir ".d/.bcp_dpl/vs_code/Snippets"
+        cp -rv "$HOME/AppData/Roaming/Code/User/snippets" ".d/.bcp_dpl/vs_code/Snippets"
+        cp -fv "$HOME/AppData/Roaming/Code/User/settings.json" ".d/.bcp_dpl/vs_code/settings.json"
+    fi
     
     #! RM BAD DIR
     
