@@ -2,8 +2,6 @@
 
 fn_{post_dr_nm}(){
     
-    
-    
     local fl_nm={start_sh_pth}
     local dir_dkr={dr_nm}/dkr.d
     local dkr_fl="$dir_dkr"/Docker.stl
@@ -15,6 +13,10 @@ fn_{post_dr_nm}(){
     }
 
     echo -e "${ECHO_INFO} START $fl_nm check that ${NRM}"
+
+    # FN start
+
+
 
 
 }
