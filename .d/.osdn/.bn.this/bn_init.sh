@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-fn_eargb43634hfdhnffvb(){
+fn_eargb43634hfdsdcahnffvb(){
     
     local arg_1="$1"
     local arg_2="$2"
@@ -36,4 +36,4 @@ fn_eargb43634hfdhnffvb(){
     
 }
 
-fn_eargb43634hfdhnffvb "$1" "$2"
+fn_eargb43634hfdsdcahnffvb "$1" "$2"
