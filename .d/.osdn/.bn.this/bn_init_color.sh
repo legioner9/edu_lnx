@@ -15,16 +15,16 @@ fn_eargb43634hfdhnffvb(){
         if  [[ -f "$en_all" ]];then
             if grep -q "$1" "$en_all" ;then
                 
-                echo -e "[$en_all]($en_all)"
+                echo -e "${ECHO_INFO}file://$en_all${NRM}"
                 
                 if [[ -n "$2" ]]; then
-                    echo -e "grep $arg_1 $en_all"
-                    grep "$arg_1" "$en_all"
-                    echo -e "grep $arg_2 $en_all"
-                    grep "$arg_2" "$en_all"
+                    echo -e "${ECHO_CODE} grep -w --color=always $arg_1 $en_all${NRM}"
+                    grep --color=always "$arg_1" "$en_all"
+                    echo -e "${ECHO_CODE} grep -w --color=always $arg_2 $en_all${NRM}"
+                    grep --color=always "$arg_2" "$en_all"
                 else
-                    echo -e "grep $arg_1 $en_all"
-                    grep "$arg_1" "$en_all"
+                    echo -e "${ECHO_CODE} grep -w --color=always $arg_1 $en_all${NRM}"
+                    grep --color=always "$arg_1" "$en_all"
                 fi
             fi
         fi
