@@ -1,4 +1,5 @@
 #!/bin/bash
+# %%%fl install mtp_proxy fo telegram
 # Automatic interactive installer for mtproto proxy https://github.com/seriyps/mtproto_proxy
 # Supported OS:
 # - Ubuntu 24.xx

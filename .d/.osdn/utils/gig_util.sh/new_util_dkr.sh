@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 
+# &&&sh gig labex.io dir for dir exa
 
 fn_efgae324rfwefasdsd(){
     fn_nm="$HOME/edu_lnx/.d/.osdn/utils/gig_util.sh/new_util_dkr.sh"

@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 
+# &&&sh gig labex.io dr for exa
 
 fn_efgaerfe2342fasd(){
     local exa="$HOME/edu_lnx/.d/.osdn/exa"

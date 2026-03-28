@@ -1,14 +1,14 @@
 at sting begin: 
 
-$$cnt NAME_DR.dr.md - directory description
+&&&dr NAME_DR.dr.md - directory description
+&&&fl  'sting: file discription'
 
-$$cnt - $`$cnt context
-$$cli - $`$cli singl cli
-$$anc - $`$anc ancor to protocol (http:// etc.)
+@@@cnt - @@`@cnt context
+@@@cli - @@`@cli singl cli
+@@@anc - @@`@anc ancor to protocol (http:// etc.)
 
 word: tag in last line:
-%%dkr - docker
+%%%dkr - docker
 
-sting: file discription in first line
-&&fl  'sting: file discription'
+
 

@@ -17,7 +17,7 @@ fn_eargb43634hfdsdcahnffvb(){
         
         if  [[ -f "$en_all" ]];then
             # echo "file :: $en_all"
-            if grep -q "@@" "$en_all" ;then
+            if grep -q -f "${HOME}/edu_lnx/.d/.osdn/.bn.this/patternfile.lst" "$en_all" ;then
                 
                 echo -e "[$en_all]($en_all)"
                 
@@ -30,7 +30,8 @@ fn_eargb43634hfdsdcahnffvb(){
                 #     echo -e "grep $arg_1 $en_all"
                 #     grep "$arg_1" "$en_all"
                 
-                grep -f ${HOME}/edu_lnx/.d/.osdn/.bn.this/patternfile.lst "$en_all"
+                grep -f "${HOME}/edu_lnx/.d/.osdn/.bn.this/patternfile.lst" "$en_all"
+                echo ""
             fi
         fi
         # fi

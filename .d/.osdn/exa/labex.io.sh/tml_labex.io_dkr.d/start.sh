@@ -2,6 +2,7 @@
 
 fn_{post_dr_nm}(){
     
+    
     local fl_nm={start_sh_pth}
     local dir_dkr={dr_nm}/dkr.d
     local dkr_fl="$dir_dkr"/Docker.stl

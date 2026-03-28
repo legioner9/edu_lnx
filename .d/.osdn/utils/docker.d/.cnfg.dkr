@@ -1,8 +1,8 @@
-&&fl docker_stl configurator
+&&&fl docker_stl configurator
 
-@@cnt rule_dkr_naming :: prefix - 'nm_'
-@@cnt rule_dkr_naming_image :: prefix - 'nmi_'
-@@cnt rule_dkr_naming_contaner :: prefix - 'nmc_'
+@@@cnt rule_dkr_naming :: prefix - 'nm_'
+@@@cnt rule_dkr_naming_image :: prefix - 'nmi_'
+@@@cnt rule_dkr_naming_contaner :: prefix - 'nmc_'
 
 
 

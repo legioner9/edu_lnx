@@ -1,4 +1,4 @@
-&& help and use gotmpl.util
+&&&fl help and use gotmpl.util
 
 bash
 gotmpl [опции] [данные] шаблон [шаблон2 ...]
@@ -16,7 +16,7 @@ gotmpl [опции] [данные] шаблон [шаблон2 ...]
 
 Примеры использования
 
-@@cnt Пример 1. Простая подстановка из YAML‑файла
+@@@cnt Пример 1. Простая подстановка из YAML‑файла
 
 Файл данных config.yml:
 
@@ -32,7 +32,7 @@ gotmpl [опции] [данные] шаблон [шаблон2 ...]
     debug = {{.debug}}
     }
 
-    @@cli gotmpl -d config.yml server.conf.tmpl > server.conf
+    @@@cli gotmpl -d config.yml server.conf.tmpl > server.conf
 
 Результат в server.conf:
 
@@ -42,7 +42,7 @@ gotmpl [опции] [данные] шаблон [шаблон2 ...]
       debug = true
     }
 
-@@cnt Пример 2. Данные из stdin в формате JSON
+@@@cnt Пример 2. Данные из stdin в формате JSON
 
 Шаблон version.tmpl:
 
@@ -50,26 +50,26 @@ gotmpl [опции] [данные] шаблон [шаблон2 ...]
     Environment: {{.env}}
 
     
-    @@cli  echo '{"version": "1.2.3", "env": "prod"}' | gotmpl -i - version.tmpl
+    @@@cli  echo '{"version": "1.2.3", "env": "prod"}' | gotmpl -i - version.tmpl
 
 Вывод в stdout:
    
     Application version: 1.2.3
     Environment: prod
 
-@@cnt Пример 3. Запись результата в файл напрямую
+@@@cnt Пример 3. Запись результата в файл напрямую
 
-    @@cli  gotmpl -d settings.json -o output.txt template.tmpl
+    @@@cli  gotmpl -d settings.json -o output.txt template.tmpl
 
-@@cnt Пример 4. Несколько шаблонов
+@@@cnt Пример 4. Несколько шаблонов
 
 Первый шаблон (main.tmpl) выполняется, остальные могут быть подключены внутри него через действие template.
 
-    @@cli  gotmpl -d data.yaml main.tmpl header.tmpl footer.tmpl > full.html
+    @@@cli  gotmpl -d data.yaml main.tmpl header.tmpl footer.tmpl > full.html
 
-@@cnt Пример 5. Передача данных прямо в командной строке
+@@@cnt Пример 5. Передача данных прямо в командной строке
 
-    @@cli  gotmpl Name=Alice Age=30 greeting.tmpl
+    @@@cli  gotmpl Name=Alice Age=30 greeting.tmpl
 
 greeting.tmpl:
 
@@ -79,7 +79,7 @@ stdout:
 
     Hello, Alice! You are 30 years old.
 
-@@cnt Особенности работы с данными
+@@@cnt Особенности работы с данными
 
 Порядок парсинга: утилита пытается последовательно применить парсеры для YAML, JSON, HCL и TOML; берёт первый успешный результат.
 
