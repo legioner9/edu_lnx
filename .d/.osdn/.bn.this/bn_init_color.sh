@@ -11,6 +11,8 @@ fn_eargb43634hfdhnffvb(){
     local fl_all=
     
     for en_all in $(l_02_dr2e "$bn_dr");do
+
+    echo -e "${ECHO_INFO}\$en_all=$en_all${NRM}"
         
         if  [[ -f "$en_all" ]];then
             if grep -q "$1" "$en_all" ;then

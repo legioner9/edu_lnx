@@ -1,0 +1,3 @@
+&&fl awk commands
+
+    @@cli Вывести содержимое из файла столбца по имени столбца : awk -v col=COL_NAME 'NR==1{for(i=1;i<=NF;i++){if($i==col){c=i;break}} print $c} NR>1{print $c}' file.txt
