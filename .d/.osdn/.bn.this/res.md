@@ -1,7 +1,4 @@
-[/c/Users/ProNout/edu_lnx/.d/.osdn/exa/labex.io.sh/tml_labex.io_dkr.d/main.md](/c/Users/ProNout/edu_lnx/.d/.osdn/exa/labex.io.sh/tml_labex.io_dkr.d/main.md)
-&&fl 'fl'
-@@anc labex.io
-[/c/Users/ProNout/edu_lnx/.d/.osdn/exa/labex.io_418050/main.md](/c/Users/ProNout/edu_lnx/.d/.osdn/exa/labex.io_418050/main.md)
+[/home/st/edu_lnx/.d/.osdn/exa/labex.io_418050/main.md](/home/st/edu_lnx/.d/.osdn/exa/labex.io_418050/main.md)
 &&fl Настройка сети Docker: руководство
 @@anc [labex.io](https://labex.io/ru/tutorials/docker-how-to-manage-docker-network-configuration-418050)
     @@cli Список сетей Docker: docker network ls
@@ -45,7 +42,7 @@
 @@cnt Анализ производительности сети
     @@cli Установка сетевых инструментов: sudo apt-get install net-tools
     @@cli Измерение производительности сети: docker exec container_name iperf3 -c target_container
-[/c/Users/ProNout/edu_lnx/.d/.osdn/exa/labex.io_418164/main.md](/c/Users/ProNout/edu_lnx/.d/.osdn/exa/labex.io_418164/main.md)
+[/home/st/edu_lnx/.d/.osdn/exa/labex.io_418164/main.md](/home/st/edu_lnx/.d/.osdn/exa/labex.io_418164/main.md)
 &&fl Как перезапустить службу Docker
 @@anc [labex.io](https://labex.io/ru/tutorials/docker-how-to-restart-docker-service-418164)
 @@cnt Перезапуск демона Docker (Docker Daemon)
@@ -60,18 +57,21 @@
     @@cli перезапуск после выхода с ошибкой: docker run -d --name my-nginx-always --restart=on-failure -p 80:80 nginx
     @@cli перезапуск после выхода с ошибкой до 5 раз: docker run -d --name my-nginx-on-failure --restart=on-failure:5 -p 80:80 nginx
     @@cli перезапуск если : docker run -d --name my-nginx-on-failure --restart=ounless-stopped -p 80:80 nginx
-[/c/Users/ProNout/edu_lnx/.d/.osdn/techno/go_txt_formatter/1.md](/c/Users/ProNout/edu_lnx/.d/.osdn/techno/go_txt_formatter/1.md)
+[/home/st/edu_lnx/.d/.osdn/exa/labex.io.sh/tml_labex.io_dkr.d/main.md](/home/st/edu_lnx/.d/.osdn/exa/labex.io.sh/tml_labex.io_dkr.d/main.md)
+&&fl 'fl'
+@@anc labex.io
+[/home/st/edu_lnx/.d/.osdn/techno/go_txt_formatter/1.md](/home/st/edu_lnx/.d/.osdn/techno/go_txt_formatter/1.md)
 &&fl Шаблонизатор GO text template для новичков
 @@anc [Шаблонизатор](https://habr.com/ru/articles/792802/)
-[/c/Users/ProNout/edu_lnx/.d/.osdn/utils/3proxy.d/readme.md](/c/Users/ProNout/edu_lnx/.d/.osdn/utils/3proxy.d/readme.md)
+[/home/st/edu_lnx/.d/.osdn/utils/3proxy.d/readme.md](/home/st/edu_lnx/.d/.osdn/utils/3proxy.d/readme.md)
 &&fl описание 3proxy разными конфигами
 @@anc https://www.securitylab.ru/blog/personal/Bitshield/355641.php
 @@cli конфиг socks5 с авторизацией и пользователями
 @@cli Множественные прокси на разных портах с ограничением скорости
-[/c/Users/ProNout/edu_lnx/.d/.osdn/utils/awk.d/main.man](/c/Users/ProNout/edu_lnx/.d/.osdn/utils/awk.d/main.man)
+[/home/st/edu_lnx/.d/.osdn/utils/awk.d/main.man](/home/st/edu_lnx/.d/.osdn/utils/awk.d/main.man)
 &&fl awk commands
     @@cli Вывести содержимое из файла столбца по имени столбца : awk -v col=COL_NAME 'NR==1{for(i=1;i<=NF;i++){if($i==col){c=i;break}} print $c} NR>1{print $c}' file.txt
-[/c/Users/ProNout/edu_lnx/.d/.osdn/utils/docker.d/main_cli.md](/c/Users/ProNout/edu_lnx/.d/.osdn/utils/docker.d/main_cli.md)
+[/home/st/edu_lnx/.d/.osdn/utils/docker.d/main_cli.md](/home/st/edu_lnx/.d/.osdn/utils/docker.d/main_cli.md)
 &&fl Main oneline cli command
 @@cnt treat once_for_command
     @@cli все рвботающие конт : docker ps
@@ -82,10 +82,10 @@
 @@cnt treat mani_for_command
     @@cli остановка всех конт : docker container ls -q | xargs -r docker container stop
     @@cli Удаление Docker контейнеров по маске : docker rm $(docker ps -a | grep «шаблон» | awk '{print $1}' | xargs docker rm)
-[/c/Users/ProNout/edu_lnx/.d/.osdn/utils/gig_util.sh/tml_labex.io_dkr.d/main.md](/c/Users/ProNout/edu_lnx/.d/.osdn/utils/gig_util.sh/tml_labex.io_dkr.d/main.md)
+[/home/st/edu_lnx/.d/.osdn/utils/gig_util.sh/tml_labex.io_dkr.d/main.md](/home/st/edu_lnx/.d/.osdn/utils/gig_util.sh/tml_labex.io_dkr.d/main.md)
 &&fl 'fl'
 @@anc labex.io
-[/c/Users/ProNout/edu_lnx/.d/.osdn/utils/gotmpl.d/use_help.md](/c/Users/ProNout/edu_lnx/.d/.osdn/utils/gotmpl.d/use_help.md)
+[/home/st/edu_lnx/.d/.osdn/utils/gotmpl.d/use_help.md](/home/st/edu_lnx/.d/.osdn/utils/gotmpl.d/use_help.md)
 @@cnt Пример 1. Простая подстановка из YAML‑файла
     @@cli gotmpl -d config.yml server.conf.tmpl > server.conf
 @@cnt Пример 2. Данные из stdin в формате JSON
@@ -97,9 +97,8 @@
 @@cnt Пример 5. Передача данных прямо в командной строке
     @@cli  gotmpl Name=Alice Age=30 greeting.tmpl
 @@cnt Особенности работы с данными
-[/c/Users/ProNout/edu_lnx/.d/.osdn/utils/jq.d/jq.man](/c/Users/ProNout/edu_lnx/.d/.osdn/utils/jq.d/jq.man)
+[/home/st/edu_lnx/.d/.osdn/utils/jq.d/jq.man](/home/st/edu_lnx/.d/.osdn/utils/jq.d/jq.man)
  @@cnt jq - json to nice color output   
-[/c/Users/ProNout/edu_lnx/.d/.osdn/utils/sshfs.d/ancs.md](/c/Users/ProNout/edu_lnx/.d/.osdn/utils/sshfs.d/ancs.md)
+[/home/st/edu_lnx/.d/.osdn/utils/sshfs.d/ancs.md](/home/st/edu_lnx/.d/.osdn/utils/sshfs.d/ancs.md)
 @@anc [Подключение и настройка SSHFS в Linux](https://losst.pro/podklyuchenie-i-nastrojka-sshfs-v-linux) 
-[/c/Users/ProNout/edu_lnx/.d/.osdn/utils/tg_ws_proxy/tg-ws-proxy-main.zip](/c/Users/ProNout/edu_lnx/.d/.osdn/utils/tg_ws_proxy/tg-ws-proxy-main.zip)
-Binary file /c/Users/ProNout/edu_lnx/.d/.osdn/utils/tg_ws_proxy/tg-ws-proxy-main.zip matches
+[/home/st/edu_lnx/.d/.osdn/utils/tg_ws_proxy/tg-ws-proxy-main.zip](/home/st/edu_lnx/.d/.osdn/utils/tg_ws_proxy/tg-ws-proxy-main.zip)
