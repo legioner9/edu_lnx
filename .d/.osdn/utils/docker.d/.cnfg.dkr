@@ -1,0 +1,3 @@
+&&fl docker_stl configurator
+
+@@cnt rule_dkr_naming :: prefix - 'nm_'
