@@ -1,0 +1,6 @@
+&&&fl main part of ENV_STL
+
+@@@cnt stl_bash
+
+
+@@@cnt dkr ubuntu:22.4 as ubnt
