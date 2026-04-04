@@ -1,0 +1,3 @@
+# registry.altlinux.org
+- registry.altlinux.org/$branch/alt:latest (branch: {p10,p11,...})
+- docker run --rm -it registry.altlinux.org/sisyphus/alt
