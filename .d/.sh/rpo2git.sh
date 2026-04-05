@@ -46,6 +46,7 @@ fn_vewthhg5231vdsfv454gfvs(){
         git add .
         git commit -m "<>"
         git push gf master
+        git push alt master
         git push gh master
         
     else
