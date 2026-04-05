@@ -9,6 +9,7 @@ git config --global user.name "legioner9"
 
 git remote add gh git@github.com:legioner9/edu_lnx.git
 git remote add gf git@gitflic.ru:legioner9/edu_lnx.git
+git remote add alt ssh://forgejo@altlinux.space/legioner9/edu_lnx.git
 
 
 powershall git_bash
