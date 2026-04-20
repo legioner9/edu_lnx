@@ -1,3 +1,4 @@
 &&&fl intro make util
 
 @@@anc [h211751](https://habr.com/ru/articles/211751/)
+@@@anc [Управление проектами на языке C с использованием Make](https://labex.io/ru/tutorials/c-manage-projects-with-make-in-c-438333)
