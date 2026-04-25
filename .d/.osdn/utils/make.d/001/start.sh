@@ -1,17 +1,21 @@
 #!/bin/bash
 
-fn_16703_31314(){
+fn_5627_12114(){
 
-    local fl_pth_fn_16703_31314="${HOME}/edu_lnx/.d/.osdn/utils/make.d/001/start.sh"
-    local dr_pth_fn_16703_31314=$(dirname ${HOME}/edu_lnx/.d/.osdn/utils/make.d/001/start.sh)
-    local fl_nm_fn_16703_31314=$(basename ${HOME}/edu_lnx/.d/.osdn/utils/make.d/001/start.sh)
+    local fl_pth_fn_5627_12114="${HOME}/edu_lnx/.d/.osdn/utils/make.d/001/start.sh"
+    local dr_pth_fn_5627_12114=$(dirname ${HOME}/edu_lnx/.d/.osdn/utils/make.d/001/start.sh)
+    local fl_nm_fn_5627_12114=$(basename ${HOME}/edu_lnx/.d/.osdn/utils/make.d/001/start.sh)
+    local rnd=5627_12114
  
     # l_02_fs2f ins.f {{pre_str_in_rcv.f}} rcv.f
     # {{body}}
-    cd ${dr_pth_fn_16703_31314}
+    eval "cd \${dr_pth_fn_${rnd}} || return 1"
+
     make hello
+    
+    ./hello.exe
     return 0
 
 }
 
-fn_16703_31314 @
+fn_5627_12114 @
