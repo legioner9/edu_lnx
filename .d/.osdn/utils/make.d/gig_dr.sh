@@ -2,7 +2,7 @@
 
 fn_11604_520(){
     
-    [[ "$1" == "-h" ]] || {
+    [[ "$1" == "-h" ]] && {
         echo -e "
     :
         this -h for ${HOME}/edu_lnx/.d/.osdn/utils/make.d/gig_dr.sh ::
