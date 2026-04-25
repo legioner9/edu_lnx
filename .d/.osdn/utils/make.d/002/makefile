@@ -1,16 +1,19 @@
+TARGET = hello
+PREFIX = /usr/local/bin
+
 .PHONY: all clean install uninstall
 	
 all: hello
 	
 clean:
-			rm -rf hello *.o
+			rm -rf $(TARGET) *.o
 main.o: main.c
 			gcc -c -o main.o main.c
 hello.o: hello.c
 			gcc -c -o hello.o hello.c
 hello: main.o hello.o
-			gcc -o hello main.o hello.o
+			gcc -o $(TARGET) main.o hello.o
 install:
-			install ./hello /usr/local/bin
+			install $(TARGET) $(PREFIX)
 uninstall:
-			rm -rf /usr/local/bin/hello
+			rm -rf $(PREFIX)/$(TARGET)
