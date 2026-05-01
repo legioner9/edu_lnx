@@ -1,17 +1,21 @@
 #!/bin/bash
 
-fn_vewthhg5231vdsfv454gfvs(){
-    
+fn_vewthhg5231vdsfv454gfvs() {
+
     DDir=$(pwd)
     # aer="aer_foe"
     aer="edu_lnx"
 
     cd "$HOME/$aer"
-    
+
+    git remote add gh git@github.com:legioner9/$aer.git
+    git remote add gf git@gitflic.ru:legioner9/$aer.git
+    git remote add alt ssh://forgejo@altlinux.space/legioner9/$aer.git
+
     # . .d/.sh/l.sh
-    
+
     # return 0
-    
+
     # unset yes
     # read -rp "Rewrite Snippets VSCode :: only 'y'" yes
     # if [ "y" == "$yes" ]; then
@@ -21,7 +25,7 @@ fn_vewthhg5231vdsfv454gfvs(){
     # fi
 
     #! RM BAD DIR
-    
+
     # if [[ -d $HOME/aer_foe/.d/.depo/ifo.d/ifo ]] ; then
     #     echo "bad string:"
     #     . $HOME/aer_foe/.d/.depo/ifo.d/down $HOME/aer_foe/.d/.depo/ifo.d
@@ -30,33 +34,33 @@ fn_vewthhg5231vdsfv454gfvs(){
     #         return 1
     #     fi
     # fi
-    
+
     lfoe_this_dir_git2e || {
         echo -e "${ECHO_RET1}in file://$HOME\$aer\.d\.sh\rpo2git.sh , line=${LINENO}  EXEC : '[[ $(lfoe_this_dir_git2e) == $HOME/aer_foe ]]' in $(pwd), 'RESUME :: $(pwd) IS_NOT git dir' return 1${NRM}" >&2
         return 1
     }
-    
+
     git pull gf master || {
         echo -e "${ECHO_RET1}in file://$HOME\$aer\.d\.sh\rpo2git.sh , line=${LINENO} :: EXEC : 'git pull gf master', 'RESUME :: gf ERROR' return 1${NRM}" >&2
         return 1
     }
 
     cd "$HOME/$aer"
-    
-    if [[ -n "$(git status -s)" ]] ;then
-        
+
+    if [[ -n "$(git status -s)" ]]; then
+
         git add .
         git commit -m "<>"
         git push gf master
         git push alt master
         git push gh master
-        
+
     else
         echo "gs is NULL"
     fi
-    
+
     cd ${DDir}
-    
+
 }
 
 fn_vewthhg5231vdsfv454gfvs @
