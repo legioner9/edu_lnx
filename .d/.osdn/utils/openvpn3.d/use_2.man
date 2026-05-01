@@ -1,0 +1,27 @@
+Использование OpenVPN3
+Установите OpenVPN3 с этого сайта .
+
+Если вы посмотрите справочную страницу OpenVPN3, вы увидите две основные концепции:
+
+config: конфигурация VPN, к которой вы подключаетесь.
+сессия: VPN-сессия
+Конфигурация
+Предположим, у вас есть конфигурационный файл vpn.ovpn , который подключается к серверу в Нью-Йорке.
+
+openvpn3 config-import —-config vpn.ovpn     # импорт конфигурации VPN 
+openvpn3 configs-list                        # вывод списка всех импортированных конфигураций
+Имя файла конфигурации VPN — vpn.ovpn. Если у вас несколько файлов OpenVPN с одинаковым именем, импортированный файл конфигурации будет иметь повторяющееся имя, и начать новую сессию будет невозможно. В этом случае лучше переименовывать файл конфигурации каждый раз при импорте нового файла.
+
+openvpn3 config-manage --config vpn.ovpn --rename new-york     # переименовать конфигурацию VPN
+Чтобы удалить конфигурацию OpenVPN
+
+openvpn3 config-remove --config new-york   # удалить по имени конфигурации 
+openvpn3 config-remove --path /net/openvpn/v3/configuration/xxxx   # удалить по пути к конфигурации, найти его можно с помощью configs-list
+Сессия
+# Подключение через 
+openvpn3 session-start --config vpn.ovpn                   # Запуск VPN-сессии с использованием файла 
+openvpn3 session-manage --disconnect --config vpn.ovpn     # Отключение сессии с использованием файла ovpn
+
+# Отключить 
+openvpn3 session-start --config new-york                   # Запустить VPN-сессию с импортированной конфигурацией 
+openvpn3 session-manage --disconnect --config new-york     # Отключить сессию с именем импортированной конфигурации
