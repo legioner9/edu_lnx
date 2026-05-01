@@ -40,6 +40,8 @@ fn_vewthhg5231vdsfv454gfvs(){
         echo -e "${ECHO_RET1}in file://$HOME\$aer\.d\.sh\rpo2git.sh , line=${LINENO} :: EXEC : 'git pull gf master', 'RESUME :: gf ERROR' return 1${NRM}" >&2
         return 1
     }
+
+    cd "$HOME/$aer"
     
     if [[ -n "$(git status -s)" ]] ;then
         
