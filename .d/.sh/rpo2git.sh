@@ -2,64 +2,74 @@
 
 fn_vewthhg5231vdsfv454gfvs() {
 
-    DDir=$(pwd)
-    # aer="aer_foe"
-    aer="edu_lnx"
+	DDir=$(pwd)
+	# aer="aer_foe"
+	aer="edu_lnx"
 
-    cd "$HOME/$aer"
+	cd "$HOME/$aer"
 
-    git remote add gh git@github.com:legioner9/$aer.git
-    git remote add gf git@gitflic.ru:legioner9/$aer.git
-    git remote add alt ssh://forgejo@altlinux.space/legioner9/$aer.git
+	git remote add gh git@github.com:legioner9/$aer.git
+	git remote add gf git@gitflic.ru:legioner9/$aer.git
+	git remote add alt ssh://forgejo@altlinux.space/legioner9/$aer.git
 
-    # . .d/.sh/l.sh
+	# . .d/.sh/l.sh
 
-    # return 0
+	# return 0
 
-    # unset yes
-    # read -rp "Rewrite Snippets VSCode :: only 'y'" yes
-    # if [ "y" == "$yes" ]; then
-    #     rm -rf ".d\.bcp_dpl\vs_code\Snippets"
-    #     mkdir ".d\.bcp_dpl\vs_code\Snippets"
-    #     cp -r "C:\Users\ProNout\AppData\Roaming\Code\User\snippets" ".d\.bcp_dpl\vs_code\Snippets"
-    # fi
+	# unset yes
+	# read -rp "Rewrite Snippets VSCode :: only 'y'" yes
+	# if [ "y" == "$yes" ]; then
+	#     rm -rf ".d\.bcp_dpl\vs_code\Snippets"
+	#     mkdir ".d\.bcp_dpl\vs_code\Snippets"
+	#     cp -r "C:\Users\ProNout\AppData\Roaming\Code\User\snippets" ".d\.bcp_dpl\vs_code\Snippets"
+	# fi
 
-    #! RM BAD DIR
+	#! RM BAD DIR
 
-    # if [[ -d $HOME/aer_foe/.d/.depo/ifo.d/ifo ]] ; then
-    #     echo "bad string:"
-    #     . $HOME/aer_foe/.d/.depo/ifo.d/down $HOME/aer_foe/.d/.depo/ifo.d
-    #     if [[ -d $HOME/aer_foe/.d/.depo/ifo ]] ; then
-    #         echo -e "${ECHO_RET1}in file://$HOME\aer_foe\.d\.sh\rpo2git.sh , line=${LINENO}  EXEC : '[[ -d $HOME/aer_foe/.d/.depo/ifo.d/ifo ]]' in $(pwd), 'RESUME :: BAD dir steel EXIST' return 1${NRM}" >&2
-    #         return 1
-    #     fi
-    # fi
+	# if [[ -d $HOME/aer_foe/.d/.depo/ifo.d/ifo ]] ; then
+	#     echo "bad string:"
+	#     . $HOME/aer_foe/.d/.depo/ifo.d/down $HOME/aer_foe/.d/.depo/ifo.d
+	#     if [[ -d $HOME/aer_foe/.d/.depo/ifo ]] ; then
+	#         echo -e "${ECHO_RET1}in file://$HOME\aer_foe\.d\.sh\rpo2git.sh , line=${LINENO}  EXEC : '[[ -d $HOME/aer_foe/.d/.depo/ifo.d/ifo ]]' in $(pwd), 'RESUME :: BAD dir steel EXIST' return 1${NRM}" >&2
+	#         return 1
+	#     fi
+	# fi
 
-    lfoe_this_dir_git2e || {
-        echo -e "${ECHO_RET1}in file://$HOME\$aer\.d\.sh\rpo2git.sh , line=${LINENO}  EXEC : '[[ $(lfoe_this_dir_git2e) == $HOME/aer_foe ]]' in $(pwd), 'RESUME :: $(pwd) IS_NOT git dir' return 1${NRM}" >&2
-        return 1
-    }
+	lfoe_this_dir_git2e || {
+		echo -e "${ECHO_RET1}in file://$HOME\$aer\.d\.sh\rpo2git.sh , line=${LINENO}  EXEC : '[[ $(lfoe_this_dir_git2e) == $HOME/aer_foe ]]' in $(pwd), 'RESUME :: $(pwd) IS_NOT git dir' return 1${NRM}" >&2
+		return 1
+	}
 
-    git pull gf master || {
-        echo -e "${ECHO_RET1}in file://$HOME\$aer\.d\.sh\rpo2git.sh , line=${LINENO} :: EXEC : 'git pull gf master', 'RESUME :: gf ERROR' return 1${NRM}" >&2
-        return 1
-    }
+	git pull gf master || {
+		echo -e "${ECHO_RET1}in file://$HOME\$aer\.d\.sh\rpo2git.sh , line=${LINENO} :: EXEC : 'git pull gf master', 'RESUME :: gf ERROR' return 1${NRM}" >&2
+		return 1
+	}
 
-    cd "$HOME/$aer"
+	cd "$HOME/$aer"
 
-    if [[ -n "$(git status -s)" ]]; then
+	if [[ -n "$(git status -s)" ]]; then
 
-        git add .
-        git commit -m "<>"
-        git push gf master
-        git push alt master
-        git push gh master
+		git add .
+		git commit -m "<>"
+		git push gf master
+		git push alt master
+		git push gh master
 
-    else
-        echo "gs is NULL"
-    fi
+	else
+		echo "gs is NULL"
+		return 0
+	fi
 
-    cd ${DDir}
+	local adcae_12344
+	adcae_12344=edu_lnx
+	check_repo_adcae_12344
+	adcae_12344=edu_clng
+	check_repo_adcae_12344
+	adcae_12344=edu_dta
+	check_repo_adcae_12344
+	adcae_12344=
+
+	cd ${DDir}
 
 }
 
