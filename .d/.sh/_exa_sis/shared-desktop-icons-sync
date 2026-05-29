@@ -19,13 +19,10 @@ if [ ! -d "$config_dir" ]; then
 fi
 
 cd "$shared_dir"
-for file in *.desktop
-do
-	if [ -e "$desktop_dir/$file" -o ! -e "$config_dir/$file" ]
-	then
+for file in *.desktop; do
+	if [ -e "$desktop_dir/$file" -o ! -e "$config_dir/$file" ]; then
 		rsync -a "$shared_dir/$file" "$desktop_dir/$file"
-		if [ -n "$set_trust" ]
-		then
+		if [ -n "$set_trust" ]; then
 			chmod +x "$desktop_dir/$file"
 			"$gio_comm" set "$desktop_dir/$file" "metadata::trusted" true
 			"$gio_comm" set "$desktop_dir/$file" "metadata::xfce-exe-checksum" \
