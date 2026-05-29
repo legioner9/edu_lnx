@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# Sync files from /usr/share/Desktop to all user desktops
+# Files with names in ~/.config/shared-desktop-icons and deleted in ~/Desktop are ignored.
+# (c) 2019 Andrey Cherepanov <cas@altlinux.org>
+
+desktop_dir="$(xdg-user-dir DESKTOP)"
+config_dir="$HOME/.config/shared-desktop-icons"
+shared_dir="/usr/share/Desktop"
+gio_comm="gio"
+set_trust=
+
+if type "$gio_comm" >/dev/null 2>&1; then
+	set_trust=1
+fi
+
+if [ ! -d "$config_dir" ]; then
+	mkdir -p "$config_dir"
+fi
+
+cd "$shared_dir"
+for file in *.desktop
+do
+	if [ -e "$desktop_dir/$file" -o ! -e "$config_dir/$file" ]
+	then
+		rsync -a "$shared_dir/$file" "$desktop_dir/$file"
+		if [ -n "$set_trust" ]
+		then
+			chmod +x "$desktop_dir/$file"
+			"$gio_comm" set "$desktop_dir/$file" "metadata::trusted" true
+			"$gio_comm" set "$desktop_dir/$file" "metadata::xfce-exe-checksum" \
+				"$(sha256sum "$desktop_dir/$file" | cut -f1 -d ' ')"
+			"$gio_comm" set "$desktop_dir/$file" "metadata::trust" true
+		fi
+		touch "$config_dir/$file"
+	fi
+done
