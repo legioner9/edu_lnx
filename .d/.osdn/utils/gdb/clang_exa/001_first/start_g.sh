@@ -44,9 +44,9 @@ fn_31480_3335(){
     # contane {\fn_nm\} {{body}}
     eval "cd \${dr_pth_fn_${rnd}} || return 1"
 
-    make hello_g
+    make hello_gdb
     
-    ./hello_g.cxe
+    # ./hello_g.cxe
     return 0
 
 }
