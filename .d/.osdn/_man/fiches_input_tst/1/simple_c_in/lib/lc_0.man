@@ -1,0 +1,25 @@
+## man lc_0 lib CLang
+
+### void fill_rand_lc_0_MxV_Ac_Ar(int max_value, int argc, int arr[]);
+
+Fill Ar random int numbers from 0 to MxV
+
+### void pr_int_arr_lc_0_Ac_Ar(int argc, int arr[]);
+
+Print Ar %4d
+
+### int gcd_lc_0_int_int(int a, int b);
+
+grant total deviser
+
+### int factorial_lc_0_int(int a);
+
+factorial
+
+### int fib_lc_0_int(int a);
+
+fibonachy
+
+### void hanoi_lc_0_hight_from_to(int n, int i, int k)
+
+i issue , k dist , n hight of pyramid

@@ -1,0 +1,8 @@
+# 1. in first rbld cnx=[cntx.ins.d] if you need
+# 2. use cnx : rbld readme.opus/cntx.ins.d/name.d/_001.name.file.md_ufl9 <- [cntx.ins.d]
+
+## rbld notebook.opus -> notebook.opus/cntx.ins.d
+## ${REPO_PATH}/stl/.d/.opus/notebook.opus/_rbld_res_md.sh
+
+## rbld _002.from_notebook.file.md_ufl9 <- notebook.opus/cntx.ins.d
+#?${REPO_PATH}/stl/.d/.opus/stl_in_linux.opus/_cntx.ins.d/003.processes.d/003.boot.d/_002.boot_from_dot_stl.file.md_ufl9

@@ -1,0 +1,664 @@
+[0;30m[2m[104m[7m'l_00_color2e /home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_00_color2e/tst_dir'[0m
+
+
+    W WHT
+    N BLK
+    R RED
+    G GRN
+    Y YLW
+    B BLU
+    M MGN
+    C CYN
+    D GRN
+
+    L LLG
+    H HLG
+
+    Z NRM
+
+    F font
+    E ground
+    X revece font-ground
+    P delete font
+    
+
+
+
+    IRIS short:
+
+    NRM - reset
+
+    LLG - low brightness
+    HLG - hight brightness
+    
+    BLK - black
+    RED - red
+    GRN - green
+    YLW - yellow
+    BLU - blue
+    MGN - purple
+    CYN - cyan
+    GRY - grey
+    WHT - white
+
+
+    RVC - revece font-ground
+    ULN - under line
+    U2L - under 2 line
+    ITL - italy
+    MIG - mig
+    CRS - cros
+
+    BLKG - black ground NG
+    REDG - red ground RG 
+    GRNG - green ground
+    YLWG - yellow ground
+    BLUG - blue ground
+    MGNG - purple ground
+    CYNG - cyan ground
+    WHTG - white ground
+
+    FE - delete chars
+
+
+[0;30m FN - black [0m
+[0;30m[2m FNL - blackl [0m
+[0;30m[1m FNH - blackh [0m
+
+[0;31m FR - red [0m
+[0;31m[2m FRL - redl [0m
+[0;31m[1m FRH - redh [0m
+
+[0;32m FG - green [0m
+[0;32m[2m FGL - greenl [0m
+[0;32m[1m FGH - greenh [0m
+
+[0;33m FY - yellow 
+[0;33m[2m FYL - yellowl 
+[0;33m[1m FYH - yellowh 
+
+[0;34m FB - blue [0m
+[0;34m[2m FBL - bluel [0m
+[0;34m[1m FBH - blueh [0m
+
+[0;35m FM - purple [0m
+[0;35m[2m FML - purplel [0m
+[0;35m[1m FMH - purpleh [0m
+
+[0;36m FC - cyan [0m
+[0;36m[2m FCL - cyanl [0m
+[0;36m[1m FCH - cyanh [0m
+
+[0;37m FD - grey [0m
+[0;37m[2m FDL - greyl [0m
+[0;37m[1m FDH - greyh [0m
+
+[38m FW - white [0m
+[38m[2m FWL - whitel [0m
+[38m[1m FWH - whiteh [0m
+
+[40m ENL - blackl ground [0m
+[100m ENH - blackg ground [0m
+
+with font $FN
+[0;30m[41m ERL - redl ground [0m
+[0;30m[101m ERH - redh ground [0m
+
+[0;30m[42m EGL - greenl ground [0m
+[0;30m[102m EGH - greenh ground [0m
+
+[0;30m[43m EYL - yellowl ground [0m
+[0;30m[103m EYH - yellowh ground [0m
+
+[0;30m[44m EBL - bluel ground [0m
+[0;30m[104m EBH - blueh ground [0m
+
+[0;30m[45m EML - purplel ground [0m
+[0;30m[105m EMH - purpleh ground [0m
+
+[0;30m[46m ECL - cyanl ground [0m
+[0;30m[106m ECH - cyanh ground [0m
+
+[0;30m[47m EDL - greyl ground [0m
+[0;30m[107m EDH - greyh ground [0m
+
+
+$FN$ENL [0;30m[40m SDFfhn.;90*&[0m $FN$ENL$RVC [0;30m[40m[7m SDFfhn.;90*&[0m
+$FN$ENH [0;30m[100m SDFfhn.;90*&[0m $FN$ENH$RVC [0;30m[100m[7m SDFfhn.;90*&[0m
+$FN$ERL [0;30m[41m SDFfhn.;90*&[0m $FN$ERL$RVC [0;30m[41m[7m SDFfhn.;90*&[0m
+$FN$ERH [0;30m[101m SDFfhn.;90*&[0m $FN$ERH$RVC [0;30m[101m[7m SDFfhn.;90*&[0m
+$FN$EGL [0;30m[42m SDFfhn.;90*&[0m $FN$EGL$RVC [0;30m[42m[7m SDFfhn.;90*&[0m
+$FN$EGH [0;30m[102m SDFfhn.;90*&[0m $FN$EGH$RVC [0;30m[102m[7m SDFfhn.;90*&[0m
+$FN$EYL [0;30m[43m SDFfhn.;90*&[0m $FN$EYL$RVC [0;30m[43m[7m SDFfhn.;90*&[0m
+$FN$EYH [0;30m[103m SDFfhn.;90*&[0m $FN$EYH$RVC [0;30m[103m[7m SDFfhn.;90*&[0m
+$FN$EBL [0;30m[44m SDFfhn.;90*&[0m $FN$EBL$RVC [0;30m[44m[7m SDFfhn.;90*&[0m
+$FN$EBH [0;30m[104m SDFfhn.;90*&[0m $FN$EBH$RVC [0;30m[104m[7m SDFfhn.;90*&[0m
+$FN$EML [0;30m[45m SDFfhn.;90*&[0m $FN$EML$RVC [0;30m[45m[7m SDFfhn.;90*&[0m
+$FN$EMH [0;30m[105m SDFfhn.;90*&[0m $FN$EMH$RVC [0;30m[105m[7m SDFfhn.;90*&[0m
+$FN$ECL [0;30m[46m SDFfhn.;90*&[0m $FN$ECL$RVC [0;30m[46m[7m SDFfhn.;90*&[0m
+$FN$ECH [0;30m[106m SDFfhn.;90*&[0m $FN$ECH$RVC [0;30m[106m[7m SDFfhn.;90*&[0m
+$FN$EDL [0;30m[47m SDFfhn.;90*&[0m $FN$EDL$RVC [0;30m[47m[7m SDFfhn.;90*&[0m
+$FN$EDH [0;30m[107m SDFfhn.;90*&[0m $FN$EDH$RVC [0;30m[107m[7m SDFfhn.;90*&[0m
+$FNL$ENL [0;30m[2m[40m SDFfhn.;90*&[0m $FNL$ENL$RVC [0;30m[2m[40m[7m SDFfhn.;90*&[0m
+$FNL$ENH [0;30m[2m[100m SDFfhn.;90*&[0m $FNL$ENH$RVC [0;30m[2m[100m[7m SDFfhn.;90*&[0m
+$FNL$ERL [0;30m[2m[41m SDFfhn.;90*&[0m $FNL$ERL$RVC [0;30m[2m[41m[7m SDFfhn.;90*&[0m
+$FNL$ERH [0;30m[2m[101m SDFfhn.;90*&[0m $FNL$ERH$RVC [0;30m[2m[101m[7m SDFfhn.;90*&[0m
+$FNL$EGL [0;30m[2m[42m SDFfhn.;90*&[0m $FNL$EGL$RVC [0;30m[2m[42m[7m SDFfhn.;90*&[0m
+$FNL$EGH [0;30m[2m[102m SDFfhn.;90*&[0m $FNL$EGH$RVC [0;30m[2m[102m[7m SDFfhn.;90*&[0m
+$FNL$EYL [0;30m[2m[43m SDFfhn.;90*&[0m $FNL$EYL$RVC [0;30m[2m[43m[7m SDFfhn.;90*&[0m
+$FNL$EYH [0;30m[2m[103m SDFfhn.;90*&[0m $FNL$EYH$RVC [0;30m[2m[103m[7m SDFfhn.;90*&[0m
+$FNL$EBL [0;30m[2m[44m SDFfhn.;90*&[0m $FNL$EBL$RVC [0;30m[2m[44m[7m SDFfhn.;90*&[0m
+$FNL$EBH [0;30m[2m[104m SDFfhn.;90*&[0m $FNL$EBH$RVC [0;30m[2m[104m[7m SDFfhn.;90*&[0m
+$FNL$EML [0;30m[2m[45m SDFfhn.;90*&[0m $FNL$EML$RVC [0;30m[2m[45m[7m SDFfhn.;90*&[0m
+$FNL$EMH [0;30m[2m[105m SDFfhn.;90*&[0m $FNL$EMH$RVC [0;30m[2m[105m[7m SDFfhn.;90*&[0m
+$FNL$ECL [0;30m[2m[46m SDFfhn.;90*&[0m $FNL$ECL$RVC [0;30m[2m[46m[7m SDFfhn.;90*&[0m
+$FNL$ECH [0;30m[2m[106m SDFfhn.;90*&[0m $FNL$ECH$RVC [0;30m[2m[106m[7m SDFfhn.;90*&[0m
+$FNL$EDL [0;30m[2m[47m SDFfhn.;90*&[0m $FNL$EDL$RVC [0;30m[2m[47m[7m SDFfhn.;90*&[0m
+$FNL$EDH [0;30m[2m[107m SDFfhn.;90*&[0m $FNL$EDH$RVC [0;30m[2m[107m[7m SDFfhn.;90*&[0m
+$FNH$ENL [0;30m[1m[40m SDFfhn.;90*&[0m $FNH$ENL$RVC [0;30m[1m[40m[7m SDFfhn.;90*&[0m
+$FNH$ENH [0;30m[1m[100m SDFfhn.;90*&[0m $FNH$ENH$RVC [0;30m[1m[100m[7m SDFfhn.;90*&[0m
+$FNH$ERL [0;30m[1m[41m SDFfhn.;90*&[0m $FNH$ERL$RVC [0;30m[1m[41m[7m SDFfhn.;90*&[0m
+$FNH$ERH [0;30m[1m[101m SDFfhn.;90*&[0m $FNH$ERH$RVC [0;30m[1m[101m[7m SDFfhn.;90*&[0m
+$FNH$EGL [0;30m[1m[42m SDFfhn.;90*&[0m $FNH$EGL$RVC [0;30m[1m[42m[7m SDFfhn.;90*&[0m
+$FNH$EGH [0;30m[1m[102m SDFfhn.;90*&[0m $FNH$EGH$RVC [0;30m[1m[102m[7m SDFfhn.;90*&[0m
+$FNH$EYL [0;30m[1m[43m SDFfhn.;90*&[0m $FNH$EYL$RVC [0;30m[1m[43m[7m SDFfhn.;90*&[0m
+$FNH$EYH [0;30m[1m[103m SDFfhn.;90*&[0m $FNH$EYH$RVC [0;30m[1m[103m[7m SDFfhn.;90*&[0m
+$FNH$EBL [0;30m[1m[44m SDFfhn.;90*&[0m $FNH$EBL$RVC [0;30m[1m[44m[7m SDFfhn.;90*&[0m
+$FNH$EBH [0;30m[1m[104m SDFfhn.;90*&[0m $FNH$EBH$RVC [0;30m[1m[104m[7m SDFfhn.;90*&[0m
+$FNH$EML [0;30m[1m[45m SDFfhn.;90*&[0m $FNH$EML$RVC [0;30m[1m[45m[7m SDFfhn.;90*&[0m
+$FNH$EMH [0;30m[1m[105m SDFfhn.;90*&[0m $FNH$EMH$RVC [0;30m[1m[105m[7m SDFfhn.;90*&[0m
+$FNH$ECL [0;30m[1m[46m SDFfhn.;90*&[0m $FNH$ECL$RVC [0;30m[1m[46m[7m SDFfhn.;90*&[0m
+$FNH$ECH [0;30m[1m[106m SDFfhn.;90*&[0m $FNH$ECH$RVC [0;30m[1m[106m[7m SDFfhn.;90*&[0m
+$FNH$EDL [0;30m[1m[47m SDFfhn.;90*&[0m $FNH$EDL$RVC [0;30m[1m[47m[7m SDFfhn.;90*&[0m
+$FNH$EDH [0;30m[1m[107m SDFfhn.;90*&[0m $FNH$EDH$RVC [0;30m[1m[107m[7m SDFfhn.;90*&[0m
+$FR$ENL [0;31m[40m SDFfhn.;90*&[0m $FR$ENL$RVC [0;31m[40m[7m SDFfhn.;90*&[0m
+$FR$ENH [0;31m[100m SDFfhn.;90*&[0m $FR$ENH$RVC [0;31m[100m[7m SDFfhn.;90*&[0m
+$FR$ERL [0;31m[41m SDFfhn.;90*&[0m $FR$ERL$RVC [0;31m[41m[7m SDFfhn.;90*&[0m
+$FR$ERH [0;31m[101m SDFfhn.;90*&[0m $FR$ERH$RVC [0;31m[101m[7m SDFfhn.;90*&[0m
+$FR$EGL [0;31m[42m SDFfhn.;90*&[0m $FR$EGL$RVC [0;31m[42m[7m SDFfhn.;90*&[0m
+$FR$EGH [0;31m[102m SDFfhn.;90*&[0m $FR$EGH$RVC [0;31m[102m[7m SDFfhn.;90*&[0m
+$FR$EYL [0;31m[43m SDFfhn.;90*&[0m $FR$EYL$RVC [0;31m[43m[7m SDFfhn.;90*&[0m
+$FR$EYH [0;31m[103m SDFfhn.;90*&[0m $FR$EYH$RVC [0;31m[103m[7m SDFfhn.;90*&[0m
+$FR$EBL [0;31m[44m SDFfhn.;90*&[0m $FR$EBL$RVC [0;31m[44m[7m SDFfhn.;90*&[0m
+$FR$EBH [0;31m[104m SDFfhn.;90*&[0m $FR$EBH$RVC [0;31m[104m[7m SDFfhn.;90*&[0m
+$FR$EML [0;31m[45m SDFfhn.;90*&[0m $FR$EML$RVC [0;31m[45m[7m SDFfhn.;90*&[0m
+$FR$EMH [0;31m[105m SDFfhn.;90*&[0m $FR$EMH$RVC [0;31m[105m[7m SDFfhn.;90*&[0m
+$FR$ECL [0;31m[46m SDFfhn.;90*&[0m $FR$ECL$RVC [0;31m[46m[7m SDFfhn.;90*&[0m
+$FR$ECH [0;31m[106m SDFfhn.;90*&[0m $FR$ECH$RVC [0;31m[106m[7m SDFfhn.;90*&[0m
+$FR$EDL [0;31m[47m SDFfhn.;90*&[0m $FR$EDL$RVC [0;31m[47m[7m SDFfhn.;90*&[0m
+$FR$EDH [0;31m[107m SDFfhn.;90*&[0m $FR$EDH$RVC [0;31m[107m[7m SDFfhn.;90*&[0m
+$FRL$ENL [0;31m[2m[40m SDFfhn.;90*&[0m $FRL$ENL$RVC [0;31m[2m[40m[7m SDFfhn.;90*&[0m
+$FRL$ENH [0;31m[2m[100m SDFfhn.;90*&[0m $FRL$ENH$RVC [0;31m[2m[100m[7m SDFfhn.;90*&[0m
+$FRL$ERL [0;31m[2m[41m SDFfhn.;90*&[0m $FRL$ERL$RVC [0;31m[2m[41m[7m SDFfhn.;90*&[0m
+$FRL$ERH [0;31m[2m[101m SDFfhn.;90*&[0m $FRL$ERH$RVC [0;31m[2m[101m[7m SDFfhn.;90*&[0m
+$FRL$EGL [0;31m[2m[42m SDFfhn.;90*&[0m $FRL$EGL$RVC [0;31m[2m[42m[7m SDFfhn.;90*&[0m
+$FRL$EGH [0;31m[2m[102m SDFfhn.;90*&[0m $FRL$EGH$RVC [0;31m[2m[102m[7m SDFfhn.;90*&[0m
+$FRL$EYL [0;31m[2m[43m SDFfhn.;90*&[0m $FRL$EYL$RVC [0;31m[2m[43m[7m SDFfhn.;90*&[0m
+$FRL$EYH [0;31m[2m[103m SDFfhn.;90*&[0m $FRL$EYH$RVC [0;31m[2m[103m[7m SDFfhn.;90*&[0m
+$FRL$EBL [0;31m[2m[44m SDFfhn.;90*&[0m $FRL$EBL$RVC [0;31m[2m[44m[7m SDFfhn.;90*&[0m
+$FRL$EBH [0;31m[2m[104m SDFfhn.;90*&[0m $FRL$EBH$RVC [0;31m[2m[104m[7m SDFfhn.;90*&[0m
+$FRL$EML [0;31m[2m[45m SDFfhn.;90*&[0m $FRL$EML$RVC [0;31m[2m[45m[7m SDFfhn.;90*&[0m
+$FRL$EMH [0;31m[2m[105m SDFfhn.;90*&[0m $FRL$EMH$RVC [0;31m[2m[105m[7m SDFfhn.;90*&[0m
+$FRL$ECL [0;31m[2m[46m SDFfhn.;90*&[0m $FRL$ECL$RVC [0;31m[2m[46m[7m SDFfhn.;90*&[0m
+$FRL$ECH [0;31m[2m[106m SDFfhn.;90*&[0m $FRL$ECH$RVC [0;31m[2m[106m[7m SDFfhn.;90*&[0m
+$FRL$EDL [0;31m[2m[47m SDFfhn.;90*&[0m $FRL$EDL$RVC [0;31m[2m[47m[7m SDFfhn.;90*&[0m
+$FRL$EDH [0;31m[2m[107m SDFfhn.;90*&[0m $FRL$EDH$RVC [0;31m[2m[107m[7m SDFfhn.;90*&[0m
+$FRH$ENL [0;31m[1m[40m SDFfhn.;90*&[0m $FRH$ENL$RVC [0;31m[1m[40m[7m SDFfhn.;90*&[0m
+$FRH$ENH [0;31m[1m[100m SDFfhn.;90*&[0m $FRH$ENH$RVC [0;31m[1m[100m[7m SDFfhn.;90*&[0m
+$FRH$ERL [0;31m[1m[41m SDFfhn.;90*&[0m $FRH$ERL$RVC [0;31m[1m[41m[7m SDFfhn.;90*&[0m
+$FRH$ERH [0;31m[1m[101m SDFfhn.;90*&[0m $FRH$ERH$RVC [0;31m[1m[101m[7m SDFfhn.;90*&[0m
+$FRH$EGL [0;31m[1m[42m SDFfhn.;90*&[0m $FRH$EGL$RVC [0;31m[1m[42m[7m SDFfhn.;90*&[0m
+$FRH$EGH [0;31m[1m[102m SDFfhn.;90*&[0m $FRH$EGH$RVC [0;31m[1m[102m[7m SDFfhn.;90*&[0m
+$FRH$EYL [0;31m[1m[43m SDFfhn.;90*&[0m $FRH$EYL$RVC [0;31m[1m[43m[7m SDFfhn.;90*&[0m
+$FRH$EYH [0;31m[1m[103m SDFfhn.;90*&[0m $FRH$EYH$RVC [0;31m[1m[103m[7m SDFfhn.;90*&[0m
+$FRH$EBL [0;31m[1m[44m SDFfhn.;90*&[0m $FRH$EBL$RVC [0;31m[1m[44m[7m SDFfhn.;90*&[0m
+$FRH$EBH [0;31m[1m[104m SDFfhn.;90*&[0m $FRH$EBH$RVC [0;31m[1m[104m[7m SDFfhn.;90*&[0m
+$FRH$EML [0;31m[1m[45m SDFfhn.;90*&[0m $FRH$EML$RVC [0;31m[1m[45m[7m SDFfhn.;90*&[0m
+$FRH$EMH [0;31m[1m[105m SDFfhn.;90*&[0m $FRH$EMH$RVC [0;31m[1m[105m[7m SDFfhn.;90*&[0m
+$FRH$ECL [0;31m[1m[46m SDFfhn.;90*&[0m $FRH$ECL$RVC [0;31m[1m[46m[7m SDFfhn.;90*&[0m
+$FRH$ECH [0;31m[1m[106m SDFfhn.;90*&[0m $FRH$ECH$RVC [0;31m[1m[106m[7m SDFfhn.;90*&[0m
+$FRH$EDL [0;31m[1m[47m SDFfhn.;90*&[0m $FRH$EDL$RVC [0;31m[1m[47m[7m SDFfhn.;90*&[0m
+$FRH$EDH [0;31m[1m[107m SDFfhn.;90*&[0m $FRH$EDH$RVC [0;31m[1m[107m[7m SDFfhn.;90*&[0m
+$FG$ENL [0;32m[40m SDFfhn.;90*&[0m $FG$ENL$RVC [0;32m[40m[7m SDFfhn.;90*&[0m
+$FG$ENH [0;32m[100m SDFfhn.;90*&[0m $FG$ENH$RVC [0;32m[100m[7m SDFfhn.;90*&[0m
+$FG$ERL [0;32m[41m SDFfhn.;90*&[0m $FG$ERL$RVC [0;32m[41m[7m SDFfhn.;90*&[0m
+$FG$ERH [0;32m[101m SDFfhn.;90*&[0m $FG$ERH$RVC [0;32m[101m[7m SDFfhn.;90*&[0m
+$FG$EGL [0;32m[42m SDFfhn.;90*&[0m $FG$EGL$RVC [0;32m[42m[7m SDFfhn.;90*&[0m
+$FG$EGH [0;32m[102m SDFfhn.;90*&[0m $FG$EGH$RVC [0;32m[102m[7m SDFfhn.;90*&[0m
+$FG$EYL [0;32m[43m SDFfhn.;90*&[0m $FG$EYL$RVC [0;32m[43m[7m SDFfhn.;90*&[0m
+$FG$EYH [0;32m[103m SDFfhn.;90*&[0m $FG$EYH$RVC [0;32m[103m[7m SDFfhn.;90*&[0m
+$FG$EBL [0;32m[44m SDFfhn.;90*&[0m $FG$EBL$RVC [0;32m[44m[7m SDFfhn.;90*&[0m
+$FG$EBH [0;32m[104m SDFfhn.;90*&[0m $FG$EBH$RVC [0;32m[104m[7m SDFfhn.;90*&[0m
+$FG$EML [0;32m[45m SDFfhn.;90*&[0m $FG$EML$RVC [0;32m[45m[7m SDFfhn.;90*&[0m
+$FG$EMH [0;32m[105m SDFfhn.;90*&[0m $FG$EMH$RVC [0;32m[105m[7m SDFfhn.;90*&[0m
+$FG$ECL [0;32m[46m SDFfhn.;90*&[0m $FG$ECL$RVC [0;32m[46m[7m SDFfhn.;90*&[0m
+$FG$ECH [0;32m[106m SDFfhn.;90*&[0m $FG$ECH$RVC [0;32m[106m[7m SDFfhn.;90*&[0m
+$FG$EDL [0;32m[47m SDFfhn.;90*&[0m $FG$EDL$RVC [0;32m[47m[7m SDFfhn.;90*&[0m
+$FG$EDH [0;32m[107m SDFfhn.;90*&[0m $FG$EDH$RVC [0;32m[107m[7m SDFfhn.;90*&[0m
+$FGL$ENL [0;32m[2m[40m SDFfhn.;90*&[0m $FGL$ENL$RVC [0;32m[2m[40m[7m SDFfhn.;90*&[0m
+$FGL$ENH [0;32m[2m[100m SDFfhn.;90*&[0m $FGL$ENH$RVC [0;32m[2m[100m[7m SDFfhn.;90*&[0m
+$FGL$ERL [0;32m[2m[41m SDFfhn.;90*&[0m $FGL$ERL$RVC [0;32m[2m[41m[7m SDFfhn.;90*&[0m
+$FGL$ERH [0;32m[2m[101m SDFfhn.;90*&[0m $FGL$ERH$RVC [0;32m[2m[101m[7m SDFfhn.;90*&[0m
+$FGL$EGL [0;32m[2m[42m SDFfhn.;90*&[0m $FGL$EGL$RVC [0;32m[2m[42m[7m SDFfhn.;90*&[0m
+$FGL$EGH [0;32m[2m[102m SDFfhn.;90*&[0m $FGL$EGH$RVC [0;32m[2m[102m[7m SDFfhn.;90*&[0m
+$FGL$EYL [0;32m[2m[43m SDFfhn.;90*&[0m $FGL$EYL$RVC [0;32m[2m[43m[7m SDFfhn.;90*&[0m
+$FGL$EYH [0;32m[2m[103m SDFfhn.;90*&[0m $FGL$EYH$RVC [0;32m[2m[103m[7m SDFfhn.;90*&[0m
+$FGL$EBL [0;32m[2m[44m SDFfhn.;90*&[0m $FGL$EBL$RVC [0;32m[2m[44m[7m SDFfhn.;90*&[0m
+$FGL$EBH [0;32m[2m[104m SDFfhn.;90*&[0m $FGL$EBH$RVC [0;32m[2m[104m[7m SDFfhn.;90*&[0m
+$FGL$EML [0;32m[2m[45m SDFfhn.;90*&[0m $FGL$EML$RVC [0;32m[2m[45m[7m SDFfhn.;90*&[0m
+$FGL$EMH [0;32m[2m[105m SDFfhn.;90*&[0m $FGL$EMH$RVC [0;32m[2m[105m[7m SDFfhn.;90*&[0m
+$FGL$ECL [0;32m[2m[46m SDFfhn.;90*&[0m $FGL$ECL$RVC [0;32m[2m[46m[7m SDFfhn.;90*&[0m
+$FGL$ECH [0;32m[2m[106m SDFfhn.;90*&[0m $FGL$ECH$RVC [0;32m[2m[106m[7m SDFfhn.;90*&[0m
+$FGL$EDL [0;32m[2m[47m SDFfhn.;90*&[0m $FGL$EDL$RVC [0;32m[2m[47m[7m SDFfhn.;90*&[0m
+$FGL$EDH [0;32m[2m[107m SDFfhn.;90*&[0m $FGL$EDH$RVC [0;32m[2m[107m[7m SDFfhn.;90*&[0m
+$FGH$ENL [0;32m[1m[40m SDFfhn.;90*&[0m $FGH$ENL$RVC [0;32m[1m[40m[7m SDFfhn.;90*&[0m
+$FGH$ENH [0;32m[1m[100m SDFfhn.;90*&[0m $FGH$ENH$RVC [0;32m[1m[100m[7m SDFfhn.;90*&[0m
+$FGH$ERL [0;32m[1m[41m SDFfhn.;90*&[0m $FGH$ERL$RVC [0;32m[1m[41m[7m SDFfhn.;90*&[0m
+$FGH$ERH [0;32m[1m[101m SDFfhn.;90*&[0m $FGH$ERH$RVC [0;32m[1m[101m[7m SDFfhn.;90*&[0m
+$FGH$EGL [0;32m[1m[42m SDFfhn.;90*&[0m $FGH$EGL$RVC [0;32m[1m[42m[7m SDFfhn.;90*&[0m
+$FGH$EGH [0;32m[1m[102m SDFfhn.;90*&[0m $FGH$EGH$RVC [0;32m[1m[102m[7m SDFfhn.;90*&[0m
+$FGH$EYL [0;32m[1m[43m SDFfhn.;90*&[0m $FGH$EYL$RVC [0;32m[1m[43m[7m SDFfhn.;90*&[0m
+$FGH$EYH [0;32m[1m[103m SDFfhn.;90*&[0m $FGH$EYH$RVC [0;32m[1m[103m[7m SDFfhn.;90*&[0m
+$FGH$EBL [0;32m[1m[44m SDFfhn.;90*&[0m $FGH$EBL$RVC [0;32m[1m[44m[7m SDFfhn.;90*&[0m
+$FGH$EBH [0;32m[1m[104m SDFfhn.;90*&[0m $FGH$EBH$RVC [0;32m[1m[104m[7m SDFfhn.;90*&[0m
+$FGH$EML [0;32m[1m[45m SDFfhn.;90*&[0m $FGH$EML$RVC [0;32m[1m[45m[7m SDFfhn.;90*&[0m
+$FGH$EMH [0;32m[1m[105m SDFfhn.;90*&[0m $FGH$EMH$RVC [0;32m[1m[105m[7m SDFfhn.;90*&[0m
+$FGH$ECL [0;32m[1m[46m SDFfhn.;90*&[0m $FGH$ECL$RVC [0;32m[1m[46m[7m SDFfhn.;90*&[0m
+$FGH$ECH [0;32m[1m[106m SDFfhn.;90*&[0m $FGH$ECH$RVC [0;32m[1m[106m[7m SDFfhn.;90*&[0m
+$FGH$EDL [0;32m[1m[47m SDFfhn.;90*&[0m $FGH$EDL$RVC [0;32m[1m[47m[7m SDFfhn.;90*&[0m
+$FGH$EDH [0;32m[1m[107m SDFfhn.;90*&[0m $FGH$EDH$RVC [0;32m[1m[107m[7m SDFfhn.;90*&[0m
+$FY$ENL [0;33m[40m SDFfhn.;90*&[0m $FY$ENL$RVC [0;33m[40m[7m SDFfhn.;90*&[0m
+$FY$ENH [0;33m[100m SDFfhn.;90*&[0m $FY$ENH$RVC [0;33m[100m[7m SDFfhn.;90*&[0m
+$FY$ERL [0;33m[41m SDFfhn.;90*&[0m $FY$ERL$RVC [0;33m[41m[7m SDFfhn.;90*&[0m
+$FY$ERH [0;33m[101m SDFfhn.;90*&[0m $FY$ERH$RVC [0;33m[101m[7m SDFfhn.;90*&[0m
+$FY$EGL [0;33m[42m SDFfhn.;90*&[0m $FY$EGL$RVC [0;33m[42m[7m SDFfhn.;90*&[0m
+$FY$EGH [0;33m[102m SDFfhn.;90*&[0m $FY$EGH$RVC [0;33m[102m[7m SDFfhn.;90*&[0m
+$FY$EYL [0;33m[43m SDFfhn.;90*&[0m $FY$EYL$RVC [0;33m[43m[7m SDFfhn.;90*&[0m
+$FY$EYH [0;33m[103m SDFfhn.;90*&[0m $FY$EYH$RVC [0;33m[103m[7m SDFfhn.;90*&[0m
+$FY$EBL [0;33m[44m SDFfhn.;90*&[0m $FY$EBL$RVC [0;33m[44m[7m SDFfhn.;90*&[0m
+$FY$EBH [0;33m[104m SDFfhn.;90*&[0m $FY$EBH$RVC [0;33m[104m[7m SDFfhn.;90*&[0m
+$FY$EML [0;33m[45m SDFfhn.;90*&[0m $FY$EML$RVC [0;33m[45m[7m SDFfhn.;90*&[0m
+$FY$EMH [0;33m[105m SDFfhn.;90*&[0m $FY$EMH$RVC [0;33m[105m[7m SDFfhn.;90*&[0m
+$FY$ECL [0;33m[46m SDFfhn.;90*&[0m $FY$ECL$RVC [0;33m[46m[7m SDFfhn.;90*&[0m
+$FY$ECH [0;33m[106m SDFfhn.;90*&[0m $FY$ECH$RVC [0;33m[106m[7m SDFfhn.;90*&[0m
+$FY$EDL [0;33m[47m SDFfhn.;90*&[0m $FY$EDL$RVC [0;33m[47m[7m SDFfhn.;90*&[0m
+$FY$EDH [0;33m[107m SDFfhn.;90*&[0m $FY$EDH$RVC [0;33m[107m[7m SDFfhn.;90*&[0m
+$FYL$ENL [0;33m[2m[40m SDFfhn.;90*&[0m $FYL$ENL$RVC [0;33m[2m[40m[7m SDFfhn.;90*&[0m
+$FYL$ENH [0;33m[2m[100m SDFfhn.;90*&[0m $FYL$ENH$RVC [0;33m[2m[100m[7m SDFfhn.;90*&[0m
+$FYL$ERL [0;33m[2m[41m SDFfhn.;90*&[0m $FYL$ERL$RVC [0;33m[2m[41m[7m SDFfhn.;90*&[0m
+$FYL$ERH [0;33m[2m[101m SDFfhn.;90*&[0m $FYL$ERH$RVC [0;33m[2m[101m[7m SDFfhn.;90*&[0m
+$FYL$EGL [0;33m[2m[42m SDFfhn.;90*&[0m $FYL$EGL$RVC [0;33m[2m[42m[7m SDFfhn.;90*&[0m
+$FYL$EGH [0;33m[2m[102m SDFfhn.;90*&[0m $FYL$EGH$RVC [0;33m[2m[102m[7m SDFfhn.;90*&[0m
+$FYL$EYL [0;33m[2m[43m SDFfhn.;90*&[0m $FYL$EYL$RVC [0;33m[2m[43m[7m SDFfhn.;90*&[0m
+$FYL$EYH [0;33m[2m[103m SDFfhn.;90*&[0m $FYL$EYH$RVC [0;33m[2m[103m[7m SDFfhn.;90*&[0m
+$FYL$EBL [0;33m[2m[44m SDFfhn.;90*&[0m $FYL$EBL$RVC [0;33m[2m[44m[7m SDFfhn.;90*&[0m
+$FYL$EBH [0;33m[2m[104m SDFfhn.;90*&[0m $FYL$EBH$RVC [0;33m[2m[104m[7m SDFfhn.;90*&[0m
+$FYL$EML [0;33m[2m[45m SDFfhn.;90*&[0m $FYL$EML$RVC [0;33m[2m[45m[7m SDFfhn.;90*&[0m
+$FYL$EMH [0;33m[2m[105m SDFfhn.;90*&[0m $FYL$EMH$RVC [0;33m[2m[105m[7m SDFfhn.;90*&[0m
+$FYL$ECL [0;33m[2m[46m SDFfhn.;90*&[0m $FYL$ECL$RVC [0;33m[2m[46m[7m SDFfhn.;90*&[0m
+$FYL$ECH [0;33m[2m[106m SDFfhn.;90*&[0m $FYL$ECH$RVC [0;33m[2m[106m[7m SDFfhn.;90*&[0m
+$FYL$EDL [0;33m[2m[47m SDFfhn.;90*&[0m $FYL$EDL$RVC [0;33m[2m[47m[7m SDFfhn.;90*&[0m
+$FYL$EDH [0;33m[2m[107m SDFfhn.;90*&[0m $FYL$EDH$RVC [0;33m[2m[107m[7m SDFfhn.;90*&[0m
+$FYH$ENL [0;33m[1m[40m SDFfhn.;90*&[0m $FYH$ENL$RVC [0;33m[1m[40m[7m SDFfhn.;90*&[0m
+$FYH$ENH [0;33m[1m[100m SDFfhn.;90*&[0m $FYH$ENH$RVC [0;33m[1m[100m[7m SDFfhn.;90*&[0m
+$FYH$ERL [0;33m[1m[41m SDFfhn.;90*&[0m $FYH$ERL$RVC [0;33m[1m[41m[7m SDFfhn.;90*&[0m
+$FYH$ERH [0;33m[1m[101m SDFfhn.;90*&[0m $FYH$ERH$RVC [0;33m[1m[101m[7m SDFfhn.;90*&[0m
+$FYH$EGL [0;33m[1m[42m SDFfhn.;90*&[0m $FYH$EGL$RVC [0;33m[1m[42m[7m SDFfhn.;90*&[0m
+$FYH$EGH [0;33m[1m[102m SDFfhn.;90*&[0m $FYH$EGH$RVC [0;33m[1m[102m[7m SDFfhn.;90*&[0m
+$FYH$EYL [0;33m[1m[43m SDFfhn.;90*&[0m $FYH$EYL$RVC [0;33m[1m[43m[7m SDFfhn.;90*&[0m
+$FYH$EYH [0;33m[1m[103m SDFfhn.;90*&[0m $FYH$EYH$RVC [0;33m[1m[103m[7m SDFfhn.;90*&[0m
+$FYH$EBL [0;33m[1m[44m SDFfhn.;90*&[0m $FYH$EBL$RVC [0;33m[1m[44m[7m SDFfhn.;90*&[0m
+$FYH$EBH [0;33m[1m[104m SDFfhn.;90*&[0m $FYH$EBH$RVC [0;33m[1m[104m[7m SDFfhn.;90*&[0m
+$FYH$EML [0;33m[1m[45m SDFfhn.;90*&[0m $FYH$EML$RVC [0;33m[1m[45m[7m SDFfhn.;90*&[0m
+$FYH$EMH [0;33m[1m[105m SDFfhn.;90*&[0m $FYH$EMH$RVC [0;33m[1m[105m[7m SDFfhn.;90*&[0m
+$FYH$ECL [0;33m[1m[46m SDFfhn.;90*&[0m $FYH$ECL$RVC [0;33m[1m[46m[7m SDFfhn.;90*&[0m
+$FYH$ECH [0;33m[1m[106m SDFfhn.;90*&[0m $FYH$ECH$RVC [0;33m[1m[106m[7m SDFfhn.;90*&[0m
+$FYH$EDL [0;33m[1m[47m SDFfhn.;90*&[0m $FYH$EDL$RVC [0;33m[1m[47m[7m SDFfhn.;90*&[0m
+$FYH$EDH [0;33m[1m[107m SDFfhn.;90*&[0m $FYH$EDH$RVC [0;33m[1m[107m[7m SDFfhn.;90*&[0m
+$FB$ENL [0;34m[40m SDFfhn.;90*&[0m $FB$ENL$RVC [0;34m[40m[7m SDFfhn.;90*&[0m
+$FB$ENH [0;34m[100m SDFfhn.;90*&[0m $FB$ENH$RVC [0;34m[100m[7m SDFfhn.;90*&[0m
+$FB$ERL [0;34m[41m SDFfhn.;90*&[0m $FB$ERL$RVC [0;34m[41m[7m SDFfhn.;90*&[0m
+$FB$ERH [0;34m[101m SDFfhn.;90*&[0m $FB$ERH$RVC [0;34m[101m[7m SDFfhn.;90*&[0m
+$FB$EGL [0;34m[42m SDFfhn.;90*&[0m $FB$EGL$RVC [0;34m[42m[7m SDFfhn.;90*&[0m
+$FB$EGH [0;34m[102m SDFfhn.;90*&[0m $FB$EGH$RVC [0;34m[102m[7m SDFfhn.;90*&[0m
+$FB$EYL [0;34m[43m SDFfhn.;90*&[0m $FB$EYL$RVC [0;34m[43m[7m SDFfhn.;90*&[0m
+$FB$EYH [0;34m[103m SDFfhn.;90*&[0m $FB$EYH$RVC [0;34m[103m[7m SDFfhn.;90*&[0m
+$FB$EBL [0;34m[44m SDFfhn.;90*&[0m $FB$EBL$RVC [0;34m[44m[7m SDFfhn.;90*&[0m
+$FB$EBH [0;34m[104m SDFfhn.;90*&[0m $FB$EBH$RVC [0;34m[104m[7m SDFfhn.;90*&[0m
+$FB$EML [0;34m[45m SDFfhn.;90*&[0m $FB$EML$RVC [0;34m[45m[7m SDFfhn.;90*&[0m
+$FB$EMH [0;34m[105m SDFfhn.;90*&[0m $FB$EMH$RVC [0;34m[105m[7m SDFfhn.;90*&[0m
+$FB$ECL [0;34m[46m SDFfhn.;90*&[0m $FB$ECL$RVC [0;34m[46m[7m SDFfhn.;90*&[0m
+$FB$ECH [0;34m[106m SDFfhn.;90*&[0m $FB$ECH$RVC [0;34m[106m[7m SDFfhn.;90*&[0m
+$FB$EDL [0;34m[47m SDFfhn.;90*&[0m $FB$EDL$RVC [0;34m[47m[7m SDFfhn.;90*&[0m
+$FB$EDH [0;34m[107m SDFfhn.;90*&[0m $FB$EDH$RVC [0;34m[107m[7m SDFfhn.;90*&[0m
+$FBL$ENL [0;34m[2m[40m SDFfhn.;90*&[0m $FBL$ENL$RVC [0;34m[2m[40m[7m SDFfhn.;90*&[0m
+$FBL$ENH [0;34m[2m[100m SDFfhn.;90*&[0m $FBL$ENH$RVC [0;34m[2m[100m[7m SDFfhn.;90*&[0m
+$FBL$ERL [0;34m[2m[41m SDFfhn.;90*&[0m $FBL$ERL$RVC [0;34m[2m[41m[7m SDFfhn.;90*&[0m
+$FBL$ERH [0;34m[2m[101m SDFfhn.;90*&[0m $FBL$ERH$RVC [0;34m[2m[101m[7m SDFfhn.;90*&[0m
+$FBL$EGL [0;34m[2m[42m SDFfhn.;90*&[0m $FBL$EGL$RVC [0;34m[2m[42m[7m SDFfhn.;90*&[0m
+$FBL$EGH [0;34m[2m[102m SDFfhn.;90*&[0m $FBL$EGH$RVC [0;34m[2m[102m[7m SDFfhn.;90*&[0m
+$FBL$EYL [0;34m[2m[43m SDFfhn.;90*&[0m $FBL$EYL$RVC [0;34m[2m[43m[7m SDFfhn.;90*&[0m
+$FBL$EYH [0;34m[2m[103m SDFfhn.;90*&[0m $FBL$EYH$RVC [0;34m[2m[103m[7m SDFfhn.;90*&[0m
+$FBL$EBL [0;34m[2m[44m SDFfhn.;90*&[0m $FBL$EBL$RVC [0;34m[2m[44m[7m SDFfhn.;90*&[0m
+$FBL$EBH [0;34m[2m[104m SDFfhn.;90*&[0m $FBL$EBH$RVC [0;34m[2m[104m[7m SDFfhn.;90*&[0m
+$FBL$EML [0;34m[2m[45m SDFfhn.;90*&[0m $FBL$EML$RVC [0;34m[2m[45m[7m SDFfhn.;90*&[0m
+$FBL$EMH [0;34m[2m[105m SDFfhn.;90*&[0m $FBL$EMH$RVC [0;34m[2m[105m[7m SDFfhn.;90*&[0m
+$FBL$ECL [0;34m[2m[46m SDFfhn.;90*&[0m $FBL$ECL$RVC [0;34m[2m[46m[7m SDFfhn.;90*&[0m
+$FBL$ECH [0;34m[2m[106m SDFfhn.;90*&[0m $FBL$ECH$RVC [0;34m[2m[106m[7m SDFfhn.;90*&[0m
+$FBL$EDL [0;34m[2m[47m SDFfhn.;90*&[0m $FBL$EDL$RVC [0;34m[2m[47m[7m SDFfhn.;90*&[0m
+$FBL$EDH [0;34m[2m[107m SDFfhn.;90*&[0m $FBL$EDH$RVC [0;34m[2m[107m[7m SDFfhn.;90*&[0m
+$FBH$ENL [0;34m[1m[40m SDFfhn.;90*&[0m $FBH$ENL$RVC [0;34m[1m[40m[7m SDFfhn.;90*&[0m
+$FBH$ENH [0;34m[1m[100m SDFfhn.;90*&[0m $FBH$ENH$RVC [0;34m[1m[100m[7m SDFfhn.;90*&[0m
+$FBH$ERL [0;34m[1m[41m SDFfhn.;90*&[0m $FBH$ERL$RVC [0;34m[1m[41m[7m SDFfhn.;90*&[0m
+$FBH$ERH [0;34m[1m[101m SDFfhn.;90*&[0m $FBH$ERH$RVC [0;34m[1m[101m[7m SDFfhn.;90*&[0m
+$FBH$EGL [0;34m[1m[42m SDFfhn.;90*&[0m $FBH$EGL$RVC [0;34m[1m[42m[7m SDFfhn.;90*&[0m
+$FBH$EGH [0;34m[1m[102m SDFfhn.;90*&[0m $FBH$EGH$RVC [0;34m[1m[102m[7m SDFfhn.;90*&[0m
+$FBH$EYL [0;34m[1m[43m SDFfhn.;90*&[0m $FBH$EYL$RVC [0;34m[1m[43m[7m SDFfhn.;90*&[0m
+$FBH$EYH [0;34m[1m[103m SDFfhn.;90*&[0m $FBH$EYH$RVC [0;34m[1m[103m[7m SDFfhn.;90*&[0m
+$FBH$EBL [0;34m[1m[44m SDFfhn.;90*&[0m $FBH$EBL$RVC [0;34m[1m[44m[7m SDFfhn.;90*&[0m
+$FBH$EBH [0;34m[1m[104m SDFfhn.;90*&[0m $FBH$EBH$RVC [0;34m[1m[104m[7m SDFfhn.;90*&[0m
+$FBH$EML [0;34m[1m[45m SDFfhn.;90*&[0m $FBH$EML$RVC [0;34m[1m[45m[7m SDFfhn.;90*&[0m
+$FBH$EMH [0;34m[1m[105m SDFfhn.;90*&[0m $FBH$EMH$RVC [0;34m[1m[105m[7m SDFfhn.;90*&[0m
+$FBH$ECL [0;34m[1m[46m SDFfhn.;90*&[0m $FBH$ECL$RVC [0;34m[1m[46m[7m SDFfhn.;90*&[0m
+$FBH$ECH [0;34m[1m[106m SDFfhn.;90*&[0m $FBH$ECH$RVC [0;34m[1m[106m[7m SDFfhn.;90*&[0m
+$FBH$EDL [0;34m[1m[47m SDFfhn.;90*&[0m $FBH$EDL$RVC [0;34m[1m[47m[7m SDFfhn.;90*&[0m
+$FBH$EDH [0;34m[1m[107m SDFfhn.;90*&[0m $FBH$EDH$RVC [0;34m[1m[107m[7m SDFfhn.;90*&[0m
+$FM$ENL [0;35m[40m SDFfhn.;90*&[0m $FM$ENL$RVC [0;35m[40m[7m SDFfhn.;90*&[0m
+$FM$ENH [0;35m[100m SDFfhn.;90*&[0m $FM$ENH$RVC [0;35m[100m[7m SDFfhn.;90*&[0m
+$FM$ERL [0;35m[41m SDFfhn.;90*&[0m $FM$ERL$RVC [0;35m[41m[7m SDFfhn.;90*&[0m
+$FM$ERH [0;35m[101m SDFfhn.;90*&[0m $FM$ERH$RVC [0;35m[101m[7m SDFfhn.;90*&[0m
+$FM$EGL [0;35m[42m SDFfhn.;90*&[0m $FM$EGL$RVC [0;35m[42m[7m SDFfhn.;90*&[0m
+$FM$EGH [0;35m[102m SDFfhn.;90*&[0m $FM$EGH$RVC [0;35m[102m[7m SDFfhn.;90*&[0m
+$FM$EYL [0;35m[43m SDFfhn.;90*&[0m $FM$EYL$RVC [0;35m[43m[7m SDFfhn.;90*&[0m
+$FM$EYH [0;35m[103m SDFfhn.;90*&[0m $FM$EYH$RVC [0;35m[103m[7m SDFfhn.;90*&[0m
+$FM$EBL [0;35m[44m SDFfhn.;90*&[0m $FM$EBL$RVC [0;35m[44m[7m SDFfhn.;90*&[0m
+$FM$EBH [0;35m[104m SDFfhn.;90*&[0m $FM$EBH$RVC [0;35m[104m[7m SDFfhn.;90*&[0m
+$FM$EML [0;35m[45m SDFfhn.;90*&[0m $FM$EML$RVC [0;35m[45m[7m SDFfhn.;90*&[0m
+$FM$EMH [0;35m[105m SDFfhn.;90*&[0m $FM$EMH$RVC [0;35m[105m[7m SDFfhn.;90*&[0m
+$FM$ECL [0;35m[46m SDFfhn.;90*&[0m $FM$ECL$RVC [0;35m[46m[7m SDFfhn.;90*&[0m
+$FM$ECH [0;35m[106m SDFfhn.;90*&[0m $FM$ECH$RVC [0;35m[106m[7m SDFfhn.;90*&[0m
+$FM$EDL [0;35m[47m SDFfhn.;90*&[0m $FM$EDL$RVC [0;35m[47m[7m SDFfhn.;90*&[0m
+$FM$EDH [0;35m[107m SDFfhn.;90*&[0m $FM$EDH$RVC [0;35m[107m[7m SDFfhn.;90*&[0m
+$FML$ENL [0;35m[2m[40m SDFfhn.;90*&[0m $FML$ENL$RVC [0;35m[2m[40m[7m SDFfhn.;90*&[0m
+$FML$ENH [0;35m[2m[100m SDFfhn.;90*&[0m $FML$ENH$RVC [0;35m[2m[100m[7m SDFfhn.;90*&[0m
+$FML$ERL [0;35m[2m[41m SDFfhn.;90*&[0m $FML$ERL$RVC [0;35m[2m[41m[7m SDFfhn.;90*&[0m
+$FML$ERH [0;35m[2m[101m SDFfhn.;90*&[0m $FML$ERH$RVC [0;35m[2m[101m[7m SDFfhn.;90*&[0m
+$FML$EGL [0;35m[2m[42m SDFfhn.;90*&[0m $FML$EGL$RVC [0;35m[2m[42m[7m SDFfhn.;90*&[0m
+$FML$EGH [0;35m[2m[102m SDFfhn.;90*&[0m $FML$EGH$RVC [0;35m[2m[102m[7m SDFfhn.;90*&[0m
+$FML$EYL [0;35m[2m[43m SDFfhn.;90*&[0m $FML$EYL$RVC [0;35m[2m[43m[7m SDFfhn.;90*&[0m
+$FML$EYH [0;35m[2m[103m SDFfhn.;90*&[0m $FML$EYH$RVC [0;35m[2m[103m[7m SDFfhn.;90*&[0m
+$FML$EBL [0;35m[2m[44m SDFfhn.;90*&[0m $FML$EBL$RVC [0;35m[2m[44m[7m SDFfhn.;90*&[0m
+$FML$EBH [0;35m[2m[104m SDFfhn.;90*&[0m $FML$EBH$RVC [0;35m[2m[104m[7m SDFfhn.;90*&[0m
+$FML$EML [0;35m[2m[45m SDFfhn.;90*&[0m $FML$EML$RVC [0;35m[2m[45m[7m SDFfhn.;90*&[0m
+$FML$EMH [0;35m[2m[105m SDFfhn.;90*&[0m $FML$EMH$RVC [0;35m[2m[105m[7m SDFfhn.;90*&[0m
+$FML$ECL [0;35m[2m[46m SDFfhn.;90*&[0m $FML$ECL$RVC [0;35m[2m[46m[7m SDFfhn.;90*&[0m
+$FML$ECH [0;35m[2m[106m SDFfhn.;90*&[0m $FML$ECH$RVC [0;35m[2m[106m[7m SDFfhn.;90*&[0m
+$FML$EDL [0;35m[2m[47m SDFfhn.;90*&[0m $FML$EDL$RVC [0;35m[2m[47m[7m SDFfhn.;90*&[0m
+$FML$EDH [0;35m[2m[107m SDFfhn.;90*&[0m $FML$EDH$RVC [0;35m[2m[107m[7m SDFfhn.;90*&[0m
+$FMH$ENL [0;35m[1m[40m SDFfhn.;90*&[0m $FMH$ENL$RVC [0;35m[1m[40m[7m SDFfhn.;90*&[0m
+$FMH$ENH [0;35m[1m[100m SDFfhn.;90*&[0m $FMH$ENH$RVC [0;35m[1m[100m[7m SDFfhn.;90*&[0m
+$FMH$ERL [0;35m[1m[41m SDFfhn.;90*&[0m $FMH$ERL$RVC [0;35m[1m[41m[7m SDFfhn.;90*&[0m
+$FMH$ERH [0;35m[1m[101m SDFfhn.;90*&[0m $FMH$ERH$RVC [0;35m[1m[101m[7m SDFfhn.;90*&[0m
+$FMH$EGL [0;35m[1m[42m SDFfhn.;90*&[0m $FMH$EGL$RVC [0;35m[1m[42m[7m SDFfhn.;90*&[0m
+$FMH$EGH [0;35m[1m[102m SDFfhn.;90*&[0m $FMH$EGH$RVC [0;35m[1m[102m[7m SDFfhn.;90*&[0m
+$FMH$EYL [0;35m[1m[43m SDFfhn.;90*&[0m $FMH$EYL$RVC [0;35m[1m[43m[7m SDFfhn.;90*&[0m
+$FMH$EYH [0;35m[1m[103m SDFfhn.;90*&[0m $FMH$EYH$RVC [0;35m[1m[103m[7m SDFfhn.;90*&[0m
+$FMH$EBL [0;35m[1m[44m SDFfhn.;90*&[0m $FMH$EBL$RVC [0;35m[1m[44m[7m SDFfhn.;90*&[0m
+$FMH$EBH [0;35m[1m[104m SDFfhn.;90*&[0m $FMH$EBH$RVC [0;35m[1m[104m[7m SDFfhn.;90*&[0m
+$FMH$EML [0;35m[1m[45m SDFfhn.;90*&[0m $FMH$EML$RVC [0;35m[1m[45m[7m SDFfhn.;90*&[0m
+$FMH$EMH [0;35m[1m[105m SDFfhn.;90*&[0m $FMH$EMH$RVC [0;35m[1m[105m[7m SDFfhn.;90*&[0m
+$FMH$ECL [0;35m[1m[46m SDFfhn.;90*&[0m $FMH$ECL$RVC [0;35m[1m[46m[7m SDFfhn.;90*&[0m
+$FMH$ECH [0;35m[1m[106m SDFfhn.;90*&[0m $FMH$ECH$RVC [0;35m[1m[106m[7m SDFfhn.;90*&[0m
+$FMH$EDL [0;35m[1m[47m SDFfhn.;90*&[0m $FMH$EDL$RVC [0;35m[1m[47m[7m SDFfhn.;90*&[0m
+$FMH$EDH [0;35m[1m[107m SDFfhn.;90*&[0m $FMH$EDH$RVC [0;35m[1m[107m[7m SDFfhn.;90*&[0m
+$FC$ENL [0;36m[40m SDFfhn.;90*&[0m $FC$ENL$RVC [0;36m[40m[7m SDFfhn.;90*&[0m
+$FC$ENH [0;36m[100m SDFfhn.;90*&[0m $FC$ENH$RVC [0;36m[100m[7m SDFfhn.;90*&[0m
+$FC$ERL [0;36m[41m SDFfhn.;90*&[0m $FC$ERL$RVC [0;36m[41m[7m SDFfhn.;90*&[0m
+$FC$ERH [0;36m[101m SDFfhn.;90*&[0m $FC$ERH$RVC [0;36m[101m[7m SDFfhn.;90*&[0m
+$FC$EGL [0;36m[42m SDFfhn.;90*&[0m $FC$EGL$RVC [0;36m[42m[7m SDFfhn.;90*&[0m
+$FC$EGH [0;36m[102m SDFfhn.;90*&[0m $FC$EGH$RVC [0;36m[102m[7m SDFfhn.;90*&[0m
+$FC$EYL [0;36m[43m SDFfhn.;90*&[0m $FC$EYL$RVC [0;36m[43m[7m SDFfhn.;90*&[0m
+$FC$EYH [0;36m[103m SDFfhn.;90*&[0m $FC$EYH$RVC [0;36m[103m[7m SDFfhn.;90*&[0m
+$FC$EBL [0;36m[44m SDFfhn.;90*&[0m $FC$EBL$RVC [0;36m[44m[7m SDFfhn.;90*&[0m
+$FC$EBH [0;36m[104m SDFfhn.;90*&[0m $FC$EBH$RVC [0;36m[104m[7m SDFfhn.;90*&[0m
+$FC$EML [0;36m[45m SDFfhn.;90*&[0m $FC$EML$RVC [0;36m[45m[7m SDFfhn.;90*&[0m
+$FC$EMH [0;36m[105m SDFfhn.;90*&[0m $FC$EMH$RVC [0;36m[105m[7m SDFfhn.;90*&[0m
+$FC$ECL [0;36m[46m SDFfhn.;90*&[0m $FC$ECL$RVC [0;36m[46m[7m SDFfhn.;90*&[0m
+$FC$ECH [0;36m[106m SDFfhn.;90*&[0m $FC$ECH$RVC [0;36m[106m[7m SDFfhn.;90*&[0m
+$FC$EDL [0;36m[47m SDFfhn.;90*&[0m $FC$EDL$RVC [0;36m[47m[7m SDFfhn.;90*&[0m
+$FC$EDH [0;36m[107m SDFfhn.;90*&[0m $FC$EDH$RVC [0;36m[107m[7m SDFfhn.;90*&[0m
+$FCL$ENL [0;36m[2m[40m SDFfhn.;90*&[0m $FCL$ENL$RVC [0;36m[2m[40m[7m SDFfhn.;90*&[0m
+$FCL$ENH [0;36m[2m[100m SDFfhn.;90*&[0m $FCL$ENH$RVC [0;36m[2m[100m[7m SDFfhn.;90*&[0m
+$FCL$ERL [0;36m[2m[41m SDFfhn.;90*&[0m $FCL$ERL$RVC [0;36m[2m[41m[7m SDFfhn.;90*&[0m
+$FCL$ERH [0;36m[2m[101m SDFfhn.;90*&[0m $FCL$ERH$RVC [0;36m[2m[101m[7m SDFfhn.;90*&[0m
+$FCL$EGL [0;36m[2m[42m SDFfhn.;90*&[0m $FCL$EGL$RVC [0;36m[2m[42m[7m SDFfhn.;90*&[0m
+$FCL$EGH [0;36m[2m[102m SDFfhn.;90*&[0m $FCL$EGH$RVC [0;36m[2m[102m[7m SDFfhn.;90*&[0m
+$FCL$EYL [0;36m[2m[43m SDFfhn.;90*&[0m $FCL$EYL$RVC [0;36m[2m[43m[7m SDFfhn.;90*&[0m
+$FCL$EYH [0;36m[2m[103m SDFfhn.;90*&[0m $FCL$EYH$RVC [0;36m[2m[103m[7m SDFfhn.;90*&[0m
+$FCL$EBL [0;36m[2m[44m SDFfhn.;90*&[0m $FCL$EBL$RVC [0;36m[2m[44m[7m SDFfhn.;90*&[0m
+$FCL$EBH [0;36m[2m[104m SDFfhn.;90*&[0m $FCL$EBH$RVC [0;36m[2m[104m[7m SDFfhn.;90*&[0m
+$FCL$EML [0;36m[2m[45m SDFfhn.;90*&[0m $FCL$EML$RVC [0;36m[2m[45m[7m SDFfhn.;90*&[0m
+$FCL$EMH [0;36m[2m[105m SDFfhn.;90*&[0m $FCL$EMH$RVC [0;36m[2m[105m[7m SDFfhn.;90*&[0m
+$FCL$ECL [0;36m[2m[46m SDFfhn.;90*&[0m $FCL$ECL$RVC [0;36m[2m[46m[7m SDFfhn.;90*&[0m
+$FCL$ECH [0;36m[2m[106m SDFfhn.;90*&[0m $FCL$ECH$RVC [0;36m[2m[106m[7m SDFfhn.;90*&[0m
+$FCL$EDL [0;36m[2m[47m SDFfhn.;90*&[0m $FCL$EDL$RVC [0;36m[2m[47m[7m SDFfhn.;90*&[0m
+$FCL$EDH [0;36m[2m[107m SDFfhn.;90*&[0m $FCL$EDH$RVC [0;36m[2m[107m[7m SDFfhn.;90*&[0m
+$FCH$ENL [0;36m[1m[40m SDFfhn.;90*&[0m $FCH$ENL$RVC [0;36m[1m[40m[7m SDFfhn.;90*&[0m
+$FCH$ENH [0;36m[1m[100m SDFfhn.;90*&[0m $FCH$ENH$RVC [0;36m[1m[100m[7m SDFfhn.;90*&[0m
+$FCH$ERL [0;36m[1m[41m SDFfhn.;90*&[0m $FCH$ERL$RVC [0;36m[1m[41m[7m SDFfhn.;90*&[0m
+$FCH$ERH [0;36m[1m[101m SDFfhn.;90*&[0m $FCH$ERH$RVC [0;36m[1m[101m[7m SDFfhn.;90*&[0m
+$FCH$EGL [0;36m[1m[42m SDFfhn.;90*&[0m $FCH$EGL$RVC [0;36m[1m[42m[7m SDFfhn.;90*&[0m
+$FCH$EGH [0;36m[1m[102m SDFfhn.;90*&[0m $FCH$EGH$RVC [0;36m[1m[102m[7m SDFfhn.;90*&[0m
+$FCH$EYL [0;36m[1m[43m SDFfhn.;90*&[0m $FCH$EYL$RVC [0;36m[1m[43m[7m SDFfhn.;90*&[0m
+$FCH$EYH [0;36m[1m[103m SDFfhn.;90*&[0m $FCH$EYH$RVC [0;36m[1m[103m[7m SDFfhn.;90*&[0m
+$FCH$EBL [0;36m[1m[44m SDFfhn.;90*&[0m $FCH$EBL$RVC [0;36m[1m[44m[7m SDFfhn.;90*&[0m
+$FCH$EBH [0;36m[1m[104m SDFfhn.;90*&[0m $FCH$EBH$RVC [0;36m[1m[104m[7m SDFfhn.;90*&[0m
+$FCH$EML [0;36m[1m[45m SDFfhn.;90*&[0m $FCH$EML$RVC [0;36m[1m[45m[7m SDFfhn.;90*&[0m
+$FCH$EMH [0;36m[1m[105m SDFfhn.;90*&[0m $FCH$EMH$RVC [0;36m[1m[105m[7m SDFfhn.;90*&[0m
+$FCH$ECL [0;36m[1m[46m SDFfhn.;90*&[0m $FCH$ECL$RVC [0;36m[1m[46m[7m SDFfhn.;90*&[0m
+$FCH$ECH [0;36m[1m[106m SDFfhn.;90*&[0m $FCH$ECH$RVC [0;36m[1m[106m[7m SDFfhn.;90*&[0m
+$FCH$EDL [0;36m[1m[47m SDFfhn.;90*&[0m $FCH$EDL$RVC [0;36m[1m[47m[7m SDFfhn.;90*&[0m
+$FCH$EDH [0;36m[1m[107m SDFfhn.;90*&[0m $FCH$EDH$RVC [0;36m[1m[107m[7m SDFfhn.;90*&[0m
+$FD$ENL [0;37m[40m SDFfhn.;90*&[0m $FD$ENL$RVC [0;37m[40m[7m SDFfhn.;90*&[0m
+$FD$ENH [0;37m[100m SDFfhn.;90*&[0m $FD$ENH$RVC [0;37m[100m[7m SDFfhn.;90*&[0m
+$FD$ERL [0;37m[41m SDFfhn.;90*&[0m $FD$ERL$RVC [0;37m[41m[7m SDFfhn.;90*&[0m
+$FD$ERH [0;37m[101m SDFfhn.;90*&[0m $FD$ERH$RVC [0;37m[101m[7m SDFfhn.;90*&[0m
+$FD$EGL [0;37m[42m SDFfhn.;90*&[0m $FD$EGL$RVC [0;37m[42m[7m SDFfhn.;90*&[0m
+$FD$EGH [0;37m[102m SDFfhn.;90*&[0m $FD$EGH$RVC [0;37m[102m[7m SDFfhn.;90*&[0m
+$FD$EYL [0;37m[43m SDFfhn.;90*&[0m $FD$EYL$RVC [0;37m[43m[7m SDFfhn.;90*&[0m
+$FD$EYH [0;37m[103m SDFfhn.;90*&[0m $FD$EYH$RVC [0;37m[103m[7m SDFfhn.;90*&[0m
+$FD$EBL [0;37m[44m SDFfhn.;90*&[0m $FD$EBL$RVC [0;37m[44m[7m SDFfhn.;90*&[0m
+$FD$EBH [0;37m[104m SDFfhn.;90*&[0m $FD$EBH$RVC [0;37m[104m[7m SDFfhn.;90*&[0m
+$FD$EML [0;37m[45m SDFfhn.;90*&[0m $FD$EML$RVC [0;37m[45m[7m SDFfhn.;90*&[0m
+$FD$EMH [0;37m[105m SDFfhn.;90*&[0m $FD$EMH$RVC [0;37m[105m[7m SDFfhn.;90*&[0m
+$FD$ECL [0;37m[46m SDFfhn.;90*&[0m $FD$ECL$RVC [0;37m[46m[7m SDFfhn.;90*&[0m
+$FD$ECH [0;37m[106m SDFfhn.;90*&[0m $FD$ECH$RVC [0;37m[106m[7m SDFfhn.;90*&[0m
+$FD$EDL [0;37m[47m SDFfhn.;90*&[0m $FD$EDL$RVC [0;37m[47m[7m SDFfhn.;90*&[0m
+$FD$EDH [0;37m[107m SDFfhn.;90*&[0m $FD$EDH$RVC [0;37m[107m[7m SDFfhn.;90*&[0m
+$FDL$ENL [0;37m[2m[40m SDFfhn.;90*&[0m $FDL$ENL$RVC [0;37m[2m[40m[7m SDFfhn.;90*&[0m
+$FDL$ENH [0;37m[2m[100m SDFfhn.;90*&[0m $FDL$ENH$RVC [0;37m[2m[100m[7m SDFfhn.;90*&[0m
+$FDL$ERL [0;37m[2m[41m SDFfhn.;90*&[0m $FDL$ERL$RVC [0;37m[2m[41m[7m SDFfhn.;90*&[0m
+$FDL$ERH [0;37m[2m[101m SDFfhn.;90*&[0m $FDL$ERH$RVC [0;37m[2m[101m[7m SDFfhn.;90*&[0m
+$FDL$EGL [0;37m[2m[42m SDFfhn.;90*&[0m $FDL$EGL$RVC [0;37m[2m[42m[7m SDFfhn.;90*&[0m
+$FDL$EGH [0;37m[2m[102m SDFfhn.;90*&[0m $FDL$EGH$RVC [0;37m[2m[102m[7m SDFfhn.;90*&[0m
+$FDL$EYL [0;37m[2m[43m SDFfhn.;90*&[0m $FDL$EYL$RVC [0;37m[2m[43m[7m SDFfhn.;90*&[0m
+$FDL$EYH [0;37m[2m[103m SDFfhn.;90*&[0m $FDL$EYH$RVC [0;37m[2m[103m[7m SDFfhn.;90*&[0m
+$FDL$EBL [0;37m[2m[44m SDFfhn.;90*&[0m $FDL$EBL$RVC [0;37m[2m[44m[7m SDFfhn.;90*&[0m
+$FDL$EBH [0;37m[2m[104m SDFfhn.;90*&[0m $FDL$EBH$RVC [0;37m[2m[104m[7m SDFfhn.;90*&[0m
+$FDL$EML [0;37m[2m[45m SDFfhn.;90*&[0m $FDL$EML$RVC [0;37m[2m[45m[7m SDFfhn.;90*&[0m
+$FDL$EMH [0;37m[2m[105m SDFfhn.;90*&[0m $FDL$EMH$RVC [0;37m[2m[105m[7m SDFfhn.;90*&[0m
+$FDL$ECL [0;37m[2m[46m SDFfhn.;90*&[0m $FDL$ECL$RVC [0;37m[2m[46m[7m SDFfhn.;90*&[0m
+$FDL$ECH [0;37m[2m[106m SDFfhn.;90*&[0m $FDL$ECH$RVC [0;37m[2m[106m[7m SDFfhn.;90*&[0m
+$FDL$EDL [0;37m[2m[47m SDFfhn.;90*&[0m $FDL$EDL$RVC [0;37m[2m[47m[7m SDFfhn.;90*&[0m
+$FDL$EDH [0;37m[2m[107m SDFfhn.;90*&[0m $FDL$EDH$RVC [0;37m[2m[107m[7m SDFfhn.;90*&[0m
+$FDH$ENL [0;37m[1m[40m SDFfhn.;90*&[0m $FDH$ENL$RVC [0;37m[1m[40m[7m SDFfhn.;90*&[0m
+$FDH$ENH [0;37m[1m[100m SDFfhn.;90*&[0m $FDH$ENH$RVC [0;37m[1m[100m[7m SDFfhn.;90*&[0m
+$FDH$ERL [0;37m[1m[41m SDFfhn.;90*&[0m $FDH$ERL$RVC [0;37m[1m[41m[7m SDFfhn.;90*&[0m
+$FDH$ERH [0;37m[1m[101m SDFfhn.;90*&[0m $FDH$ERH$RVC [0;37m[1m[101m[7m SDFfhn.;90*&[0m
+$FDH$EGL [0;37m[1m[42m SDFfhn.;90*&[0m $FDH$EGL$RVC [0;37m[1m[42m[7m SDFfhn.;90*&[0m
+$FDH$EGH [0;37m[1m[102m SDFfhn.;90*&[0m $FDH$EGH$RVC [0;37m[1m[102m[7m SDFfhn.;90*&[0m
+$FDH$EYL [0;37m[1m[43m SDFfhn.;90*&[0m $FDH$EYL$RVC [0;37m[1m[43m[7m SDFfhn.;90*&[0m
+$FDH$EYH [0;37m[1m[103m SDFfhn.;90*&[0m $FDH$EYH$RVC [0;37m[1m[103m[7m SDFfhn.;90*&[0m
+$FDH$EBL [0;37m[1m[44m SDFfhn.;90*&[0m $FDH$EBL$RVC [0;37m[1m[44m[7m SDFfhn.;90*&[0m
+$FDH$EBH [0;37m[1m[104m SDFfhn.;90*&[0m $FDH$EBH$RVC [0;37m[1m[104m[7m SDFfhn.;90*&[0m
+$FDH$EML [0;37m[1m[45m SDFfhn.;90*&[0m $FDH$EML$RVC [0;37m[1m[45m[7m SDFfhn.;90*&[0m
+$FDH$EMH [0;37m[1m[105m SDFfhn.;90*&[0m $FDH$EMH$RVC [0;37m[1m[105m[7m SDFfhn.;90*&[0m
+$FDH$ECL [0;37m[1m[46m SDFfhn.;90*&[0m $FDH$ECL$RVC [0;37m[1m[46m[7m SDFfhn.;90*&[0m
+$FDH$ECH [0;37m[1m[106m SDFfhn.;90*&[0m $FDH$ECH$RVC [0;37m[1m[106m[7m SDFfhn.;90*&[0m
+$FDH$EDL [0;37m[1m[47m SDFfhn.;90*&[0m $FDH$EDL$RVC [0;37m[1m[47m[7m SDFfhn.;90*&[0m
+$FDH$EDH [0;37m[1m[107m SDFfhn.;90*&[0m $FDH$EDH$RVC [0;37m[1m[107m[7m SDFfhn.;90*&[0m
+$FW$ENL [38m[40m SDFfhn.;90*&[0m $FW$ENL$RVC [38m[40m[7m SDFfhn.;90*&[0m
+$FW$ENH [38m[100m SDFfhn.;90*&[0m $FW$ENH$RVC [38m[100m[7m SDFfhn.;90*&[0m
+$FW$ERL [38m[41m SDFfhn.;90*&[0m $FW$ERL$RVC [38m[41m[7m SDFfhn.;90*&[0m
+$FW$ERH [38m[101m SDFfhn.;90*&[0m $FW$ERH$RVC [38m[101m[7m SDFfhn.;90*&[0m
+$FW$EGL [38m[42m SDFfhn.;90*&[0m $FW$EGL$RVC [38m[42m[7m SDFfhn.;90*&[0m
+$FW$EGH [38m[102m SDFfhn.;90*&[0m $FW$EGH$RVC [38m[102m[7m SDFfhn.;90*&[0m
+$FW$EYL [38m[43m SDFfhn.;90*&[0m $FW$EYL$RVC [38m[43m[7m SDFfhn.;90*&[0m
+$FW$EYH [38m[103m SDFfhn.;90*&[0m $FW$EYH$RVC [38m[103m[7m SDFfhn.;90*&[0m
+$FW$EBL [38m[44m SDFfhn.;90*&[0m $FW$EBL$RVC [38m[44m[7m SDFfhn.;90*&[0m
+$FW$EBH [38m[104m SDFfhn.;90*&[0m $FW$EBH$RVC [38m[104m[7m SDFfhn.;90*&[0m
+$FW$EML [38m[45m SDFfhn.;90*&[0m $FW$EML$RVC [38m[45m[7m SDFfhn.;90*&[0m
+$FW$EMH [38m[105m SDFfhn.;90*&[0m $FW$EMH$RVC [38m[105m[7m SDFfhn.;90*&[0m
+$FW$ECL [38m[46m SDFfhn.;90*&[0m $FW$ECL$RVC [38m[46m[7m SDFfhn.;90*&[0m
+$FW$ECH [38m[106m SDFfhn.;90*&[0m $FW$ECH$RVC [38m[106m[7m SDFfhn.;90*&[0m
+$FW$EDL [38m[47m SDFfhn.;90*&[0m $FW$EDL$RVC [38m[47m[7m SDFfhn.;90*&[0m
+$FW$EDH [38m[107m SDFfhn.;90*&[0m $FW$EDH$RVC [38m[107m[7m SDFfhn.;90*&[0m
+$FWL$ENL [38m[2m[40m SDFfhn.;90*&[0m $FWL$ENL$RVC [38m[2m[40m[7m SDFfhn.;90*&[0m
+$FWL$ENH [38m[2m[100m SDFfhn.;90*&[0m $FWL$ENH$RVC [38m[2m[100m[7m SDFfhn.;90*&[0m
+$FWL$ERL [38m[2m[41m SDFfhn.;90*&[0m $FWL$ERL$RVC [38m[2m[41m[7m SDFfhn.;90*&[0m
+$FWL$ERH [38m[2m[101m SDFfhn.;90*&[0m $FWL$ERH$RVC [38m[2m[101m[7m SDFfhn.;90*&[0m
+$FWL$EGL [38m[2m[42m SDFfhn.;90*&[0m $FWL$EGL$RVC [38m[2m[42m[7m SDFfhn.;90*&[0m
+$FWL$EGH [38m[2m[102m SDFfhn.;90*&[0m $FWL$EGH$RVC [38m[2m[102m[7m SDFfhn.;90*&[0m
+$FWL$EYL [38m[2m[43m SDFfhn.;90*&[0m $FWL$EYL$RVC [38m[2m[43m[7m SDFfhn.;90*&[0m
+$FWL$EYH [38m[2m[103m SDFfhn.;90*&[0m $FWL$EYH$RVC [38m[2m[103m[7m SDFfhn.;90*&[0m
+$FWL$EBL [38m[2m[44m SDFfhn.;90*&[0m $FWL$EBL$RVC [38m[2m[44m[7m SDFfhn.;90*&[0m
+$FWL$EBH [38m[2m[104m SDFfhn.;90*&[0m $FWL$EBH$RVC [38m[2m[104m[7m SDFfhn.;90*&[0m
+$FWL$EML [38m[2m[45m SDFfhn.;90*&[0m $FWL$EML$RVC [38m[2m[45m[7m SDFfhn.;90*&[0m
+$FWL$EMH [38m[2m[105m SDFfhn.;90*&[0m $FWL$EMH$RVC [38m[2m[105m[7m SDFfhn.;90*&[0m
+$FWL$ECL [38m[2m[46m SDFfhn.;90*&[0m $FWL$ECL$RVC [38m[2m[46m[7m SDFfhn.;90*&[0m
+$FWL$ECH [38m[2m[106m SDFfhn.;90*&[0m $FWL$ECH$RVC [38m[2m[106m[7m SDFfhn.;90*&[0m
+$FWL$EDL [38m[2m[47m SDFfhn.;90*&[0m $FWL$EDL$RVC [38m[2m[47m[7m SDFfhn.;90*&[0m
+$FWL$EDH [38m[2m[107m SDFfhn.;90*&[0m $FWL$EDH$RVC [38m[2m[107m[7m SDFfhn.;90*&[0m
+$FWH$ENL [38m[1m[40m SDFfhn.;90*&[0m $FWH$ENL$RVC [38m[1m[40m[7m SDFfhn.;90*&[0m
+$FWH$ENH [38m[1m[100m SDFfhn.;90*&[0m $FWH$ENH$RVC [38m[1m[100m[7m SDFfhn.;90*&[0m
+$FWH$ERL [38m[1m[41m SDFfhn.;90*&[0m $FWH$ERL$RVC [38m[1m[41m[7m SDFfhn.;90*&[0m
+$FWH$ERH [38m[1m[101m SDFfhn.;90*&[0m $FWH$ERH$RVC [38m[1m[101m[7m SDFfhn.;90*&[0m
+$FWH$EGL [38m[1m[42m SDFfhn.;90*&[0m $FWH$EGL$RVC [38m[1m[42m[7m SDFfhn.;90*&[0m
+$FWH$EGH [38m[1m[102m SDFfhn.;90*&[0m $FWH$EGH$RVC [38m[1m[102m[7m SDFfhn.;90*&[0m
+$FWH$EYL [38m[1m[43m SDFfhn.;90*&[0m $FWH$EYL$RVC [38m[1m[43m[7m SDFfhn.;90*&[0m
+$FWH$EYH [38m[1m[103m SDFfhn.;90*&[0m $FWH$EYH$RVC [38m[1m[103m[7m SDFfhn.;90*&[0m
+$FWH$EBL [38m[1m[44m SDFfhn.;90*&[0m $FWH$EBL$RVC [38m[1m[44m[7m SDFfhn.;90*&[0m
+$FWH$EBH [38m[1m[104m SDFfhn.;90*&[0m $FWH$EBH$RVC [38m[1m[104m[7m SDFfhn.;90*&[0m
+$FWH$EML [38m[1m[45m SDFfhn.;90*&[0m $FWH$EML$RVC [38m[1m[45m[7m SDFfhn.;90*&[0m
+$FWH$EMH [38m[1m[105m SDFfhn.;90*&[0m $FWH$EMH$RVC [38m[1m[105m[7m SDFfhn.;90*&[0m
+$FWH$ECL [38m[1m[46m SDFfhn.;90*&[0m $FWH$ECL$RVC [38m[1m[46m[7m SDFfhn.;90*&[0m
+$FWH$ECH [38m[1m[106m SDFfhn.;90*&[0m $FWH$ECH$RVC [38m[1m[106m[7m SDFfhn.;90*&[0m
+$FWH$EDL [38m[1m[47m SDFfhn.;90*&[0m $FWH$EDL$RVC [38m[1m[47m[7m SDFfhn.;90*&[0m
+$FWH$EDH [38m[1m[107m SDFfhn.;90*&[0m $FWH$EDH$RVC [38m[1m[107m[7m SDFfhn.;90*&[0m
+------------------------------------------AVESOME:------------------------------------------------
+$FN$EDH [0;30m[107m SDFfhn.;90*&[0m $FN$EDH$RVC [0;30m[107m[7m SDFfhn.;90*&[0m
+$FNL$EDH [0;30m[2m[107m SDFfhn.;90*&[0m $FNL$EDH$RVC [0;30m[2m[107m[7m SDFfhn.;90*&[0m
+$FNH$EDH [0;30m[1m[107m SDFfhn.;90*&[0m $FNH$EDH$RVC [0;30m[1m[107m[7m SDFfhn.;90*&[0m
+$FR$EDH [0;31m[107m SDFfhn.;90*&[0m $FR$EDH$RVC [0;31m[107m[7m SDFfhn.;90*&[0m
+$FRL$EDH [0;31m[2m[107m SDFfhn.;90*&[0m $FRL$EDH$RVC [0;31m[2m[107m[7m SDFfhn.;90*&[0m
+$FRH$EDH [0;31m[1m[107m SDFfhn.;90*&[0m $FRH$EDH$RVC [0;31m[1m[107m[7m SDFfhn.;90*&[0m
+$FG$EDH [0;32m[107m SDFfhn.;90*&[0m $FG$EDH$RVC [0;32m[107m[7m SDFfhn.;90*&[0m
+$FGL$EDH [0;32m[2m[107m SDFfhn.;90*&[0m $FGL$EDH$RVC [0;32m[2m[107m[7m SDFfhn.;90*&[0m
+$FGH$EDH [0;32m[1m[107m SDFfhn.;90*&[0m $FGH$EDH$RVC [0;32m[1m[107m[7m SDFfhn.;90*&[0m
+$FY$EDH [0;33m[107m SDFfhn.;90*&[0m $FY$EDH$RVC [0;33m[107m[7m SDFfhn.;90*&[0m
+$FYL$EDH [0;33m[2m[107m SDFfhn.;90*&[0m $FYL$EDH$RVC [0;33m[2m[107m[7m SDFfhn.;90*&[0m
+$FYH$EDH [0;33m[1m[107m SDFfhn.;90*&[0m $FYH$EDH$RVC [0;33m[1m[107m[7m SDFfhn.;90*&[0m
+$FB$EDH [0;34m[107m SDFfhn.;90*&[0m $FB$EDH$RVC [0;34m[107m[7m SDFfhn.;90*&[0m
+$FBL$EDH [0;34m[2m[107m SDFfhn.;90*&[0m $FBL$EDH$RVC [0;34m[2m[107m[7m SDFfhn.;90*&[0m
+$FBH$EDH [0;34m[1m[107m SDFfhn.;90*&[0m $FBH$EDH$RVC [0;34m[1m[107m[7m SDFfhn.;90*&[0m
+$FM$EDH [0;35m[107m SDFfhn.;90*&[0m $FM$EDH$RVC [0;35m[107m[7m SDFfhn.;90*&[0m
+$FML$EDH [0;35m[2m[107m SDFfhn.;90*&[0m $FML$EDH$RVC [0;35m[2m[107m[7m SDFfhn.;90*&[0m
+$FMH$EDH [0;35m[1m[107m SDFfhn.;90*&[0m $FMH$EDH$RVC [0;35m[1m[107m[7m SDFfhn.;90*&[0m
+$FC$EDH [0;36m[107m SDFfhn.;90*&[0m $FC$EDH$RVC [0;36m[107m[7m SDFfhn.;90*&[0m
+$FCL$EDH [0;36m[2m[107m SDFfhn.;90*&[0m $FCL$EDH$RVC [0;36m[2m[107m[7m SDFfhn.;90*&[0m
+$FCH$EDH [0;36m[1m[107m SDFfhn.;90*&[0m $FCH$EDH$RVC [0;36m[1m[107m[7m SDFfhn.;90*&[0m
+$FD$EDH [0;37m[107m SDFfhn.;90*&[0m $FD$EDH$RVC [0;37m[107m[7m SDFfhn.;90*&[0m
+$FDL$EDH [0;37m[2m[107m SDFfhn.;90*&[0m $FDL$EDH$RVC [0;37m[2m[107m[7m SDFfhn.;90*&[0m
+$FDH$EDH [0;37m[1m[107m SDFfhn.;90*&[0m $FDH$EDH$RVC [0;37m[1m[107m[7m SDFfhn.;90*&[0m
+$FW$EDH [38m[107m SDFfhn.;90*&[0m $FW$EDH$RVC [38m[107m[7m SDFfhn.;90*&[0m
+$FWL$EDH [38m[2m[107m SDFfhn.;90*&[0m $FWL$EDH$RVC [38m[2m[107m[7m SDFfhn.;90*&[0m
+$FWH$EDH [38m[1m[107m SDFfhn.;90*&[0m $FWH$EDH$RVC [38m[1m[107m[7m SDFfhn.;90*&[0m
+$FNL$ENL [0;30m[2m[40m SDFfhn.;90*&[0m $FNL$ENL$RVC [0;30m[2m[40m[7m SDFfhn.;90*&[0m
+$FNL$ENH [0;30m[2m[100m SDFfhn.;90*&[0m $FNL$ENH$RVC [0;30m[2m[100m[7m SDFfhn.;90*&[0m
+$FNL$ERL [0;30m[2m[41m SDFfhn.;90*&[0m $FNL$ERL$RVC [0;30m[2m[41m[7m SDFfhn.;90*&[0m
+$FNL$ERH [0;30m[2m[101m SDFfhn.;90*&[0m $FNL$ERH$RVC [0;30m[2m[101m[7m SDFfhn.;90*&[0m
+$FNL$EGL [0;30m[2m[42m SDFfhn.;90*&[0m $FNL$EGL$RVC [0;30m[2m[42m[7m SDFfhn.;90*&[0m
+$FNL$EGH [0;30m[2m[102m SDFfhn.;90*&[0m $FNL$EGH$RVC [0;30m[2m[102m[7m SDFfhn.;90*&[0m
+$FNL$EYL [0;30m[2m[43m SDFfhn.;90*&[0m $FNL$EYL$RVC [0;30m[2m[43m[7m SDFfhn.;90*&[0m
+$FNL$EYH [0;30m[2m[103m SDFfhn.;90*&[0m $FNL$EYH$RVC [0;30m[2m[103m[7m SDFfhn.;90*&[0m
+$FNL$EBL [0;30m[2m[44m SDFfhn.;90*&[0m $FNL$EBL$RVC [0;30m[2m[44m[7m SDFfhn.;90*&[0m
+$FNL$EBH [0;30m[2m[104m SDFfhn.;90*&[0m $FNL$EBH$RVC [0;30m[2m[104m[7m SDFfhn.;90*&[0m
+$FNL$EML [0;30m[2m[45m SDFfhn.;90*&[0m $FNL$EML$RVC [0;30m[2m[45m[7m SDFfhn.;90*&[0m
+$FNL$EMH [0;30m[2m[105m SDFfhn.;90*&[0m $FNL$EMH$RVC [0;30m[2m[105m[7m SDFfhn.;90*&[0m
+$FNL$ECL [0;30m[2m[46m SDFfhn.;90*&[0m $FNL$ECL$RVC [0;30m[2m[46m[7m SDFfhn.;90*&[0m
+$FNL$ECH [0;30m[2m[106m SDFfhn.;90*&[0m $FNL$ECH$RVC [0;30m[2m[106m[7m SDFfhn.;90*&[0m
+$FNL$EDL [0;30m[2m[47m SDFfhn.;90*&[0m $FNL$EDL$RVC [0;30m[2m[47m[7m SDFfhn.;90*&[0m
+$FNL$EDH [0;30m[2m[107m SDFfhn.;90*&[0m $FNL$EDH$RVC [0;30m[2m[107m[7m SDFfhn.;90*&[0m
+$FBL$ENL [0;34m[2m[40m SDFfhn.;90*&[0m $FBL$ENL$RVC [0;34m[2m[40m[7m SDFfhn.;90*&[0m
+$FBL$ENH [0;34m[2m[100m SDFfhn.;90*&[0m $FBL$ENH$RVC [0;34m[2m[100m[7m SDFfhn.;90*&[0m
+$FBL$ERL [0;34m[2m[41m SDFfhn.;90*&[0m $FBL$ERL$RVC [0;34m[2m[41m[7m SDFfhn.;90*&[0m
+$FBL$ERH [0;34m[2m[101m SDFfhn.;90*&[0m $FBL$ERH$RVC [0;34m[2m[101m[7m SDFfhn.;90*&[0m
+$FBL$EGL [0;34m[2m[42m SDFfhn.;90*&[0m $FBL$EGL$RVC [0;34m[2m[42m[7m SDFfhn.;90*&[0m
+$FBL$EGH [0;34m[2m[102m SDFfhn.;90*&[0m $FBL$EGH$RVC [0;34m[2m[102m[7m SDFfhn.;90*&[0m
+$FBL$EYL [0;34m[2m[43m SDFfhn.;90*&[0m $FBL$EYL$RVC [0;34m[2m[43m[7m SDFfhn.;90*&[0m
+$FBL$EYH [0;34m[2m[103m SDFfhn.;90*&[0m $FBL$EYH$RVC [0;34m[2m[103m[7m SDFfhn.;90*&[0m
+$FBL$EBL [0;34m[2m[44m SDFfhn.;90*&[0m $FBL$EBL$RVC [0;34m[2m[44m[7m SDFfhn.;90*&[0m
+$FBL$EBH [0;34m[2m[104m SDFfhn.;90*&[0m $FBL$EBH$RVC [0;34m[2m[104m[7m SDFfhn.;90*&[0m
+$FBL$EML [0;34m[2m[45m SDFfhn.;90*&[0m $FBL$EML$RVC [0;34m[2m[45m[7m SDFfhn.;90*&[0m
+$FBL$EMH [0;34m[2m[105m SDFfhn.;90*&[0m $FBL$EMH$RVC [0;34m[2m[105m[7m SDFfhn.;90*&[0m
+$FBL$ECL [0;34m[2m[46m SDFfhn.;90*&[0m $FBL$ECL$RVC [0;34m[2m[46m[7m SDFfhn.;90*&[0m
+$FBL$ECH [0;34m[2m[106m SDFfhn.;90*&[0m $FBL$ECH$RVC [0;34m[2m[106m[7m SDFfhn.;90*&[0m
+$FBL$EDL [0;34m[2m[47m SDFfhn.;90*&[0m $FBL$EDL$RVC [0;34m[2m[47m[7m SDFfhn.;90*&[0m
+$FBL$EDH [0;34m[2m[107m SDFfhn.;90*&[0m $FBL$EDH$RVC [0;34m[2m[107m[7m SDFfhn.;90*&[0m
+$FML$ENL [0;35m[2m[40m SDFfhn.;90*&[0m $FML$ENL$RVC [0;35m[2m[40m[7m SDFfhn.;90*&[0m
+$FML$ENH [0;35m[2m[100m SDFfhn.;90*&[0m $FML$ENH$RVC [0;35m[2m[100m[7m SDFfhn.;90*&[0m
+$FML$ERL [0;35m[2m[41m SDFfhn.;90*&[0m $FML$ERL$RVC [0;35m[2m[41m[7m SDFfhn.;90*&[0m
+$FML$ERH [0;35m[2m[101m SDFfhn.;90*&[0m $FML$ERH$RVC [0;35m[2m[101m[7m SDFfhn.;90*&[0m
+$FML$EGL [0;35m[2m[42m SDFfhn.;90*&[0m $FML$EGL$RVC [0;35m[2m[42m[7m SDFfhn.;90*&[0m
+$FML$EGH [0;35m[2m[102m SDFfhn.;90*&[0m $FML$EGH$RVC [0;35m[2m[102m[7m SDFfhn.;90*&[0m
+$FML$EYL [0;35m[2m[43m SDFfhn.;90*&[0m $FML$EYL$RVC [0;35m[2m[43m[7m SDFfhn.;90*&[0m
+$FML$EYH [0;35m[2m[103m SDFfhn.;90*&[0m $FML$EYH$RVC [0;35m[2m[103m[7m SDFfhn.;90*&[0m
+$FML$EBL [0;35m[2m[44m SDFfhn.;90*&[0m $FML$EBL$RVC [0;35m[2m[44m[7m SDFfhn.;90*&[0m
+$FML$EBH [0;35m[2m[104m SDFfhn.;90*&[0m $FML$EBH$RVC [0;35m[2m[104m[7m SDFfhn.;90*&[0m
+$FML$EML [0;35m[2m[45m SDFfhn.;90*&[0m $FML$EML$RVC [0;35m[2m[45m[7m SDFfhn.;90*&[0m
+$FML$EMH [0;35m[2m[105m SDFfhn.;90*&[0m $FML$EMH$RVC [0;35m[2m[105m[7m SDFfhn.;90*&[0m
+$FML$ECL [0;35m[2m[46m SDFfhn.;90*&[0m $FML$ECL$RVC [0;35m[2m[46m[7m SDFfhn.;90*&[0m
+$FML$ECH [0;35m[2m[106m SDFfhn.;90*&[0m $FML$ECH$RVC [0;35m[2m[106m[7m SDFfhn.;90*&[0m
+$FML$EDL [0;35m[2m[47m SDFfhn.;90*&[0m $FML$EDL$RVC [0;35m[2m[47m[7m SDFfhn.;90*&[0m
+$FML$EDH [0;35m[2m[107m SDFfhn.;90*&[0m $FML$EDH$RVC [0;35m[2m[107m[7m SDFfhn.;90*&[0m
+
+
+    l_00_echo_err   : ECHO_ERR =[0;30m[2m[101m[7m $FNL$ERH$RVC [0m
+    l_00_echo_warn  : ECHO_WARN=[0;30m[2m[103m[7m $FNL$EYH$RVC [0m
+    l_00_echo_info  : ECHO_INFO=[0;30m[2m[102m[7m $FNL$EGH$RVC [0m
+    l_00_echo_code  : ECHO_CODE=[0;30m[2m[106m[7m $FNL$ECH$RVC [0m
+    l_00_echo_exec  : ECHO_EXEC=[0;30m[2m[104m[7m $FNL$EBH$RVC [0m
+    l_00_echo_sys   : ECHO_SYS =[0;30m[2m[105m[7m $FNL$EMH$RVC [0m
+
+    l_00_echo_ret1  : ECHO_RET1=[0;31m[2m[107m[7m $FRL$EDH$RVC [0m
+    l_00_echo_ques  : ECHO_QUES=[0;36m[2m[107m[7m $FCL$EDH$RVC [0m
+
+    l_00_echo_succ  : ECHO_SUCC=[0;35m[2m[102m[7m $FML$EGH$RVC [0m
+    l_00_echo_fail  : ECHO_FAIL=[0;35m[2m[101m[7m $FML$ERH$RVC [0m
+
+    l_00_echo_yes   : ECHO_YES=[0;34m[2m[102m[7m $FBL$EGH$RVC [0m
+    l_00_echo_no    : ECHO_NO=[0;34m[2m[101m[7m $FBL$ERH$RVC [0m
+
+    l_00_echo_true  : ECHO_TRUE=[0;30m[2m[102m $FNL$EGH [0m
+    l_00_echo_fls   : ECHO_FLS=[0;30m[2m[101m $FNL$ERH [0m
+
+    [0;31m[2m[107m[7m $FRL$EDH$RVC [0m
+    [0;32m[2m[107m[7m $FGL$EDH$RVC [0m
+    [0;33m[2m[107m[7m $FYL$EDH$RVC [0m
+    [0;34m[2m[107m[7m $FBL$EDH$RVC [0m
+    [0;35m[2m[107m[7m $FML$EDH$RVC [0m
+    [0;36m[2m[107m[7m $FCL$EDH$RVC [0m
+    [0;37m[2m[107m[7m $FDL$EDH$RVC [0m
+    [38m[2m[107m[7m $FWL$EDH$RVC [0m
+    
+    

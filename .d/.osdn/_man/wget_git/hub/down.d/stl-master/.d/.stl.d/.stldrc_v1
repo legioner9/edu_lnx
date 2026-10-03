@@ -1,0 +1,707 @@
+#!/bin/bash
+
+### Written by Legioner9 for the universe
+### Part of the STL shell subsystem
+### Location .stl.d
+
+# ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+
+source ${STL_D_PATH}/prc.d/boot_stl_fn.d/l1_boot_stl_fns.sh
+
+dotstldrc_prs_f() {
+    local path=
+    local name_ext=
+    local name_ext2=
+    local name2_ext=
+    if [[ "_e" == "$1" ]]; then
+        _edit ${HOME}/.d/.rc.d/.st.rc.d/.st.sh.d/_prs_f.sh
+        return 0
+    fi
+    if [[ "_t" == "$1" ]]; then
+        _edit ${HOME}/.d/.rc.d/.st.rc.d/.st.tst.d/_prs_f.tst.d
+        return 0
+    fi
+    if [ "$1" = "-h" ]; then
+        path="/the/path/_foo.ext2.txt"
+        echo -e "${BLUE}------------------------ 
+MAIN: ${FUNCNAME} ::
+TAGS:
+path=/the/path/_foo.txt        
+\$(_prs_f -d $path)   : $(_prs_f -d $path) 
+\$(_prs_f -ne $path)  : $(_prs_f -ne $path)   
+\$(_prs_f -n $path)   : $(_prs_f -n $path)   
+\$(_prs_f -n2 $path)  : $(_prs_f -n2 $path)   
+\$(_prs_f -e $path)   : $(_prs_f -e $path)   
+\$(_prs_f -e2 $path)  : $(_prs_f -e2 $path) 
+\$(_prs_f -pr $path)  : $(_prs_f -pr $path)   
+\$(_prs_f -po $path)  : $(_prs_f -po $path)    
+----------------------${NORMAL}"
+        return 0
+    else
+        if [ $# -ne 2 ]; then
+            echo "_prs_f() mast be 2 parameters : illegal number of parameters : return 1"
+            return 1
+        fi
+        name_ext="${2##*/}"
+        if [ "$1" = "-d" ]; then
+            dirname "$2"
+        else
+            if [ "$1" = "-ne" ]; then
+                echo "$name_ext"
+            else
+                if [ "$1" = "-n" ]; then
+                    echo "${name_ext%.*}"
+                else
+                    if [ "$1" = "-n2" ]; then
+                        name2_ext="${name_ext%.*}"
+                        echo "${name2_ext%.*}"
+                    else
+                        if [ "$1" = "-e" ]; then
+                            echo "${name_ext##*.}"
+                        else
+                            if [ "$1" = "-e2" ]; then
+                                name_ext2="${name_ext%.*}"
+                                echo "${name_ext2##*.}"
+                            else
+                                if [ "$1" = "-pr" ]; then
+                                    echo "${name_ext:0:1}"
+                                else
+                                    if [ "$1" = "-po" ]; then
+                                        echo "${name_ext:1}"
+                                    else
+                                        _st_exit "$1: parameter mastby: -d -ne -n2 -e -e2 -pr -po : return 1"
+                                        return 1
+                                    fi
+                                fi
+                            fi
+                        fi
+                    fi
+                fi
+            fi
+        fi
+    fi
+}
+
+
+dotstldrc_boot_stl() {
+
+    local FNN=${FUNCNAME[0]}
+    local PPWD=$PWD
+    local sh_file=${STL_D_PATH}/.stldrc
+    echo -e "${CYAN}--- $FNN() in file://${sh_file} ---${NORMAL}"
+    # echo -e "$FNN() in file://${sh_file}"
+
+    # # ${HOME}/.plt.use.flag
+
+    # if [[ -f ${HOME}/.plt.use.flag ]]; then
+
+    # local plt_use_flag_
+
+    # else
+    #     echo "1" >${HOME}/.plt.use.flag
+    # fi
+
+    dotstldrc_c_up() { # \$1 dir with execuable files
+
+        local FNN=${FUNCNAME[0]}
+        local PPWD=$PWD
+
+        echo "$FNN() $*"
+
+        #! IFS to default value
+        unset IFS
+
+        if [[ -d "$1" ]]; then
+            cd "$1" || {
+                echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
+                cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+                return 1
+            }
+        else
+            echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: \$1='$1' is not dir" >&2
+            cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+            return 1
+        fi
+
+        local dir=
+        local item=
+        local item_path=
+
+        dir=$(pwd)
+
+        for item in *; do
+
+            item_path=$dir/$item
+
+            if [ -f "$item_path" ] && [ "${item:0:1}" != "_" ] && [ "${item##*.}" == "sh" ]; then
+                . "$item_path" || {
+                    echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL '. file://$item_path' :: return 1" >&2
+                    cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+                    return 1
+                }
+
+            elif [ -d "$item_path" ] && [ "${item:0:1}" != "_" ]; then
+                dotstldrc_c_up "$item_path" || {
+                    echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL 'dotstldrc_c_up file://$item_path' :: return 1" >&2
+                    cd "$PPWD" || echo "$FNN() $* in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+                    return 1
+                }
+            fi
+
+        done
+
+        cd "$PPWD" || echo "'$FNN() $* 'in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+        return 0
+    }
+
+    dotstldrc_arb_up() { # \$1 dir with executable arb
+
+        local FNN=${FUNCNAME[0]}
+        local PPWD=$PWD
+
+        echo "$FNN() $*"
+
+        #! IFS to default value
+        unset IFS
+
+        if [[ -d "$1" ]]; then
+            cd "$1" || {
+                echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
+                return 1
+            }
+        else
+            echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: \$1='$1' is not dir" >&2
+            return 1
+        fi
+
+        local dir=
+        local item=$@
+
+        for item in *; do
+            # echo "\$item=$item"
+            # lib.0stl.arb/_XXX_YYY.ram/.grot/_XXX_YYY.sh
+            item_path=$dir/$item
+            item_name="${item%.*}"
+            item_ext="${item##*.}"
+            file_path=${item_path}/.grot/${item_name}.sh
+
+            # echo "\$file_path= file://$file_path"
+
+            if [ -f "$file_path" ] && [ "${item_name:0:1}" != "_" ] && [ "${item##*.}" == "ram" ]; then
+                # echo ". $file_path"
+                echo -e "${GREEN}\$file_path = '$file_path'${NORMAL}"
+                . "$file_path" || {
+                    echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: EXEC_FAIL '. file://$file_path' :: return 1" >&2
+                    cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+                    return 1
+                }
+            fi
+        done
+
+        cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+        return 0
+    }
+
+    dotstldrc_wrap_prc_inner() {
+
+        local FNN=$(dotstldrc_prs_f -n ${1})
+        local PPWD=$PWD
+        local ARGSW=("$@")
+        local ARGS=("${ARGSW[@]:1}")
+        local NARGS=$(($# - 1))
+        local verbose=0
+        local estat=
+
+        #* local opt_dir=${STL_DATA_D_PATH}/data.0stl.arb/tst_prc_0stl.ram/.grot/.opt
+        #* local depo_dir=${STL_DATA_D_PATH}/data.0stl.arb/tst_prc_0stl.ram/.grot/.depo
+
+        local fn_sh_grot=$(dirname "${1}")
+
+        local fn_sh_file="${fn_sh_grot}/${FNN}.prc"
+        local fn_hie_file="${fn_sh_grot}/${FNN}.hie"
+        local d_name=$(dirname ${fn_sh_file})
+
+        local sublib_pth=$(dirname $(dirname ${d_name}))
+        local sublib_pfx=$(dotstldrc_prs_f -e2 ${sublib_pth})
+        local sublib_nm=$(dotstldrc_prs_f -ne ${sublib_pth})
+
+        local d_data_ram=${STL_DATA_D_PATH}/data.${sublib_pfx}.arb/${FNN}.ram
+        local d_lib_ram=${STL_LIB_D_PATH}/lib.${sublib_pfx}.arb/${FNN}.ram
+
+        local d_data_grot=${d_data_ram}/.grot
+        local d_lib_grot=${d_lib_ram}/.grot
+
+        local d_lib_grot_opt=${d_lib_grot}/.opt
+        local d_lib_grot_opt_lst=${d_lib_grot_opt}.lst
+        local d_lib_grot_opt_prc=${d_lib_grot_opt}.prc
+        local d_lib_grot_opt_tml=${d_lib_grot_opt}.tml
+
+        local d_lib_grot_depo=${d_lib_grot}/.depo
+
+        if [ -n "$2" ] && [[ "_go" == "$2" ]]; then
+            _edit "${d_name}/${FNN}".sh
+            return 0
+        fi
+
+        if [ -n "$2" ] && [[ "_tst" == "$2" ]]; then
+            if ! . ${d_name}/_tst/exec.tst; then
+                echo "in fs= file:// , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '. ${d_name}/_tst/exec.tst' : ${hint} : return 1" >&2
+                cd $PPWD
+                return 1
+            fi
+            return 0
+        fi
+
+        if [ -n "$2" ] && [[ "_tst_e" == "$2" ]]; then
+            _edit ${d_name}/_tst
+            return 0
+        fi
+
+        if [ -n "$2" ] && [[ "_depo_d_e" == "$2" ]]; then
+            _edit ${d_lib_grot_depo}
+            return 0
+        fi
+
+        if [ -n "$2" ] && [[ "_opt_d_e" == "$2" ]]; then
+            _edit $d_lib_grot_opt
+            return 0
+        fi
+
+        if [ -n "$2" ] && [[ "_flow_1" == "$2" ]]; then
+            if ! . ${d_name}/_tst/_flow_tst.sh.v1; then
+                echo "in fs= file://${fn_sh_file} , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '_source_w1_isf ${d_name}/_tst/_flow_tst.sh.v1' : ${hint} : return 1" >&2
+                cd $PPWD
+                return 1
+            fi
+            return 0
+        fi
+
+        # if [[ "_flow_2" == "$1" ]]; then
+        #     if ! _source_w1_isf ${d_name}/_tst/_flow_tst.sh.v2; then
+        #         _st_exit "in fs= file://${fn_sh_file} , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '_source_w1_isf ${d_name}/_tst/_flow_tst.sh.v2' : ${hint} : return 1"
+        #         cd $PPWD
+        #         return 1
+        #     fi
+        # fi
+
+        if [ -n "$2" ] && [[ "_hie_m" == "$2" ]]; then
+            more ${fn_hie_file}
+            cd $PPWD
+            return 0
+        fi
+
+        if [ -n "$2" ] && [[ "_hie_e" == "$2" ]]; then
+            _edit ${fn_hie_file}
+            cd $PPWD
+            return 0
+        fi
+
+        # hint="\$1: \$2: "
+        # if _isn_from ${NARGS} LESS LESS+1 "in fs= file://${fn_sh_file}, line=${LINENO}, ${FNN}() : DEMAND 'LESS LESS+1' ERR_AMOUNT_ARGS entered :'${NARGS}' args : ${hint} : return 1"; then
+        #     return 1
+        # fi
+
+        #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
+        local di=
+        if [ -n "$N" ]; then
+            if [ "$N" == "_i" ]; then
+                di=1
+            else
+                di=0
+            fi
+        else
+            di=0
+        fi
+
+        #[[ptr_path]]
+        #! ptr_path
+        # local ptr_path="$1"
+        # ptr_path="$(_abs_path "${PPWD}" "ptr_path")"
+
+        # _f2d :: insert $1 file after str $2 in ALL (without prevent) file from dir $3
+        # _s2d :: into str $1 insert $2 str in (with prevent) file from dir $3
+        # _s2f :: reciver_string: $1 inserter_string: $2 in reciver_result_file: $3
+        # tml {{PPWD}}
+        # path2nom2d_YYY :: path2nom_YYY for all files (with prev) in dir $1
+        # path2nom_YYY :: _s2f ${PATH} '${REPO_PATH}' $1 : ST_RC_D_PATH, ST_RC_D_DATA_PATH, ST_RC_DATA_PATH, REPO_PATH, HOME
+        # _s2d "$HOME/"" '/' $dir - that only for .md path (before normalize path)
+
+        #* [ $di -eq 1 ] && echo "info"
+
+        #* standart echo fl
+        # _st_exit "in fs= file://${} , line=${LINENO}, EXEC: ${FNN} $* : 'SIGN_STR' (\$N) : 'file://${}' : ${hint} : return 1"
+        # cd "$PPWD" || echo "EXEC_FAIL : 'cd $PPWD' :: return 0|1" >&2
+        # return 1
+
+        #* greeting
+        # [ $di -eq 1 ] && echo -e "${CYAN}--- $FNN() $* in file://${fn_sh_file} ---${NORMAL}" #started functions
+
+        #* errno
+        # cmd arg
+        # errno=$?
+        # return ${errno}
+
+        #* rename args
+
+        #* check cntl
+
+        #* inname cntl
+
+        # echo "\${ARGS[0]} = '${ARGS[0]}'"
+        # echo "\${ARGS[1]} = '${ARGS[1]}'"
+        # echo "\${ARGS[2]} = '${ARGS[2]}'"
+
+        # echo "exec : '. ${ARGSW[@]}'"
+        . ${ARGSW[@]}
+
+        cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+        return 0
+
+        #* define local variables
+
+    }
+
+    # dotstldrc_wrap_prc_inner $1
+
+    # local name_function=$(_prs_f -n "$1")
+
+    # type dotstldrc_wrap_prc_inner
+
+    # eval "${name_function}=\$(dotstldrc_wrap_prc_inner \$1)"
+
+    # eval "export ${name_function}"
+
+    # type "${name_function}"
+    # unset dotstldrc_wrap_prc_inner
+
+    dotstldrc_arb_prc_up() { # \$1 dir with executable arb
+
+        local FNN=${FUNCNAME[0]}
+        local PPWD=$PWD
+        local ARGS=("$@")
+        local NARGS=$#
+
+        echo "$FNN() $*"
+
+        #! IFS to default value
+        unset IFS
+
+        if [[ -d "$1" ]]; then
+            cd "$1" || {
+                echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
+                return 1
+            }
+        else
+            echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: \$1='$1' is not dir" >&2
+            return 1
+        fi
+
+        local dir=
+        local item=
+        local item_path=
+
+        dir=$(pwd)
+
+        for item in *; do
+            # echo "\$item=$item"
+            # lib.0stl.arb/_XXX_YYY.ram/.grot/_XXX_YYY.sh
+            item_path=$dir/$item
+            item_name="${item%.*}"
+            item_ext="${item##*.}"
+            file_path=${item_path}/.grot/${item_name}.prc
+
+            # echo "\$file_path= file://$file_path"
+
+            if [ -f "$file_path" ] && [ "${item_name:0:1}" != "_" ] && [ "${item##*.}" == "ram" ]; then
+                # echo ". $file_path"
+                # dotstldrc_wrap_prc_inner "$file_path" || {
+                #     #? . "$file_path" || {
+                #     echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: EXEC_FAIL 'dotstldrc_wrap_prc $file_path' :: return 1" >&2
+                #     cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+                #     return 1
+                # }
+
+                echo -e "${GREEN}\$file_path = '$file_path'${NORMAL}"
+
+                local name_function=$(dotstldrc_prs_f -n "$file_path")
+
+                echo -e "${GREEN}\$name_function = '$name_function'${NORMAL}"
+
+                # type dotstldrc_wrap_prc_inner
+
+                echo "alias ${name_function}=\"dotstldrc_wrap_prc_inner $file_path ${ARGS[@]:1}\""
+
+                eval "alias ${name_function}=\"dotstldrc_wrap_prc_inner $file_path ${ARGS[@]:1}\""
+
+                # eval "export ${name_function}"
+
+                eval "type ${name_function}"
+            fi
+        done
+
+        cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+        return 0
+    }
+
+    dotstldrc_arb_tst() { # \$1 dir with testable arb
+
+        local FNN=${FUNCNAME[0]}
+        local PPWD=$PWD
+
+        echo "$FNN() $*"
+
+        #! IFS to default value
+        unset IFS
+
+        if [[ -d "$1" ]]; then
+            cd "$1" || {
+                echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
+                return 1
+            }
+        else
+            echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: \$1='$1' is not dir" >&2
+            return 1
+        fi
+
+        local dir=
+        local item=
+        local item_path=
+        local err_flag=0
+
+        dir=$(pwd)
+
+        for item in *; do
+            # echo "\$item=$item"
+            [[ "_" == ${item:0:1} ]] && continue
+            # /lib.0stl.arb/_XXX_YYY.ram/.grot/_tst/_exec.tst
+            item_path=$dir/$item
+            item_name="${item%.*}"
+            item_ext="${item##*.}"
+            file_path=${item_path}/.grot/_tst/exec.tst
+
+            echo "\$file_path= file://$file_path"
+
+            if [ -f "$file_path" ]; then
+                # echo ". $file_path"
+                . "$file_path" || {
+                    echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: EXEC_FAIL '. file://$file_path' :: err_flag=1" >&2
+                    cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+                    err_flag=1
+                }
+            fi
+        done
+
+        if [[ 1 -eq ${err_flag} ]]; then
+            echo "in lib_dir= file://$1 FAIL_TST" >&2
+            cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+            return 1
+        else
+            echo "in lib_dir= file://$1 TRUE_TST"
+            cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+            return 0
+        fi
+
+    }
+
+    dotstldrc_is_root() {
+
+        local FNN=${FUNCNAME[0]}
+        local PPWD=$PWD
+
+        local arg1="$1"
+
+        if [[ -z "${arg1}" ]]; then
+            echo "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$1 NOT_DEFINE : return 1" 1>&2
+            return 1
+        fi
+        if [[ "/" == "${arg1:0:1}" ]]; then
+            return 0
+        else
+            return 1
+        fi
+    }
+
+    dotstldrc_abs_path() {
+
+        local FNN=${FUNCNAME[0]}
+        local PPWD=$PWD
+
+        if [[ -z "$2" ]]; then
+            echo "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$2 NOT_DEFINE , hint : '$3' : return 1" 1>&2
+            return 1
+        fi
+        local dpwd="$1"
+        if ! dotstldrc_is_root "${dpwd}"; then
+            echo "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : '${dpwd}' NOT_ROOT , hint : '$3' : return 1" 1>&2
+            return 1
+        fi
+        eval local arg2=\${$2}
+        if [ "@" == "$arg2" ]; then
+            echo ${dpwd}
+            return 0
+        fi
+        if [[ -z "$arg2" ]]; then
+            echo "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$\$2 => '\$$2' NOT_DEFINE , hint : '$3' : return 1" 1>&2
+            return 1
+        fi
+        if dotstldrc_is_root "${arg2}"; then
+            echo ${arg2}
+        else
+            echo ${dpwd}/${arg2}
+        fi
+
+    }
+
+    dotstldrc_edit() {
+
+        local FNN=${FUNCNAME[0]}
+        local PPWD=$PWD
+
+        if [[ -n "$1" ]]; then
+            echo -e "${ULINE}THIS_ARG1=$1${NORMAL}"
+            ptr_path="$1"
+        else
+            echo -e "${ULINE}THIS_ARG1=$PPWD${NORMAL}"
+            ptr_path="$PPWD"
+
+        fi
+
+        ptr_path=$(dotstldrc_abs_path $PPWD "ptr_path")
+
+        [ -e $ptr_path ] || {
+            err_boot_stl_fn "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' :, EXEC: edit_boot_stl_fn $@ : NOT_ENTETY : 'file://$ptr_path' : return 1"
+            cd $PPWD
+            return 1
+        }
+        if type "codium"; then
+            echo -e "${ULINE} codium $ptr_path${NORMAL}"
+            codium $2 "$ptr_path"
+        else
+            if type "code"; then
+                echo -e "${ULINE} code $ptr_path${NORMAL}"
+                code $2 "$ptr_path"
+            else
+                if type "gvim" && type "mate-terminal" && [ -f $ptr_path ]; then
+                    echo -e "${ULINE}mate-terminal -- sh -c gvim -v +$2 $ptr_path${NORMAL}"
+                    mate-terminal -- sh -c "gvim -v +$2 $ptr_path"
+                else
+                    if type "mc" && type "mate-terminal" && [ -f $ptr_path ]; then
+                        echo -e "${ULINE}mate-terminal -- sh -c mc -e $ptr_path${NORMAL}"
+                        mate-terminal -- sh -c "mc -e $ptr_path"
+                    else
+                        if type "mc" && type "mate-terminal" && [ -d $ptr_path ]; then
+                            echo -e "${ULINE}mate-terminal -- sh -c mc $ptr_path${NORMAL}"
+                            mate-terminal -- sh -c "mc $ptr_path"
+                        else
+                            if type "vim"; then
+                                echo -e "${ULINE}vim $ptr_path${NORMAL}"
+                                gvim -v "$ptr_path"
+                            else
+                                echo "editors: codium, code, gvim, vim, mc not enabled" >&2
+                            fi
+                        fi
+                    fi
+                fi
+            fi
+        fi
+    }
+
+    dotstldrc_arb_up ${STL_LIB_D_PATH}/lib.0stl.arb
+    dotstldrc_arb_prc_up ${STL_LIB_D_PATH}/lib.0stl.arb
+
+    dotstldrc_arb_tst ${STL_LIB_D_PATH}/lib.0stl.arb || {
+        echo "'$FNN()' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'dotstldrc_arb_tst ${STL_LIB_D_PATH}/lib.0stl.arb' : return 1" >&2
+        return 1
+    }
+
+    return 0
+
+    #! up boot util fn and constants
+    c_up_boot_stl ${STL_D_PATH}/prc.d >/dev/null || {
+        echo "EXEC_FAIL 'c_up_boot_stl ${STL_D_PATH}/prc.d' :: return 1" >&2
+        cd ${PPWD}
+        return 1
+    }
+
+    #! define default ${HOME}/.stl.use.flag
+    [[ -f ${HOME}/.stl.use.flag ]] || {
+        echo "0" >${HOME}/.stl.use.flag
+    }
+
+    #! define use_flag
+    local use_flag=
+    local use_flag_file=${HOME}/.stl.use.flag
+    up_flag_boot_stl_fn ${use_flag_file} use_flag >/dev/null || {
+        err_boot_stl_fn "EXEC_FAIL 'up_flag_boot_stl_fn ${use_flag_file} use_flag' :: return 1"
+        cd ${PPWD}
+        return 1
+    }
+
+    #! ~/.stl.use.flag :: check abort boot stl
+    [[ 0 -eq $use_flag ]] && {
+        # warn_boot_stl_fn "\$use_flag = 0 :: ABORT_OPERATION boot stl :: return 0"
+        cd ${PPWD}
+        return 0
+    }
+
+    #! define log_flag
+    local log_flag=
+    local log_flag_file=${STL_D_PATH}/data.d/flag.d/stlrc.log.flag
+    up_flag_boot_stl_fn ${log_flag_file} log_flag >/dev/null || {
+        err_boot_stl_fn "EXEC_FAIL 'up_flag_boot_stl_fn ${log_flag_file} log_flag' :: return 1"
+        cd ${PPWD}
+        return 1
+    }
+
+    local stl_boot_file=${STL_D_PATH}/flow.d/boot.d/boot.sh
+    [[ -f ${stl_boot_file} ]] || {
+        err_boot_stl_fn "EXEC_FAIL '[[ -f ${stl_boot_file} ]]' :: return 1"
+        cd ${PPWD}
+        return 1
+    }
+
+    [[ 0 -eq $log_flag ]] && [[ -f ${stl_boot_file} ]] && {
+        source ${stl_boot_file} 1>/dev/null || {
+            err_boot_stl_fn "EXEC_FAIL 'source ${stl_boot_file}' :: return 1"
+            cd ${PPWD}
+            return 1
+        }
+
+        cd ${PPWD}
+        return 0
+    }
+
+    local log_file=${STL_D_PATH}/data.d/log.d/stlrc.log
+
+    [[ -d ${STL_D_PATH}/data.d/log.d ]] || {
+        err_boot_stl_fn "EXEC_FAIL '[[ -d ${STL_D_PATH}/data.d/log.d ]]' :: return 1"
+        cd ${PPWD}
+        return 1
+    }
+
+    [[ 1 -eq $log_flag ]] && {
+        source ${stl_boot_file} 1>${log_file} 2>${log_file} || {
+            err_boot_stl_fn "EXEC_FAIL 'source ${stl_boot_file}' :: return 1"
+            cd ${PPWD}
+            return 1
+        }
+
+        cd ${PPWD}
+        return 0
+    }
+
+    #! IFS to default value
+    unset IFS
+    cd ${PPWD}
+    return 0
+}
+
+dotstldrc_boot_stl || {
+    echo "in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL 'dotstlrc_boot_stl ' :: return 1" >&2
+    cd ${PPWD}
+    return 1
+}
+
+#! check for err 'return 1'
+# echo "check for err 'return 1'" >&2
+# return 1

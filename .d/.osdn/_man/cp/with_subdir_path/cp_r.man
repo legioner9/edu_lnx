@@ -1,0 +1,3 @@
+# sudo cp -r opt /
+
+cp dir opt in exist /opt with exist subdir in opt

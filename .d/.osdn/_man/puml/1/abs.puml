@@ -1,0 +1,98 @@
+@startuml
+!pragma teoz true
+' F19CBB
+' A8E4A0
+' FAE7B5
+' FAE7B5
+' Серебряный	Silver	#c0c0c0
+' Лососевый	Salmon	#fa8072
+' Пшеничный	Wheat	#f5deb3
+' Светлый сомон	LightSalmon	#ffa07a
+' Бледный зелёный	PaleGreen	#98fb98
+' Оливковый	Olive	#808000
+' Умеренный аквамариновый	MediumAquamarine	#66cdaa
+' Циан,цвет морской волны	Cyan,Aqua	#00ffff
+' Светлый стальной синий	LightSteelBlue	#b0c4de
+' Морозное небо	DeepSkyBlue	#00bfff
+' Светлая слива	Plum	#dda0dd
+' Розовый	Pink	#ffc0cb
+' scale 1000*500
+
+title function [_XXX]
+autonumber 
+box "fs" #f5deb3
+participant dta 
+participant prc 
+end box
+box "args" #00bfff
+participant ar1 
+participant ar2 
+participant ar3 
+
+end box
+box "dta" #66cdaa
+participant in 
+participant out 
+end box
+box "stream" #98fb98
+participant "0" 
+end box
+box "closure" #80ffff
+participant fn 
+end box
+box "stream" #98fb98
+participant 1 
+end box
+box "stream" #dda0dd
+participant 2 
+end box
+== args == 
+
+ref over ar1 
+pth[dr]
+end ref
+
+ref over ar2
+ptr[value]
+end ref
+
+ref over ar3
+nm[fl]
+end ref
+== up data ==
+ref over dta
+dr
+end ref
+
+ref over prc
+od.d
+end ref
+
+ref over in 
+end ref
+
+ref over out
+end ref
+
+ref over 0
+end ref
+== fn work ==
+ref over fn
+end ref
+
+
+
+
+' note right
+' <code>
+' for read
+' </code>
+' end note
+
+== ret data ==
+ref over fn
+epm full-upgrad
+end ref
+
+
+@enduml

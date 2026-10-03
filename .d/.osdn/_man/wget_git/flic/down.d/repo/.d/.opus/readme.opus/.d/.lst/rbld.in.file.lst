@@ -1,0 +1,20 @@
+# 1. in first rbld cnx=[_cntx.ins.d] 
+# 2. use cnx : rbld readme.opus/_cntx.ins.d/name.d/_001.name.file.md_ufl9 <- [_cntx.ins.d]
+
+# rbld nbash indir
+${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/_rbld_res_md.sh
+
+# rbld notebook.opus -> notebook.opus/_cntx.ins.d
+${REPO_PATH}/stl/.d/.opus/notebook.opus/_rbld_res_md.sh
+
+# gig _002.from_notebook.file.md_ufl9 <- notebook.opus/_cntx.ins.d
+${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.ins.d/100.notebook.d/_002.from_notebook.file.md_ufl9
+
+# rbld stl_in_linux.opus -> stl_in_linux.opus/_cntx.ins.d
+${REPO_PATH}/stl/.d/.opus/stl_in_linux.opus/_rbld_res_md.sh
+
+# gig _001.from_dot_stl.file.md_ufl9 <- stl_in_linux.opus/_cntx.ins.d
+${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.ins.d/099.stl_in_linux.d/_001.from_dot_stl.file.md_ufl9
+
+# rbld genered request : cpy 
+${REPO_PATH}/NBash/.d/.opus/_rbld_res_md.sh

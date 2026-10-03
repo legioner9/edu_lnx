@@ -1,0 +1,162 @@
+
+DATX: 1732287282
+-->
+
+
+[001.001.first_head.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/001.001.first_head.txt.md)
+
+
+
+# STL in Linux
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/002.generald/001.txt.md)
+
+
+
+## General 
+
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/002.generald/002.save.d/001.txt.md)
+
+
+
+### Save ~/.stl.d
+
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/002.generald/003.flags.d/001.txt.md)
+
+
+
+### Flags
+
+Acceptable values:
+
+    0 - false
+    1 - true
+
+#### Global in dr: `~/`
+
+- `~/.stl.use.flag` :
+
+    (1|0) :: (abort|not abort) process : `source ~/.stl.d/flow.d/boot.d/boot.sh` at the begining 
+
+#### Local in dr: `~/.stl.d/data.d/flag.d`
+
+
+- `~/.stl.d/data.d/flag.d/stlrc.log.flag` :
+
+
+    (1|0) :: `source ~/.stl.d/flow.d/boot.d/boot.sh`  (`> ~/.stl.d/data.d/log.d/stlrc.log` | `> stdout, stderr`)
+     
+
+- `~/.stl.d/data.d/flag.d/git_reset.flag` : 
+ 
+
+    (1|0) :: (reset | not reset) all git diff :: use in git_flow_functions :: protection mode against changes
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/002.generald/003.use_data.d/001.txt.md)
+
+
+
+### Using data
+
+- BOOT_REPO_PATH определяется при установе STL и используется для дальнейшего определения путей 
+    c.e. STL_PATH  
+
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/003.processes.d/001.txt.md)
+
+
+
+## Processes
+
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/003.processes.d/002.inst.d/001.txt.md)
+
+
+
+### Download
+ 
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/003.processes.d/003.boot.d/001.txt.md)
+
+
+
+### Boot
+
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/003.processes.d/004.dlt.d/001.txt.md)
+
+
+
+### Delete 
+
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/003.processes.d/005.comm.d/001.txt.md)
+
+
+
+### Common
+
+
+[001.1L.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/004.files.d/001.1L.txt.md)
+
+
+
+## Files :: `~/.stl.d`
+
+
+
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/004.files.d/002.inst.d/001.txt.md)
+
+
+
+### Download
+
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/004.files.d/003.boot.d/001.txt.md)
+
+
+
+### Boot
+ 
+
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/004.files.d/003.boot.d/002.const.d/001.txt.md)
+
+
+
+#### `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)
+
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/004.files.d/003.boot.d/003.fn.d/001.txt.md)
+
+
+
+#### `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl
+
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/004.files.d/004.dlt.d/001.txt.md)
+
+
+
+### Delete
+
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/004.files.d/005.comm.d/001.txt.md)
+
+
+
+### Common
+
+
+[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d/004.files.d/005.comm.d/004.util.d/001.txt.md)
+
+
+
+#### `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenace - NOT STABLE 
+
+
+
+

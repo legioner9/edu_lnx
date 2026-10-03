@@ -1,0 +1,6 @@
+# ifs :: <PATH_WITH_REPO_NAME><><PATH_TO_BARE_NAME>
+# define DOWNLOAD git
+${HOME}/REPOBARE/_repo<>git@gitflic.ru:legioner9/stl.git
+${HOME}/REPOBARE/_repo<>git@gitflic.ru:legioner9/stl1.git
+${HOME}/REPOBARE/_repo<>git@gitflic.ru:legioner9/stl1_data_st
+

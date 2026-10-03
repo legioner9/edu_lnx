@@ -1,0 +1,3 @@
+# curl -L -o mtp_install.sh https://git.io/fj5ru && bash mtp_install.sh -p 443 -a tls -d www.google.com
+
+## DD-setting ONLY NO

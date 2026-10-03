@@ -1,0 +1,79 @@
+## Advanced Bash-Scripting Guide
+
+Пример 22-4. Изменение значения переменной, переданной в функцию по ссылке.
+#!/bin/bash# dereference.sh# Изменение значения переменной, переданной в функцию по ссылке.# Автор: Bruce W. Clare.dereference ()
+{     y=\$"$1"   # Имя переменной.     
+    echo $y    # $Junk     x=`eval "expr \"$y\" "`     echo $1=$x     eval "$1=\"Некий другой текст \""  # Присвоить новое значение.}Junk="Некий текст"echo $Junk "до того как..."    # Некий текст до того как...dereference Junkecho $Junk "после того как..." # Некий другой текст после того как...exit 0
+Пример 22-5. Еще один пример разыменования параметров функции, передаваемых поссылке.
+#!/bin/bashITERATIONS=3  # Количество вводимых значений.icount=1my_read () {  # При вызове my_read varname,  # выводит предыдущее значение в квадратных скобках,  # затем просит ввести новое значение.  local local_var  echo -n "Введите говое значение переменной "  eval 'echo -n "[$'$1'] "'  # Прежнее значение.  read local_var  [ -n "$local_var" ] && eval $1=\$local_var  # Последовательность "And-list": если "local_var" не пуста, то ее значение переписывается в "$1".}echowhile [ "$icount" -le "$ITERATIONS" ]279
+do  my_read var  echo "Значение #$icount = $var"  let "icount += 1"  echodone# Спасибо Stephane Chazelas за этот поучительный пример.exit 0
+
+Example 24-4. Passing an indirect reference to a function
+#!/bin/bash
+# ind-func.sh: Passing an indirect reference to a function.
+echo_var ()
+{
+echo "$1"
+}
+message=Hello
+Hello=Goodbye
+echo_var "$message" # Hello
+# Now, let's pass an indirect reference to the function.
+echo_var "${!message}" # Goodbye
+echo "-------------"
+# What happens if we change the contents of "hello" variable?
+Hello="Hello, again!"
+echo_var "$message" # Hello
+echo_var "${!message}" # Hello, again!
+exit 0
+
+Example 24-5. Dereferencing a parameter passed to a function
+
+#!/bin/bash
+# dereference.sh
+# Dereferencing parameter passed to a function.
+# Script by Bruce W. Clare.
+dereference ()
+{
+ y=\$"$1" # Name of variable (not value!).
+  echo $y # $Junk
+ x=`eval "expr \"$y\" "`
+ echo $1=$x
+ eval "$1=\"Some Different Text \"" # Assign new value.
+}
+Junk="Some Text"
+echo $Junk "before" # Some Text before
+dereference Junk
+echo $Junk "after" # Some Different Text after
+exit 0
+
+Example 24-6. Again, dereferencing a parameter passed to a function
+
+#!/bin/bash
+# ref-params.sh: Dereferencing a parameter passed to a function.
+# (Complex Example)
+ITERATIONS=3 # How many times to get input.
+icount=1
+my_read () {
+ # Called with my_read varname,
+ #+ outputs the previous value between brackets as the default value,
+ #+ then asks for a new value.
+ local local_var
+ echo -n "Enter a value "
+ eval 'echo -n "[$'$1'] "' # Previous value.
+# eval echo -n "[\$$1] " # Easier to understand,
+ #+ but loses trailing space in user prompt.
+ read local_var
+ [ -n "$local_var" ] && eval $1=\$local_var
+ # "And-list": if "local_var" then set "$1" to its value.
+}
+echo
+while [ "$icount" -le "$ITERATIONS" ]
+do
+ my_read var
+ echo "Entry #$icount = $var"
+ let "icount += 1"
+ echo
+done
+# Thanks to Stephane Chazelas for providing this instructive example.
+exit 0

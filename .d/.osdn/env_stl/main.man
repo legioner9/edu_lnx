@@ -1,0 +1,8 @@
+&&&fl main part of ENV_STL
+
+@@@cnt stl_bash
+
+
+@@@cnt docker run --rm -it  registry.altlinux.org/$branch/alt:latest (branch: {p10,p11,...})
+
+    @@@cli dkr pull -name alt10 registry.altlinux.org/p10/alt:latest 

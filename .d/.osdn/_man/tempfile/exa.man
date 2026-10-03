@@ -1,0 +1,1 @@
+    tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/test$$

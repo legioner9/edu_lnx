@@ -1,0 +1,11 @@
+# args
+
+- @
+    - if ${arg}=="@" => mean empty arg in function
+
+# path
+
+- all_path (ls -A)
+- unx_path (ls)
+- stl_path
+    - ! [[ ${unx_path:0:1} == "_" ]]

@@ -1,0 +1,3 @@
+    apt-get dist-upgrade | tee file.log
+    
+Команда tee показывает на экране и дублирует вывод в файл file.log.

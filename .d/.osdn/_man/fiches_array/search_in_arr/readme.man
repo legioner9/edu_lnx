@@ -1,0 +1,1 @@
+## . search_in_arr.sh "value" - search $1 in arr

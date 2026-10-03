@@ -1,0 +1,9 @@
+[remote "github_l9"]
+	url = git@github.com:legioner9/node_modules_.git
+	fetch = +refs/heads/*:refs/remotes/github_l9/*
+[remote "disk_tosh"]
+	url = D:node_modules__repo
+	fetch = +refs/heads/*:refs/remotes/disk_tosh/*
+[remote "usb_32"]
+	url = I:node_modules__repo
+	fetch = +refs/heads/*:refs/remotes/usb_32/*

@@ -1,0 +1,12 @@
+# paradigms bash
+
+## parameters from env script
+## parameters from file
+
+# paradigms functions
+## "dinamic menu" exec menu_fn with env_menu_fn from _function 
+
+
+# type functions
+## up_fun - generate f_f_
+## in_fun - for exec inside in_fun

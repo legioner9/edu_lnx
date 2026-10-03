@@ -1,0 +1,2 @@
+&&&fl util install
+@@@anc [util install](https://andreyex.ru/linux/ispolzovanie-komandy-install-v-linux/)

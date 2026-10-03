@@ -1,0 +1,56 @@
+@startmindmap
+*:
+ПРИНЦИП ЗАГРУЗКИ STL :
+Все функции , константы загружаются , все фунуции тестируются ДО 
+окончания загузки пользовательской оболочки
+;
+
+*:
+ПРИНЯТЫЕ ОБОЗНАЧЕНИЯ И УСЛОВНОСТИ :
+
+<file:> <path_to_file>
+<nnn:> - номер строки в файле
+указывается только значимый код 
+в терминах псевдокода похожего на bash
+source <path_to_file> влечет за собой 
+раскрытие содержания <path_to_file> в 
+правой секции соединенной с текущей секцией
+;
+
+*:
+СОСТАВ ФАЙЛОВОЙ СИСТЕМЫ ПРОЕКТА STL:
+
+\~/.stl.d - стартовая директория библиотек STL 
+    \~/.stl.d/stl.bashrc.d - файлы для работы с \~/.bashrc
+        \~/.stl.d/stl.bashrc.d/bashrc.flag - файл с флагом логирования 
+        \~/.stl.d/stl.bashrc.d/bashrc.log - файл с логом запуска оболочки 
+                начиная с source \~/.stl.d/stl.boot.d/stl.boot.sh 
+        \~/.stl.d/stl.bashrc.d/bashrc.stl - файл запускаемый в \~/.bashrc
+                - единственная вставка в \~/.bashrc от STL
+    \~/.stl.d/stl.boot.d - файлы для запуска цепочки библиотек STL
+        \~/.stl.d/stl.boot.d/stl.boot.flumen.puml - диаграмма демонстрирующая процесс 
+                поднятия в память библиотек и констант STL
+        \~/.stl.d/stl.boot.d/stl.boot.flumen.d - директория для использования 
+                файлом \~/.stl.d/stl.boot.d/stl.boot.flumen.puml
+        \~/.stl.d/stl.boot.d/stl.boot.lst dsl список подключаемых библиотек - 
+                начиная с STL
+        \~/.stl.d/stl.boot.d/stl.boot.sh - файл точка начала загрузки STL
+        \~/.stl.d/stl.boot.d/stl.boot.sh.d - директория с файлами определяющими
+                функции для использования в \~/.stl.d/stl.boot.d/stl.boot.sh
+            \~/.stl.d/stl.boot.d/stl.boot.sh.d/color_self_boot_stl.sh функция color_self_boot_stl()
+            \~/.stl.d/stl.boot.d/stl.boot.sh.d/is_yes_boot_stl.sh функция is_yes_boot_stl()
+    \~/.stl.d/stl.cdn.d - файлы неизменяемые для общего использования всеми библиотеками STL
+    \~/.stl.d/stl.comm.d - файлы изменяемые для общего использования всеми библиотеками STL
+        \~/.stl.d/stl.comm.d/stl.comm.data.d - директория с флагами
+            \~/.stl.d/stl.comm.d/stl.comm.data.d/git_reset.flag - флаг для сброса
+                    всех изменений в рабочей директории git 
+    \~/.stl.d/readme.man 
+            1. Хранение ~/.stl.d
+            2. Пояснение к флагу \~/.stl.d/stl.comm.d/stl.comm.data.d/git_reset.flag
+
+' ВНУТРЕННИЕ УПРАВЛЯЮЩИЕ ФАЙЛЫ
+' USER ВНЕШНИЕ УПРАВЛЯЮЩИЕ ФАЙЛЫ
+' USER ВНЕШНИЕ ИНФОРМАЦИОННЫЕ ФАЙЛЫ STL
+;
+
+@endmindmap

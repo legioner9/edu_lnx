@@ -1,0 +1,12 @@
+## see path
+
+    readlink soft_ln
+
+## see inode, path 
+
+    ls -di soft_ln
+
+## find all and see
+
+    find . -type l -exec ls -la {} \;
+    

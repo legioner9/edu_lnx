@@ -1,0 +1,15 @@
+Импорт конфигурации:
+
+    openvpn3 config-import --config ваш-файл.ovpn --name MY_CONFIG --persistent
+
+Запуск сессии:
+
+    openvpn3 session-start --config MY_CONFIG
+
+Просмотр активных сессий:
+
+    openvpn3 sessions-list
+
+Отключение:
+
+    openvpn3 session-manage --config MY_CONFIG --disconnect

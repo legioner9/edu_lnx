@@ -1,0 +1,10 @@
+@startmindmap
+
+*:
+file: \~/.stl.d/stl.bashrc.d/bashrc.stl
+
+fix source \~/.stl.d/stl.boot.d/stl.boot.sh stdout to \~/.stl.d/stl.bashrc.d/bashrc.log
+
+source \~/.stl.d/stl.boot.d/stl.boot.sh
+;
+@endmindmap

@@ -1,0 +1,3 @@
+# _cr_name_boot_fn.sh=file
+
+- source file name_fn -> create name_fn_boot_stl_fn.sh in ../root with function name_fn_boot_stl_fn

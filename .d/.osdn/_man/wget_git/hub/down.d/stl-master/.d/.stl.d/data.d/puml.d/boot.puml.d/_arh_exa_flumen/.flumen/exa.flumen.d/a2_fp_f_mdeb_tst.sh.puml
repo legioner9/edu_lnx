@@ -1,0 +1,96 @@
+@startmindmap
+*:FYLESYSTEM:
+
+.fs/f1(null)
+.fs/d1/0(null)
+.fs/d1/x(null)
+
+.arca/EMPTY;
+**:DO:
+
+bcp_l2d_()
+--_dir_tar fpath/.arca
+--_dlm @
+--_list(
+    .fs/f1@f1
+    .fs/d1/0@d1
+)
+-_bcp
+-_soft;
+***:FYLESYSTEM:
+
+.fs/f1(null)
+.fs/d1/0(null)
+
+.arca/f1.tar.gz(null)
+.arca/d1.tar.gz(
+    /0(null)
+);
+****:change FYLESYSTEM:
+
+.fs/f1(null->1f) - be diff
+.fs/d1/0(null->1d) - be diff
+.fs/d1/x(null->1x) - be diff;
+*****:DO:
+
+bcp_l2d_()
+--_dir_tar fpath/.arca
+--_dlm @
+--_list(
+    .fs/f1@f1
+    .fs/d1/0@d1
+)
+-_dpl
+-_soft;
+******:FYLESYSTEM:
+
+.fs/f1(null) - kill diff
+.fs/d1/0(null) - kill diff
+.fs/d1/x(1x) - without diff
+
+.fs/f1.bcp.tar.gz(
+    f1(1f)
+    ) - tar before kill diff
+.fs/d1.bcp.tar.gz(
+    /d1/0(1d)
+    /d1/x(1x)) - tar before kill diff
+
+.arca/f1.tar.gz(null)
+.arca/d1.tar.gz(
+    /d1/0(null)
+);
+*******:change FYLESYSTEM:
+
+.fs/f1(null->2f) - be diff
+.fs/d1/0(null->2d) - be diff
+.fs/d1/x(null->2x) - be diff;
+********:DO:
+
+bcp_l2d_()
+--_dir_tar fpath/.arca
+--_dlm @
+--_list(
+    .fs/f1@f1
+    .fs/d1/0@d1
+)
+-_rst
+-_soft;
+*********:FYLESYSTEM:
+
+.fs/f1(1f) - kill diff (2f)
+.fs/d1/0(1d) - kill diff (2d)
+.fs/d1/x(1x) - kill diff (2x) 
+
+.fs/f1.bcp.tar.gz(
+    f1(1f)
+    ) - tar before kill diff
+.fs/d1.bcp.tar.gz(
+    /d1/0(1d)
+    /d1/x(1x)) - tar before kill diff
+
+.arca/f1.tar.gz(null)
+.arca/d1.tar.gz(
+    /d1/0(null)
+);
+
+@endmindmap

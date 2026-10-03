@@ -1,0 +1,43 @@
+@startmindmap
+
+' ' STANDART DGM -------- start --------
+' *:
+' file:\~/path
+
+' 000: define fn() {}
+' 000: fn 
+' 000: source \~/path_s
+' N0
+' ;
+
+
+' **:define: fn() {
+'     any_act
+' }
+' N0
+' ;
+
+' **:exec: fn
+' N0
+' ;
+
+' ***:any_act
+' N0
+' ;
+
+' **:source: \~/path_s
+' N0
+' ;
+
+' ***:
+' file:\~/path_s
+
+' 000: define fn() {}
+' 000: fn 
+' 000: source \~/path_s
+' N0
+' ;
+
+' ' STANDART DGM -------- end --------
+
+@endmindmap

@@ -1,0 +1,46 @@
+%FORMAT STRING	DESCRIPTION
+%%	символ %
+%a	аббревиатура дня недели (e.g., Sun)
+%A	полное имя дня недели (e.g., Sunday)
+%b	аббревиатура имени месяца (e.g., Jan)
+%B	полное имя месяца (e.g., January)
+%c	дата и время (e.g., Thu Mar 3 23:05:25 2005)
+%C	век (e.g., 21)
+%d	день месяца (e.g, 01)
+%D	дата, то же что и %m/%d/%y
+%e	день месяца, с разделителем _ , то же что %_d
+%F	полная дата, то же что и %Y-%m-%d
+%g	last two digits of year of ISO week number (see %G)
+%G	year of ISO week number (see %V); normally useful only with %V
+%h	same as %b
+%H	hour (00..23)
+%I	hour (01..12)
+%j	day of year (001..366)
+%k	hour ( 0..23)
+%l	hour ( 1..12)
+%m	month (01..12)
+%M	minute (00..59)
+%n	a newline
+%N	nanoseconds (000000000..999999999)
+%p	locale’s equivalent of either AM or PM; blank if not known
+%P	like %p, but lower case
+%r	locale’s 12-hour clock time (e.g., 11:11:04 PM)
+%R	24-hour hour and minute; same as %H:%M
+%s	seconds since 1970-01-01 00:00:00 UTC
+%S	second (00..60)
+%t	a tab
+%T	time; same as %H:%M:%S
+%u	day of week (1..7); 1 is Monday
+%U	week number of year, with Sunday as first day of week (00..53)
+%V	ISO week number, with Monday as first day of week (01..53)
+%w	day of week (0..6); 0 is Sunday
+%W	week number of year, with Monday as first day of week (00..53)
+%x	locale’s date representation (e.g., 12/31/99)
+%X	locale’s time representation (e.g., 23:13:48)
+%y	last two digits of year (00..99)
+%Y	year
+%z	+hhmm numeric timezone (e.g., -0400)
+%:z	+hh:mm numeric timezone (e.g., -04:00)
+%::z	+hh:mm:ss numeric time zone (e.g., -04:00:00)
+%:::z	numeric time zone with : to necessary precision (e.g., -04, +05:30)
+%Z	alphabetic time zone abbreviation (e.g., EDT)

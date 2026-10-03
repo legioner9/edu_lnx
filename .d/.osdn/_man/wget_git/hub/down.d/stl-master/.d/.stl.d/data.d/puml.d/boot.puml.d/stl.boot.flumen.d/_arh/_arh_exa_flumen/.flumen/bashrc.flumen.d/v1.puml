@@ -1,0 +1,183 @@
+@startmindmap
+*:file:\~/.bashrc:
+
+046: source ~/.d/.rc.d/.st.rc.d/.st.rc
+;
+
+*:file:\~/.d/.rc.d/.st.rc.d/.st.rc:
+Для STL путь всегда оопределен от домашней директории
+
+Определение константы ST_RC_D_PATH это путь к репо с STL0 из файла ~/.stl/.path/st_rc_d.path
+004: path_to_stl=${HOME}/.stl/.path/st_rc_d.path
+008: ST_RC_D_PATH=$(cat ${path_to_stl})
+
+Определение константы ST_RC_D_DATA_PATH это путь к репо с данными для STL0 из файла ~/.stl/.path/st_rc_d_data.path
+026: path_to_data=${HOME}/.stl/.path/st_rc_d_data.path
+030: ST_RC_D_DATA_PATH=$(cat ${path_to_data})
+047: define _up_d() {}
+073: define _up_st_os_d() {}
+
+Определение дефлотных утилит и констант для оболочки в которой запущен этот .bashrc
+085: _up_st_os_d
+
+Проверка тестов всех функций STL, если return 1, то загрузка оболочки прерывается 
+127: source ~/.d/.rc.d/.st.rc.d/.st.tst || return 1
+' 000: 
+' 000: 
+' 000: 
+' 000: 
+' 000: 
+;
+**:define: _up_d() {}
+$1 - dir
+. every_file_from_dir
+;
+
+**:define: _up_st_os_d() {
+    _up_d \~/.d/.rc.d/.st.rc.d/.st.os.d
+}
+;
+
+**:exec: _up_st_os_d:
+;
+
+***:ls \~/.d/.rc.d/.st.rc.d/.st.os.d
+
+app-aliases.sh  
+git-alias.sh  
+git-completion.sh  
+git-prompt.sh  
+os_aliases.sh  
+os_utils.sh
+;
+
+****:file:app-aliases.sh
+
+alias vim="gvim -v"
+alias sky="flatpak run com.skype.Client"
+;
+
+****:file:git-alias.sh
+
+alias gs="git status
+alias ga="git add
+alias gc="git commit
+alias gb="git branch
+alias gha="git checkout
+alias gp="git push -u origin master
+alias gl="git log - -pretty=format:\"%h %s\ --graph
+alias gw="git show - -stat --oneline HEAD
+alias gg="git log - -graph - -abbrev-commit - -decorate - -date=relative - -format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+alias gk="gitk --all&
+;
+
+****:file:git-completion.sh
+
+git-completion STANDART
+;
+
+****:file:git-prompt.sh
+
+git-prompt STANDART
+;
+
+****:file:os_aliases
+
+DEFINE USER ALIASES
+alias www="tldr"
+alias ll="ls -l"
+alias lla="ls -la"
+alias updb="updatedb -l 0  --output=/home/st/.mydb.db"
+alias llocate="locate -d ~/.mydb.db"
+;
+
+****:file:os_utils.sh
+
+DEFINE USER DEFAULT FUNCTIONS
+<EMPTY>
+;
+
+**:define: _up_st_config_d() {
+    _up_d \~/.d/.rc.d/.st.rc.d/.st.config.d
+}
+;
+
+**:exec: _up_st_config_d
+;
+
+***:ls \~/.d/.rc.d/.st.rc.d/.st.config.d
+
+fn_name.sh
+;
+
+****:file:fn_name.sh
+
+DEFINE NAME_FUNCTION [fn_name] is VAR [_fn_name]:
+_fn_name=fn_name
+;
+
+**:define: _up_st_sh_d() {
+    _up_d \~/.d/.rc.d/.st.rc.d/.st.sh.d
+}
+;
+
+**:exec: _up_st_sh_d
+;
+
+***:ls \~/.d/.rc.d/.st.rc.d/.st.sh.d
+
+ALL FN STL files with define functions
+[fn_name].sh
+;
+
+****:file:[fn_name].sh
+
+DEFINE NAME_FUNCTION [fn_name]
+[fn_name](){
+    [body_fn_name]
+}
+;
+
+**:source \~/.d/.rc.d/.st.rc.d/.st.tst || return 1
+
+;
+
+***:file:\~/.d/.rc.d/.st.rc.d/.st.tst
+
+for name_fn in all_name_fn;do
+    source \~/.d/.rc.d/.st.rc.d/.st.tst.d/${name_fn}.tst || return 1
+done
+;
+
+****:file:\~/.d/.rc.d/.st.rc.d/.st.tst.d/${name_fn}.tst
+
+    source \~/.d/.rc.d/.st.rc.d/.st.tst.d/${name_fn}.tst.d/${name_fn}.tst.sh || return 1
+;
+
+*****:file:\~/.d/.rc.d/.st.rc.d/.st.tst.d/${name_fn}.tst.d/${name_fn}.tst.sh
+
+В результате работы ${name_fn} формируется файл res:
+exec ${name_fn} -> \~/.d/.rc.d/.st.rc.d/.st.tst.d/${name_fn}.tst.d/res   
+
+Файл pre формируется при правильной работе ${name_fn}
+ТЕСТ: Сравнение res и pre
+diff \~/.d/.rc.d/.st.rc.d/.st.tst.d/${name_fn}.tst.d/res \~/.d/.rc.d/.st.rc.d/.st.tst.d/${name_fn}.tst.d/pre || return 1
+возврат return 1 ошибка эскалируется до ~/.bashrc и прерывает загрузку оболочки
+;
+
+' *:HEAD:
+
+' CONT
+' ;
+
+' *:HEAD:
+
+' CONT
+' ;
+
+' *:HEAD:
+
+' CONT
+' ;
+
+@endmindmap

@@ -1,0 +1,128 @@
+@startmindmap
+*:
+ПРИНЦИП ЗАГРУЗКИ STL :
+Все функции , константы загружаются , все фунуции тестируются ДО 
+окончания загузки пользовательской оболочки
+;
+
+*:
+ПРИНЯТЫЕ ОБОЗНАЧЕНИЯ И УСЛОВНОСТИ :
+
+<file:> <path_to_file>
+<nnn:> - номер строки в файле
+указывается только значимый код 
+в терминах псевдокода похожего на bash
+source <path_to_file> влечет за собой 
+раскрытие содержания <path_to_file> в 
+правой секции соединенной с текущей секцией
+;
+
+*:
+СОСТАВ ФАЙЛОВОЙ СИСТЕМЫ ПРОЕКТА STL:
+
+\~/.stl.d - стартовая директория библиотек STL 
+    \~/.stl.d/stl.bashrc.d - файлы для работы с \~/.bashrc
+        \~/.stl.d/stl.bashrc.d/bashrc.flag - файл с флагом логирования 
+        \~/.stl.d/stl.bashrc.d/bashrc.log - файл с логом запуска оболочки 
+                начиная с source \~/.stl.d/stl.fuit.d/stl.fuit.sh 
+        \~/.stl.d/stl.bashrc.d/bashrc.stl - файл запускаемый в \~/.bashrc
+                - единственная вставка в \~/.bashrc от STL
+    \~/.stl.d/stl.fuit.d - файлы для запуска цепочки библиотек STL
+        \~/.stl.d/stl.fuit.d/stl.fuit.flumen.puml - диаграмма демонстрирующая процесс 
+                поднятия в память библиотек и констант STL
+        \~/.stl.d/stl.fuit.d/stl.fuit.flumen.d - директория для использования 
+                файлом \~/.stl.d/stl.fuit.d/stl.fuit.flumen.puml
+        \~/.stl.d/stl.fuit.d/stl.fuit.lst dsl список подключаемых библиотек - 
+                начиная с STL
+        \~/.stl.d/stl.fuit.d/stl.fuit.sh - файл точка начала загрузки STL
+        \~/.stl.d/stl.fuit.d/stl.fuit.sh.d - директория с файлами определяющими
+                функции для использования в \~/.stl.d/stl.fuit.d/stl.fuit.sh
+            \~/.stl.d/stl.fuit.d/stl.fuit.sh.d/color_self_fuit_stl.sh функция color_self_fuit_stl()
+            \~/.stl.d/stl.fuit.d/stl.fuit.sh.d/is_yes_fuit_stl.sh функция is_yes_fuit_stl()
+    \~/.stl.d/stl.loco.d - файлы для установки STL
+    \~/.stl.d/stl.cdn.d - файлы неизменяемые для общего использования всеми библиотеками STL
+    \~/.stl.d/stl.comm.d - файлы изменяемые для общего использования всеми библиотеками STL
+        \~/.stl.d/stl.comm.d/stl.comm.data.d - директория с флагами
+            \~/.stl.d/stl.comm.d/stl.comm.data.d/git_reset.flag - флаг для сброса
+                    всех изменений в рабочей директории git 
+    \~/.stl.d/stl.opus.d - md catalog , description of the loading process of STL
+    \~/.stl.d/readme.man 
+            1. Хранение ~/.stl.d
+            2. Пояснение к флагу \~/.stl.d/stl.comm.d/stl.comm.data.d/git_reset.flag
+
+' ВНУТРЕННИЕ УПРАВЛЯЮЩИЕ ФАЙЛЫ
+' USER ВНЕШНИЕ УПРАВЛЯЮЩИЕ ФАЙЛЫ
+' USER ВНЕШНИЕ ИНФОРМАЦИОННЫЕ ФАЙЛЫ STL
+;
+*:
+file:\~/.bashrc
+
+000: source \~/.stl.d/stl.bashrc.d/bashrc.stl
+;
+
+**:
+file: \~/.stl.d/stl.bashrc.d/bashrc.stl
+
+fix: source \~/.stl.d/stl.fuit.d/stl.fuit.sh stdout to \~/.stl.d/stl.bashrc.d/bashrc.log
+
+source \~/.stl.d/stl.fuit.d/stl.fuit.sh
+;
+
+***:
+file: \~/.stl.d/stl.fuit.d/stl.fuit.sh
+
+        is: "up all in root"
+060: def: fuit_stl_c_up() {}
+
+        up stl.fuit util functions:
+101: fuit_stl_c_up ${HOME}/.stl.d/stl.fuit.d/stl.fuit.sh.d
+        up color_self_fuit_stl -> def color const
+        up is_yes_fuit_stl
+
+        is: "up main path"
+000: def: fuit_stl_prs_fuit_lst(){}
+
+000: fn 
+000: fn 
+000: fn 
+000: fn 
+000: fn 
+000: source \~/path_s
+;
+
+
+' STANDART DGM -------- start --------
+*:
+file:\~/path
+
+000: define fn() {}
+000: fn 
+000: source \~/path_s
+;
+
+
+**:define: fn() {
+    any_act
+}
+;
+
+**:exec: fn
+;
+
+***:any_act
+;
+
+**:source: \~/path_s
+;
+
+***:
+file:\~/path_s
+
+000: define fn() {}
+000: fn 
+000: source \~/path_s
+;
+
+' STANDART DGM -------- end --------
+
+@endmindmap

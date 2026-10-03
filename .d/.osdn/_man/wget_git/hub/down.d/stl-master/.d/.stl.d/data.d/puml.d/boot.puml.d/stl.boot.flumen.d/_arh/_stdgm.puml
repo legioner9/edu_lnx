@@ -1,0 +1,36 @@
+
+
+' STANDART DGM -------- start --------
+*:
+file:\~/path
+
+000: define fn() {}
+000: fn 
+000: source \~/path_s
+;
+
+
+**:define: fn() {
+    any_act
+}
+;
+
+**:exec: fn
+;
+
+***:any_act
+;
+
+**:source: \~/path_s
+;
+
+***:
+file:\~/path_s
+
+000: define fn() {}
+000: fn 
+000: source \~/path_s
+;
+
+' STANDART DGM -------- end --------
+

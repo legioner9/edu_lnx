@@ -1,0 +1,13 @@
+#!/bin/bash
+
+fn_caewmjfh345etr4g3421(){
+
+	lfoe_repo_up_rc edu_lnx
+
+	[[ $(type -t edu_lnx_001_tst_fn) == "function" ]] || {
+		echo -e "${ECHO_RET1}in file://${fn_nm} , line=${LINENO} :: EXEC : '[[ \$(type -t lfoe_is_fn) == \"function\" ]]', 'RESUME :: in $HOME/aer_foe/.d/.sh/.lib.sh ERROR' return 1${NRM}" >&2
+		return 1
+	}
+}
+
+fn_caewmjfh345etr4g3421 @ > "$HOME"/null

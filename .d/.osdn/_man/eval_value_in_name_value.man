@@ -1,0 +1,39 @@
+# file://${COMMUNIS_PATH}/Deploy_store/.qa/main_repo_fn/dir_cr_f_/_cr_f_/_debug/loop_intead_var/loop_1.sh
+
+    for ((i = 0; i < 4; i++)); do
+
+        ptr=adr_$i
+        eval adr_$i=$i$i$i
+        echo "\$ptr=" $ptr       # name of value in loop
+        echo "\${!ptr}=" ${!ptr} # volume of value in loop
+
+    done
+    # adr_1="onnon"
+    # for ((i = 0; i < 3; i++)); do
+    #     # ptr=adr_$i
+    #     # eval adr_$i=$i$i$i
+    #     echo
+    # done
+
+    echo "\$adr_1=$adr_1"
+    echo "\$adr_2=$adr_2"
+    echo "\$adr_3=$adr_3"
+
+# file://${COMMUNIS_PATH}/Deploy_store/.qa/main_repo_fn/dir_cr_f_/cr_f_.sh
+
+        for ((i = 0; i < 100; i++)); do
+
+            vi=vi"$i"_cr_f_
+            vr=vr"$i"_cr_f_
+
+            if [ -n "${!vi}" ]; then
+
+                if [ -z "${!vr}" ]; then # ← see 'man test' for available unary and binary operators.
+                    eval vr=vr"$i"_cr_f_="v$i$i$i"
+                fi
+
+                echo_deb_ $echo_cr_f_ "--- v2f_ ${!vi} $res_file ${!vr} ---" #sistem info mesage
+                v2f_ "${!vi}" "$res_file" "${!vr}"
+            fi
+
+        done

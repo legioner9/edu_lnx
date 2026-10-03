@@ -1,0 +1,127 @@
+
+<!-- [[__TOC_]] -->
+
+<a name="top"></a>
+<a class=top-link hide href="#top">↑</a>
+
+<style type="text/css">
+   .top-link {
+    transition: all .25s ease-in-out;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: inline-flex;
+    color: #000000;
+
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2em 2em 0;
+    border-radius: 50%;
+    padding: .25em;
+    width: 1em;
+    height: 1em;
+    background-color: #F8F8F8;
+}
+
+h1{
+    color: rgb(155, 0, 218);
+    font-weight: normal;
+    font-style: italic;
+    font-weight:bold;
+
+}
+h2{
+    color: rgb(155, 40, 238);
+    font-style: italic;
+    font-weight:bold;
+}
+h3{
+    color: rgb(155, 80, 218);
+    font-style: italic;
+    font-weight:bold;
+}
+h4{
+    color: rgb(155, 120, 218);
+    font-style: italic;
+    font-weight:bold;
+}
+h5{
+    color: rgb(155, 160, 218);
+    font-style: italic;
+    font-weight:bold;
+}
+h6 {
+    color: rgb(155, 200, 230);
+    font-style: italic;
+    font-weight:bold;
+}
+</style>
+
+Start Contents Menu
+
+<!-- TOC toc2f_stl0 --> 
+
+<!-- /TOC toc2f_stl0 -->
+
+End Contents Menu
+
+<!--
+CMND: ufl_stl0 9 /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/_cntx.ins.d /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/_cntx.res.md 2
+
+PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/002.nbash_opus.d
+
+FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
+
+DATE: 1732621441_26112024184401
+
+DATX: 1732621441
+-->
+
+
+[001.001.first_head.txt.md](_cntx.ins.d/001.001.first_head.txt.md)
+
+
+
+# Opus NBash
+
+
+    
+
+[001.002.opus_in.txt.md](_cntx.ins.d/001.002.opus_in.txt.md)
+
+
+
+## in_dr
+### [001.examp.d](.ins_dr/001.examp.d/res.md)
+
+
+[001.003.opus_sd.txt.md](_cntx.ins.d/001.003.opus_sd.txt.md)
+
+
+
+## info.ax
+### [expansion](../../../../../../../NBash/.arb/info.ax/expansion.ram/.grot/exam.man)
+### [pipe_input](../../../../../../../NBash/.arb/info.ax/pipe_input.ram/.grot/exam.man)
+### [stream](../../../../../../../NBash/.arb/info.ax/stream.ram/.grot/exam.man)
+### [substr](../../../../../../../NBash/.arb/info.ax/substr.ram/.grot/exam.man)
+### [symbol_class](../../../../../../../NBash/.arb/info.ax/symbol_class.ram/.grot/exam.man)
+### [variable](../../../../../../../NBash/.arb/info.ax/variable.ram/.grot/exam.man)
+
+
+[001.004.opus_arb.txt.md](_cntx.ins.d/001.004.opus_arb.txt.md)
+
+
+
+## util.ax
+### [exec](../../../../../../../NBash/.arb/util.ax/exec.ram/.grot/opus.d/one.d/_cntx.res.md)
+### [find](../../../../../../../NBash/.arb/util.ax/find.ram/.grot/opus.d/one.d/_cntx.res.md)
+### [ln](../../../../../../../NBash/.arb/util.ax/ln.ram/.grot/opus.d/one.d/_cntx.res.md)
+### [sed](../../../../../../../NBash/.arb/util.ax/sed.ram/.grot/opus.d/one.d/_cntx.res.md)
+### [tr](../../../../../../../NBash/.arb/util.ax/tr.ram/.grot/opus.d/one.d/_cntx.res.md)
+## tech.ax
+### [regexp](../../../../../../../NBash/.arb/tech.ax/regexp.ram/.grot/opus.d/one.d/_cntx.res.md)
+
+
+
+

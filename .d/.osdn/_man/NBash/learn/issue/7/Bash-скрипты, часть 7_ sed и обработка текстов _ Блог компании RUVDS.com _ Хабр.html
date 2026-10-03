@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://habr.com/ru/company/ruvds/blog/327530/ -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+  <title>Bash-скрипты, часть 7: sed и обработка текстов / Блог компании RUVDS.com / Хабр</title>
+  <style>
+    /* cyrillic-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url(https://fonts.gstatic.com/s/firasans/v11/va9B4kDNxMZdWfMOD5VnZKveSxf6TF0.woff2) format('woff2');
+      unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+    }
+
+    /* cyrillic */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url(https://fonts.gstatic.com/s/firasans/v11/va9B4kDNxMZdWfMOD5VnZKveQhf6TF0.woff2) format('woff2');
+      unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+
+    /* latin-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url(https://fonts.gstatic.com/s/firasans/v11/va9B4kDNxMZdWfMOD5VnZKveSBf6TF0.woff2) format('woff2');
+      unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url(https://fonts.gstatic.com/s/firasans/v11/va9B4kDNxMZdWfMOD5VnZKveRhf6.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+  </style>
+  <link rel="preload" href="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/chunk-vendors.29e3fe9b.css" as="style"><link rel="preload" href="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/chunk-vendors.1ca41abb.js" as="script"><link rel="preload" href="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/app.b84b16a4.css" as="style"><link rel="preload" href="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/app.132461d8.js" as="script"><link rel="preload" href="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/about.428e0545.css" as="style"><link rel="preload" href="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/about.2d3fd602.js" as="script">
+  <link rel="stylesheet" href="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/chunk-vendors.29e3fe9b.css"><link rel="stylesheet" href="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/app.b84b16a4.css"><link rel="stylesheet" href="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/about.428e0545.css">
+  <script type="text/javascript" async="" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/js"></script><script async="" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/tag.js"></script><script async="" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/analytics.js"></script><script>window.i18nFetch = new Promise((res, rej) => {
+          const xhr = new XMLHttpRequest();
+          xhr.open('GET', '/js/i18n/ru-compiled.07ab3411a33038d0c6f862dbea0a2c45.json');
+          xhr.responseType = 'json';
+          xhr.onload = function(e) {
+            if (this.status === 200) {
+              res({ru: xhr.response});
+            } else {
+              rej(e);
+            }
+          };
+          xhr.send();
+        });</script>
+  
+  
+  <script src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/gpt.js" async=""></script>
+  <style>.grecaptcha-badge{visibility: hidden;}</style>
+  <meta name="habr-version" content="2.45.0">
+  
+  <meta data-vue-meta="ssr" property="fb:app_id" content="444736788986613"><meta data-vue-meta="ssr" property="fb:pages" content="472597926099084"><meta data-vue-meta="ssr" name="twitter:card" content="summary_large_image"><meta data-vue-meta="ssr" name="twitter:site" content="@habr_eng"><meta data-vue-meta="ssr" property="og:locale" content="ru_RU" data-vmid="og:locale">
+  
+  <meta name="apple-mobile-web-app-status-bar-style" content="#303b44">
+  <meta name="msapplication-TileColor" content="#629FBC">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" type="image/png" sizes="16x16" href="https://assets.habr.com/habr-web/img/favicons/favicon-16.png">
+  <link rel="shortcut icon" type="image/png" sizes="32x32" href="https://assets.habr.com/habr-web/img/favicons/favicon-32.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="https://assets.habr.com/habr-web/img/favicons/apple-touch-icon-76.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="https://assets.habr.com/habr-web/img/favicons/apple-touch-icon-120.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="152x152" href="https://assets.habr.com/habr-web/img/favicons/apple-touch-icon-152.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://assets.habr.com/habr-web/img/favicons/apple-touch-icon-180.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="256x256" href="https://assets.habr.com/habr-web/img/favicons/apple-touch-icon-256.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="https://assets.habr.com/habr-web/img/splashes/splash_1136x640.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="https://assets.habr.com/habr-web/img/splashes/splash_2436x1125.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="https://assets.habr.com/habr-web/img/splashes/splash_1792x828.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="https://assets.habr.com/habr-web/img/splashes/splash_828x1792.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="https://assets.habr.com/habr-web/img/splashes/splash_1334x750.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="https://assets.habr.com/habr-web/img/splashes/splash_1242x2668.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="https://assets.habr.com/habr-web/img/splashes/splash_2208x1242.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="https://assets.habr.com/habr-web/img/splashes/splash_1125x2436.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="https://assets.habr.com/habr-web/img/splashes/splash_1242x2208.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="https://assets.habr.com/habr-web/img/splashes/splash_2732x2048.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="https://assets.habr.com/habr-web/img/splashes/splash_2688x1242.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="https://assets.habr.com/habr-web/img/splashes/splash_2224x1668.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="https://assets.habr.com/habr-web/img/splashes/splash_750x1334.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="https://assets.habr.com/habr-web/img/splashes/splash_2048x2732.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="https://assets.habr.com/habr-web/img/splashes/splash_2388x1668.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="https://assets.habr.com/habr-web/img/splashes/splash_1668x2224.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="https://assets.habr.com/habr-web/img/splashes/splash_640x1136.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="https://assets.habr.com/habr-web/img/splashes/splash_1668x2388.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="https://assets.habr.com/habr-web/img/splashes/splash_2048x1536.png">
+  <link rel="apple-touch-startup-image" media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="https://assets.habr.com/habr-web/img/splashes/splash_1536x2048.png">
+  <link rel="mask-icon" color="#77a2b6" href="https://assets.habr.com/habr-web/img/favicons/apple-touch-icon-120.svg">
+  <link crossorigin="use-credentials" href="https://habr.com/manifest.webmanifest" rel="manifest">
+<script charset="utf-8" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/chunk-2d0e544c.95c18ea8.js"></script><meta http-equiv="origin-trial" content="A88otRz1Fd3Nt567e2IYshC18LL3KGVXpVJW9oTCId4RYaygt23pbb4JqrbdIO/bwZPWEmRjBIRBu/bZbDR7Pg4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="A0gCLbXCcL0R1Oc8tFPDs0G4Elz17w3zHp+Zst66+D17veE2o7fUcPsA114QtSTRqfVJLMeTSdeWOom0CcyCsgYAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A9RQ+LxFazAousxUwSCzaihJjHLO1UyjQp0teZKHl7WdbVjPDfHSKMd6D/ZI5MTjqClFycbl70EFd7cBJWXqKQEAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6WKeWsdn1Ct+ZPqS9NCxxaiBoQ7wdTkK2/gE69Yu0gfBKJfo1gOvgkGmf5/xaIajT/RUb9AbnF1FsSZ47cCcQcAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A04ZCu7yjrHgwQJK5ISHhH1DSg0qqowEay3n70KO6wV3D2Mj+OX3Kw20aSMitzgdG1xfrN7sOJV/dZIk+RvCzA4AAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjM0MDgzMTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A2YAd4xOntTGygIDjApOTtXOgVI3IWsd5OnOGq3RbRkIQwyqYWNl1JGRAcvtm6VOHDj4n07T/J19VqLuJn3MmQ8AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjMxNjYzOTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A2c5Ux+hivdkLh/KbZUGr6f7SCR0mZrBVfPJ+/OuDVHNwiYv+Lo83b9z5qL8sod78bQl0pSLtbvRWURo+xRl7AIAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjMxNjYzOTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="AzNJ4sd3tVurolpdvWYZ4cmP9Po7RJhEHSqmC3pgxW9fFVZvchhtcMUgHAs97npxMD1jhXHO8s6q6Wy1MMLxKgEAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjMxNjYzOTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="AwfG8hAcHnPa/kJ1Co0EvG/K0F9l1s2JZGiDLt2mhC3QI5Fh4qmsmSwrWObZFbRC9ieDaSLU6lHRxhGUF/i9sgoAAACBeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiSW50ZXJlc3RDb2hvcnRBUEkiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AwQ7dCmHkvR6FuOFxAuNnktYSQrGbL4dF+eBkrwNLALc69Wr//PnO1yzns3pjUoCaYbKHtVcnng2hU+8OUm0PAYAAACHeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiSW50ZXJlc3RDb2hvcnRBUEkiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AysVDPGQTLD/Scn78x4mLwB1tMfje5jwUpAAzGRpWsr1NzoN7MTFhT3ClmImi2svDZA7V6nWGIV8YTPsSRTe0wYAAACHeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiSW50ZXJlc3RDb2hvcnRBUEkiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><script src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/pubads_impl_2021082501.js" async=""></script><link rel="stylesheet" type="text/css" href="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/page-article_sandbox_user-articles-subpages.42ab304e.css"><script charset="utf-8" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/page-article_sandbox_user-articles-subpages.7c1dabd1.js"></script><link rel="stylesheet" type="text/css" href="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/page-article_page-company.c389b18d.css"><script charset="utf-8" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/page-article_page-company.8acf483a.js"></script><link rel="stylesheet" type="text/css" href="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/page-article.5e02c2f9.css"><script charset="utf-8" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/page-article.e4fcd1ed.js"></script><script data-vue-meta="ssr" onload="window[&#39;e0044d29c024&#39;] = true" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/saved_resource" data-vmid="checklogin"></script><script data-vue-meta="ssr" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/ads.js" onload="window[&#39;zhY4i4nJ9K&#39;] = true" data-vmid="checkad"></script><link rel="stylesheet" type="text/css" href="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/chunk-f458c7c4.7ecad03c.css"><script charset="utf-8" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/chunk-f458c7c4.529673c8.js"></script><script charset="utf-8" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/chunk-2d21ab85.a318b7bd.js"></script><script charset="utf-8" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/hljs.c67ce31f.js"></script><link rel="stylesheet" type="text/css" href="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/gallery.36fc9d2c.css"><script charset="utf-8" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/gallery.42a5862c.js"></script><script charset="utf-8" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/chunk-2d222042.0248dfe2.js"></script><script charset="utf-8" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/photoswipe.2b48f110.js"></script><link data-vue-meta="ssr" href="https://habr.com/ru/company/ruvds/blog/327530/" rel="canonical" data-vmid="canonical"><link data-vue-meta="ssr" href="https://habr.com/ru/rss/post/327530/?fl=ru" type="application/rss+xml" title="" rel="alternate" name="rss"><link data-vue-meta="ssr" data-vmid="hreflang"><link data-vue-meta="ssr" image_src="image" href="https://habr.com/share/publication/327530/73b39de56594343875e61cebb039c874/" data-vmid="image:href"><meta data-vue-meta="ssr" property="og:title" content="Bash-скрипты, часть 7: sed и обработка текстов" data-vmid="og:title"><meta data-vue-meta="ssr" name="twitter:title" content="Bash-скрипты, часть 7: sed и обработка текстов" data-vmid="twitter:title"><meta data-vue-meta="ssr" name="aiturec:title" content="Bash-скрипты, часть 7: sed и обработка текстов" data-vmid="aiturec:title"><meta data-vue-meta="ssr" name="description" content="Bash-скрипты: начало
+Bash-скрипты, часть 2: циклы
+Bash-скрипты, часть 3: параметры и ключи командной строки 
+Bash-скрипты, часть 4: ввод и вывод
+Bash-скрипты, часть 5: сигналы, фоновые задачи,..." data-vmid="description"><meta data-vue-meta="ssr" itemprop="description" content="Bash-скрипты: начало
+Bash-скрипты, часть 2: циклы
+Bash-скрипты, часть 3: параметры и ключи командной строки 
+Bash-скрипты, часть 4: ввод и вывод
+Bash-скрипты, часть 5: сигналы, фоновые задачи,..." data-vmid="description:itemprop"><meta data-vue-meta="ssr" property="og:description" content="Bash-скрипты: начало
+Bash-скрипты, часть 2: циклы
+Bash-скрипты, часть 3: параметры и ключи командной строки 
+Bash-скрипты, часть 4: ввод и вывод
+Bash-скрипты, часть 5: сигналы, фоновые задачи,..." data-vmid="og:description"><meta data-vue-meta="ssr" name="twitter:description" content="Bash-скрипты: начало
+Bash-скрипты, часть 2: циклы
+Bash-скрипты, часть 3: параметры и ключи командной строки 
+Bash-скрипты, часть 4: ввод и вывод
+Bash-скрипты, часть 5: сигналы, фоновые задачи,..." data-vmid="twitter:description"><meta data-vue-meta="ssr" property="aiturec:description" content="Bash-скрипты: начало
+Bash-скрипты, часть 2: циклы
+Bash-скрипты, часть 3: параметры и ключи командной строки 
+Bash-скрипты, часть 4: ввод и вывод
+Bash-скрипты, часть 5: сигналы, фоновые задачи,..." data-vmid="aiturec:description"><meta data-vue-meta="ssr" itemprop="image" content="https://habr.com/share/publication/327530/73b39de56594343875e61cebb039c874/" data-vmid="image:itemprop"><meta data-vue-meta="ssr" property="og:image" content="https://habr.com/share/publication/327530/73b39de56594343875e61cebb039c874/" data-vmid="og:image"><meta data-vue-meta="ssr" property="aiturec:image" content="https://habr.com/share/publication/327530/73b39de56594343875e61cebb039c874/" data-vmid="aiturec:image"><meta data-vue-meta="ssr" name="twitter:image" content="https://habr.com/share/publication/327530/73b39de56594343875e61cebb039c874/" data-vmid="twitter:image"><meta data-vue-meta="ssr" property="vk:image" content="https://habr.com/share/publication/327530/73b39de56594343875e61cebb039c874/" data-vmid="vk:image"><meta data-vue-meta="ssr" property="aiturec:item_id" content="327530" data-vmid="aiturec:item_id"><meta data-vue-meta="ssr" property="aiturec:datetime" content="2017-04-28T09:55:06.000Z" data-vmid="aiturec:datetime"><meta data-vue-meta="ssr" property="og:type" content="article" data-vmid="og:type"><meta data-vue-meta="ssr" property="og:image:width" content="1200" data-vmid="og:image:width"><meta data-vue-meta="ssr" property="og:image:height" content="630" data-vmid="og:image:height"><script data-vue-meta="ssr" type="application/ld+json" data-vmid="ldjson-schema">{"@context":"http:\/\/schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/habr.com\/ru\/company\/ruvds\/blog\/327530\/"},"headline":"Bash-скрипты, часть 7: sed и обработка текстов","datePublished":"2017-04-28T12:55:06+03:00","dateModified":"2017-05-11T16:01:21+03:00","author":{"@type":"Person","name":"ru_vds"},"publisher":{"@type":"Organization","name":"Habr","logo":{"@type":"ImageObject","url":"https:\/\/habrastorage.org\/webt\/a_\/lk\/9m\/a_lk9mjkccjox-zccjrpfolmkmq.png"}},"description":"Bash-скрипты: начало Bash-скрипты, часть 2: циклы Bash-скрипты, часть 3: параметры и ключи командной строки  Bash-скрипты, часть 4: ввод и вывод Bash-скрипты, ча...","url":"https:\/\/habr.com\/ru\/company\/ruvds\/blog\/327530\/#post-content-body","about":["c_ruvds","h_linux","h_s_admin","f_admin"],"image":["https:\/\/habrastorage.org\/files\/803\/892\/bfe\/803892bfe548499aa763df324d40fd01.png","https:\/\/habrastorage.org\/files\/1ba\/550\/d25\/1ba550d25e8846ce8805de564da6aa63.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/003\/400\/2d0\/0034002d055addd8a4856665f77b4339.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/f18\/271\/371\/f182713713c516cf7dd12b56d8579c98.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/abd\/bac\/90d\/abdbac90d073f056788d64f50983f8a6.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/3c8\/820\/a20\/3c8820a20ba2110e8564fd0c842c69a1.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/798\/725\/466\/798725466a87616ce1a839d839b2ee4f.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/2b2\/23b\/bcf\/2b223bbcf88ab80c8e9c41eec40f941b.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/a54\/fe8\/7f0\/a54fe87f0fc9b8d27b06f63567f226c6.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/b9e\/655\/342\/b9e655342c3c79d46451f3f6009e4112.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/4af\/7e8\/8bb\/4af7e88bb859d3ec2d13c8930dcbeb0a.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/b65\/95d\/aff\/b6595daff5c4d194dd9dc1788a275d22.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/de2\/bc0\/f0f\/de2bc0f0ff9ed238085298bdde0e0b5e.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/782\/882\/bed\/782882bed5d8f69312c9ba035fb84f2b.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/64b\/51f\/ad4\/64b51fad408d00d803f80fc8c6ec7859.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/51f\/531\/15d\/51f53115d810706487f9affff1281994.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/05a\/d70\/3f7\/05ad703f73023686c4c9ae7dad126252.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/0a5\/8ab\/5be\/0a58ab5be14c11121d761c7e8973dd1d.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/48c\/e22\/f12\/48ce22f12b835645a7b53e138d5591c8.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/e7e\/ed5\/e18\/e7eed5e18cac4a22642ed4fce029615d.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/706\/3df\/7b0\/7063df7b072328aa6c32bc4701c13a2a.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/be9\/6cd\/803\/be96cd803c49925b9516b989f902b3de.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/10d\/8b8\/b4f\/10d8b8b4f5a0ce85030f0e5563db8127.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/094\/6be\/4ef\/0946be4ef914bf39059fd01eb97bd948.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/b80\/0d3\/eb1\/b800d3eb18a27f331d8fc9b5b3f014c2.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/463\/88b\/3e2\/46388b3e27486dc3ec57e7286529563c.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/3e9\/f61\/112\/3e9f61112ede9cd01bc9258449a2bb76.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/08f\/6e3\/fff\/08f6e3fff71b4d8ff29eeb861f45f87e.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/8cf\/93d\/c7d\/8cf93dc7dbfff532d258cf84f92dd990.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/cba\/747\/50f\/cba74750fb26c13f9c91d5ebaa14c3bb.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/c79\/cbf\/3ad\/c79cbf3adeabd2b1fd103ce59a8d27fe.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/cbd\/bb8\/b9d\/cbdbb8b9db2f43d1f468db24ccf0647e.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/5ac\/362\/4e5\/5ac3624e55a40dad7ac8d542f35eb934.png","https:\/\/habrastorage.org\/files\/1ba\/550\/d25\/1ba550d25e8846ce8805de564da6aa63.png"]}</script></head>
+<body cz-shortcut-listen="true">
+
+
+<div id="app" data-async-called="true"><div class="tm-layout__wrapper"><!----><div></div><!----><header class="tm-header"><div class="tm-page-width"><div class="tm-header__container"><!----><span class="tm-header__logo-wrap"><a href="https://habr.com/ru/" class="tm-header__logo tm-header__logo_ru"><svg height="16" width="16" class="tm-svg-img tm-header__icon"><title>Хабр</title><use xlink:href="/img/habr-logo-ru.svg#logo"></use></svg></a><span class="tm-header__beta-sign" style="display: none;">β</span></span><div class="tm-dropdown tm-header__projects"><div class="tm-dropdown__head"><button class="tm-header__dropdown-toggle"><svg height="16" width="16" class="tm-svg-img tm-header__icon tm-header__icon_dropdown"><title>Открыть список</title><use xlink:href="/img/megazord-v24.cee85629.svg#arrow-down"></use></svg></button></div><!----></div><a href="https://habr.com/ru/sandbox/start/" class="tm-header__become-author-btn">
+              Как стать автором
+            </a><!----><!----><div class="tm-header-user-menu tm-header_user-menu"><a href="https://habr.com/ru/search/" class="tm-header-user-menu__item tm-header-user-menu__search"><svg height="24" width="24" class="tm-svg-img tm-header-user-menu__icon tm-header-user-menu__icon_search"><title>Поиск</title><use xlink:href="/img/megazord-v24.cee85629.svg#search"></use></svg></a><!----><!----><!----><div class="tm-header-user-menu__item"><button data-test-id="menu-toggle-guest" class="tm-header-user-menu__toggle"><svg height="24" width="24" class="tm-svg-img tm-header-user-menu__icon tm-header-user-menu__icon_white"><title>Профиль</title><use xlink:href="/img/megazord-v24.cee85629.svg#header-user"></use></svg></button><!----></div><!----></div></div></div></header><div class="tm-layout"><div class="tm-page-progress-bar"></div><div class="tm-base-layout__header"><div class="tm-page-width"><div class="tm-base-layout__header-wrapper"><div class="tm-main-menu"><div class="tm-main-menu__section"><nav class="tm-main-menu__section-content"><!----><a href="https://habr.com/ru/all/" class="tm-main-menu__item">
+        Все потоки
+      </a><a href="https://habr.com/ru/flows/develop/" class="tm-main-menu__item">
+          Разработка
+        </a><a href="https://habr.com/ru/flows/admin/" class="tm-main-menu__item">
+          Администрирование
+        </a><a href="https://habr.com/ru/flows/design/" class="tm-main-menu__item">
+          Дизайн
+        </a><a href="https://habr.com/ru/flows/management/" class="tm-main-menu__item">
+          Менеджмент
+        </a><a href="https://habr.com/ru/flows/marketing/" class="tm-main-menu__item">
+          Маркетинг
+        </a><a href="https://habr.com/ru/flows/popsci/" class="tm-main-menu__item">
+          Научпоп
+        </a></nav></div></div><!----></div></div></div><!----><div class="tm-page-width tm-page-width_no-padding"></div><main class="tm-layout__container"><div class="tm-page" hl="ru" companyname="ruvds"><div class="tm-page-width tm-page-width_no-padding"><div class="tm-page__header"><div class="tm-company-card__branding"><!----><a href="https://ruvds.com/ru-rub"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/b778d5a41f83016379c6630262c3294c.png" width="100%" class="tm-company-card__branding-image"></a></div></div><div class="tm-page__wrapper"><div class="tm-page__main tm-page__main_has-sidebar"><div class="pull-down"><div class="pull-down__header" style="height: 0px;"><div class="pull-down__content" style="bottom: 10px;"><svg height="24" width="24" class="tm-svg-img pull-down__arrow"><title>Обновить</title><use xlink:href="/img/megazord-v24.cee85629.svg#pull-arrow"></use></svg></div></div><!----><div class="tm-page-article__body"><article class="tm-page-article__content tm-page-article__content_inner"><div class="tm-page-article__head-wrapper"><!----><div class="tm-article-snippet tm-page-article__snippet"><div class="tm-article-snippet__meta-container"><div class="tm-article-snippet__meta"><span class="tm-user-info tm-article-snippet__author"><a href="https://habr.com/ru/users/ru_vds/" class="tm-user-info__userpic" title="ru_vds"><div class="tm-entity-image"><img alt="" height="24" loading="lazy" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/e36812d3de38eb3d479d7a13228717ef.png" width="24" class="tm-entity-image__pic"></div></a><span class="tm-user-info__user"><a href="https://habr.com/ru/users/ru_vds/" class="tm-user-info__username">
+      ru_vds
+    </a></span></span><span class="tm-article-snippet__datetime-published"><time datetime="2017-04-28T09:55:06.000Z" title="2017-04-28, 16:55">28  апреля  2017 в 16:55</time></span></div><!----></div><h1 lang="ru" class="tm-article-snippet__title tm-article-snippet__title_h1"><span>Bash-скрипты, часть 7: sed и обработка текстов</span></h1><div class="tm-article-snippet__hubs"><span class="tm-article-snippet__hubs-item"><a href="https://habr.com/ru/company/ruvds/blog/" class="tm-article-snippet__hubs-item-link router-link-active"><span>Блог компании RUVDS.com</span><!----></a></span><span class="tm-article-snippet__hubs-item"><a href="https://habr.com/ru/hub/linux/" class="tm-article-snippet__hubs-item-link"><span>Настройка Linux</span><span title="Профильный хаб" class="tm-article-snippet__profiled-hub">*</span></a></span><span class="tm-article-snippet__hubs-item"><a href="https://habr.com/ru/hub/s_admin/" class="tm-article-snippet__hubs-item-link"><span>Серверное администрирование</span><span title="Профильный хаб" class="tm-article-snippet__profiled-hub">*</span></a></span></div><div class="tm-article-snippet__labels"><div class="tm-article-snippet__label"><span>
+          Перевод
+        </span></div></div><!----><!----></div></div><div class="tm-page-article__origin"><a href="https://likegeeks.com/sed-linux/" target="_blank" class="tm-page-article__origin-link">
+                Автор оригинала:
+                <span class="tm-page-article__origin-value">
+                  Администратор likegeeks.com
+                </span></a></div><div data-gallery-root="" class="tm-article-body" lang="ru"><div class="article-formatted-body article-formatted-body_version-1" id="post-content-body"><div xmlns="http://www.w3.org/1999/xhtml"><blockquote><a href="https://habrahabr.ru/company/ruvds/blog/325522/">Bash-скрипты: начало</a><br>
+<a href="https://habrahabr.ru/company/ruvds/blog/325928/">Bash-скрипты, часть 2: циклы</a><br>
+<a href="https://habrahabr.ru/company/ruvds/blog/326328/">Bash-скрипты, часть 3: параметры и ключи командной строки</a> <br>
+<a href="https://habrahabr.ru/company/ruvds/blog/326594/">Bash-скрипты, часть 4: ввод и вывод</a><br>
+<a href="https://habrahabr.ru/company/ruvds/blog/326826/">Bash-скрипты, часть 5: сигналы, фоновые задачи, управление сценариями</a><br>
+<a href="https://habrahabr.ru/company/ruvds/blog/327248/">Bash-скрипты, часть 6: функции и разработка библиотек</a><br>
+<a href="https://habrahabr.ru/company/ruvds/blog/327530/">Bash-скрипты, часть 7: sed и обработка текстов</a><br>
+<a href="https://habrahabr.ru/company/ruvds/blog/327754/">Bash-скрипты, часть 8: язык обработки данных awk</a><br>
+<a href="https://habrahabr.ru/company/ruvds/blog/327896/">Bash-скрипты, часть 9: регулярные выражения</a><br>
+<a href="https://habrahabr.ru/company/ruvds/blog/328346/">Bash-скрипты, часть 10: практические примеры</a><br>
+<a href="https://habrahabr.ru/company/ruvds/blog/328436/">Bash-скрипты, часть 11: expect и автоматизация интерактивных утилит</a></blockquote><br>
+В прошлый раз мы говорили о функциях в bash-скриптах, в частности, о том, как вызывать их из командной строки. Наша сегодняшняя тема — весьма полезный инструмент для обработки строковых данных — утилита Linux, которая называется sed. Её часто используют для работы с текстами, имеющими вид лог-файлов, конфигурационных и других файлов.<br>
+<br>
+<a href="https://habrahabr.ru/company/ruvds/blog/327530/"><img data-src="https://habrastorage.org/files/803/892/bfe/803892bfe548499aa763df324d40fd01.png" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/803892bfe548499aa763df324d40fd01.png"></a><br>
+<a name="habracut"></a><br>
+Если вы, в bash-скриптах, каким-то образом обрабатываете данные, вам не помешает знакомство с инструментами <a href="https://en.wikipedia.org/wiki/Sed">sed</a> и gawk. Тут мы сосредоточимся на sed и на работе с текстами, так как это — очень важный шаг в нашем путешествии по бескрайним просторам разработки bash-скриптов.<br>
+<br>
+<a href="https://ruvds.com/ru-rub/#order"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/files/1ba/550/d25/1ba550d25e8846ce8805de564da6aa63.png"></a><br>
+<br>
+Сейчас мы разберём основы работы с sed, а так же рассмотрим более трёх десятков примеров использования этого инструмента.<br>
+<br>
+<h2><font color="#3AC1EF">Основы работы с sed</font></h2><br>
+Утилиту sed называют потоковым текстовым редактором. В интерактивных текстовых редакторах, наподобие nano, с текстами работают, используя клавиатуру, редактируя файлы, добавляя, удаляя или изменяя тексты. Sed позволяет редактировать потоки данных, основываясь на заданных разработчиком наборах правил. Вот как выглядит схема вызова этой команды:<br>
+<br>
+<pre><code class="hljs cmake">$ sed options <span class="hljs-keyword">file</span></code></pre><br>
+По умолчанию sed применяет указанные при вызове правила, выраженные в виде набора команд, к <code>STDIN</code>. Это позволяет передавать данные непосредственно sed. <br>
+<br>
+Например, так:<br>
+<br>
+<pre><code class="hljs smalltalk"><span class="hljs-string">$ </span>echo <span class="hljs-comment">"This is a test"</span> | sed <span class="hljs-string">'s/test/another test/'</span></code></pre><br>
+Вот что получится при выполнении этой команды.<br>
+<br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/003/400/2d0/0034002d055addd8a4856665f77b4339.png"></div><br>
+<i><font color="#999999">Простой пример вызова sed</font></i><br>
+<br>
+В данном случае sed заменяет слово «test» в строке, переданной для обработки, словами «another test». Для оформления правила обработки текста, заключённого в кавычки, используются прямые слэши. В нашем случае применена команда вида <code>s/pattern1/pattern2/</code>. Буква «s» — это сокращение слова «substitute», то есть — перед нами команда замены. Sed, выполняя эту команду, просмотрит переданный текст и заменит найденные в нём фрагменты (о том — какие именно, поговорим ниже), соответствующие <code>pattern1</code>, на <code>pattern2</code>.<br>
+<br>
+Выше приведён примитивный пример использования sed, нужный для того, чтобы ввести вас в курс дела. На самом деле, sed можно применять в гораздо более сложных сценариях обработки текстов, например — для работы с файлами.<br>
+<br>
+Ниже показан файл, в котором содержится фрагмент текста, и результаты его обработки такой командой:<br>
+<br>
+<pre><code class="hljs cmake">$ sed 's/<span class="hljs-keyword">test</span>/another <span class="hljs-keyword">test</span>' ./myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/f18/271/371/f182713713c516cf7dd12b56d8579c98.png"></div><br>
+<i><font color="#999999">Текстовый файл и результаты его обработки</font></i><br>
+<br>
+Здесь применён тот же подход, который мы использовали выше, но теперь sed обрабатывает текст, хранящийся в файле. При этом, если файл достаточно велик, можно заметить, что sed обрабатывает данные порциями и выводит то, что обработано, на экран, не дожидаясь обработки всего файла.<br>
+<br>
+Sed не меняет данные в обрабатываемом файле. Редактор читает файл, обрабатывает прочитанное, и отправляет то, что получилось, в <code>STDOUT</code>. Для того, чтобы убедиться в том, что исходный файл не изменился, достаточно, после того, как он был передан sed, открыть его. При необходимости вывод sed можно перенаправить в файл, возможно — перезаписать старый файл. Если вы знакомы с одним из предыдущих <a href="https://habrahabr.ru/company/ruvds/blog/326594/">материалов</a> этой серии, где речь идёт о перенаправлении потоков ввода и вывода, вы вполне сможете это сделать.<br>
+<br>
+<h2><font color="#3AC1EF">Выполнение наборов команд при вызове sed</font></h2><br>
+Для выполнения нескольких действий с данными, используйте ключ <code>-e</code> при вызове sed. Например, вот как организовать замену двух фрагментов текста:<br>
+<br>
+<pre><code class="hljs cmake">$ sed -e 's/This/That/; s/<span class="hljs-keyword">test</span>/another <span class="hljs-keyword">test</span>/' ./myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/abd/bac/90d/abdbac90d073f056788d64f50983f8a6.png"></div><br>
+<i><font color="#999999">Использование ключа -e при вызове sed</font></i><br>
+<br>
+К каждой строке текста из файла применяются обе команды. Их нужно разделить точкой с запятой, при этом между окончанием команды и точкой с запятой не должно быть пробела.<br>
+Для ввода нескольких шаблонов обработки текста при вызове sed, можно, после ввода первой одиночной кавычки, нажать Enter, после чего вводить каждое правило с новой строки, не забыв о закрывающей кавычке:<br>
+<br>
+<pre><code class="hljs cmake">$ sed -e '
+&gt; s/This/That/
+&gt; s/<span class="hljs-keyword">test</span>/another <span class="hljs-keyword">test</span>/' ./myfile</code></pre><br>
+Вот что получится после того, как команда, представленная в таком виде, будет выполнена.<br>
+<br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/3c8/820/a20/3c8820a20ba2110e8564fd0c842c69a1.png"></div><br>
+<i><font color="#999999">Другой способ работы с sed</font></i><br>
+<br>
+<h2><font color="#3AC1EF">Чтение команд из файла</font></h2><br>
+Если имеется множество команд sed, с помощью которых надо обработать текст, обычно удобнее всего предварительно записать их в файл. Для того, чтобы указать sed файл, содержащий команды, используют ключ <code>-f</code>:<br>
+<br>
+Вот содержимое файла <code>mycommands</code>:<br>
+<br>
+<pre><code class="hljs perl"><span class="hljs-keyword">s</span>/This/That/
+<span class="hljs-regexp">s/test/another test/</span></code></pre><br>
+Вызовем sed, передав редактору файл с командами и файл для обработки:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> sed <span class="hljs-operator">-f</span> mycommands myfile</code></pre><br>
+Результат при вызове такой команды аналогичен тому, который получался в предыдущих примерах.<br>
+<br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/798/725/466/798725466a87616ce1a839d839b2ee4f.png"></div><br>
+<i><font color="#999999">Использование файла с командами при вызове sed</font></i><br>
+<br>
+<h2><font color="#3AC1EF">Флаги команды замены</font></h2><br>
+Внимательно посмотрите на следующий пример.<br>
+<br>
+<pre><code class="hljs cmake">$ sed 's/<span class="hljs-keyword">test</span>/another <span class="hljs-keyword">test</span>/' myfile</code></pre><br>
+Вот что содержится в файле, и что будет получено после его обработки sed.<br>
+<br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/2b2/23b/bcf/2b223bbcf88ab80c8e9c41eec40f941b.png"></div><br>
+<i><font color="#999999">Исходный файл и результаты его обработки</font></i><br>
+<br>
+Команда замены нормально обрабатывает файл, состоящий из нескольких строк, но заменяются только первые вхождения искомого фрагмента текста в каждой строке. Для того, чтобы заменить все вхождения шаблона, нужно использовать соответствующий флаг.<br>
+<br>
+Схема записи команды замены при использовании флагов выглядит так:<br>
+<br>
+<pre><code class="hljs">s/pattern/replacement/flags</code></pre><br>
+Выполнение этой команды можно модифицировать несколькими способами.<br>
+<br>
+<ul>
+<li>При передаче номера учитывается порядковый номер вхождения шаблона в строку, заменено будет именно это вхождение.<br>
+</li>
+<li>Флаг <code>g</code> указывает на то, что нужно обработать все вхождения шаблона, имеющиеся в строке.<br>
+</li>
+<li>Флаг <code>p</code> указывает на то, что нужно вывести содержимое исходной строки.<br>
+</li>
+<li>Флаг вида <code>w file</code> указывает команде на то, что нужно записать результаты обработки текста в файл.<br>
+</li>
+</ul><br>
+Рассмотрим использование первого варианта команды замены, с указанием позиции заменяемого вхождения искомого фрагмента:<br>
+<br>
+<pre><code class="hljs cmake">$ sed 's/<span class="hljs-keyword">test</span>/another <span class="hljs-keyword">test</span>/<span class="hljs-number">2</span>' myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/a54/fe8/7f0/a54fe87f0fc9b8d27b06f63567f226c6.png"></div><br>
+<i><font color="#999999">Вызов команды замены с указанием позиции заменяемого фрагмента</font></i><br>
+<br>
+Тут мы указали, в качестве флага замены, число 2. Это привело к тому, что было заменено лишь второе вхождение искомого шаблона в каждой строке. Теперь опробуем флаг глобальной замены — <code>g</code>:<br>
+<br>
+<pre><code class="hljs cmake">$ sed 's/<span class="hljs-keyword">test</span>/another <span class="hljs-keyword">test</span>/g' myfile</code></pre><br>
+Как видно из результатов вывода, такая команда заменила все вхождения шаблона в тексте.<br>
+<br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/b9e/655/342/b9e655342c3c79d46451f3f6009e4112.png"></div><br>
+<i><font color="#999999">Глобальная замена</font></i><br>
+<br>
+Флаг команды замены <code>p</code> позволяет выводить строки, в которых найдены совпадения, при этом ключ <code>-n</code>, указанный при вызове sed, подавляет обычный вывод:<br>
+<br>
+<pre><code class="hljs cmake">$ sed -n 's/<span class="hljs-keyword">test</span>/another <span class="hljs-keyword">test</span>/p' myfile</code></pre><br>
+Как результат, при запуске sed в такой конфигурации на экран выводятся лишь строки (в нашем случае — одна строка), в которых найден заданный фрагмент текста.<br>
+<br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/4af/7e8/8bb/4af7e88bb859d3ec2d13c8930dcbeb0a.png"></div><br>
+<i><font color="#999999">Использование флага команды замены p</font></i><br>
+<br>
+Воспользуемся флагом <code>w</code>, который позволяет сохранить результаты обработки текста в файл:<br>
+<br>
+<pre><code class="hljs cmake">$ sed 's/<span class="hljs-keyword">test</span>/another <span class="hljs-keyword">test</span>/w output' myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/b65/95d/aff/b6595daff5c4d194dd9dc1788a275d22.png"></div><br>
+<i><font color="#999999">Сохранение результатов обработки текста в файл</font></i><br>
+<br>
+Хорошо видно, что в ходе работы команды данные выводятся в <a href="https://habrahabr.ru/company/ruvds/blog/326594/">STDOUT</a>, при этом обработанные строки записываются в файл, имя которого указано после <code>w</code>.<br>
+<br>
+<h2><font color="#3AC1EF">Символы-разделители</font></h2><br>
+Представьте, что нужно заменить <code>/bin/bash</code> на <code>/bin/csh</code> в файле <code>/etc/passwd</code>. Задача не такая уж и сложная:<br>
+<br>
+<pre><code class="hljs tex"><span class="hljs-formula">$ sed 's/<span class="hljs-tag">\<span class="hljs-name">/</span></span>bin<span class="hljs-tag">\<span class="hljs-name">/</span></span>bash/<span class="hljs-tag">\<span class="hljs-name">/</span></span>bin<span class="hljs-tag">\<span class="hljs-name">/</span></span>csh/' /etc/passwd</span></code></pre><br>
+Однако, выглядит всё это не очень-то хорошо. Всё дело в том, что так как прямые слэши используются в роли символов-разделителей, такие же символы в передаваемых sed строках приходится экранировать. В результате страдает читаемость команды.<br>
+<br>
+К счастью, sed позволяет нам самостоятельно задавать символы-разделители для использования их в команде замены. Разделителем считается первый символ, который будет встречен после <code>s</code>:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> sed <span class="hljs-string">'s!/bin/bash!/bin/csh!'</span> /etc/passwd</code></pre><br>
+В данном случае в качестве разделителя использован восклицательный знак, в результате код легче читать и он выглядит куда опрятнее, чем прежде.<br>
+<br>
+<h2><font color="#3AC1EF">Выбор фрагментов текста для обработки</font></h2><br>
+До сих пор мы вызывали sed для обработки всего переданного редактору потока данных. В некоторых случаях с помощью sed надо обработать лишь какую-то часть текста — некую конкретную строку или группу строк. Для достижения такой цели можно воспользоваться двумя подходами:<br>
+<br>
+<ul>
+<li>Задать ограничение на номера обрабатываемых строк.<br>
+</li>
+<li>Указать фильтр, соответствующие которому строки нужно обработать.<br>
+</li>
+</ul><br>
+Рассмотрим первый подход. Тут допустимо два варианта. Первый, рассмотренный ниже, предусматривает указание номера одной строки, которую нужно обработать:<br>
+<br>
+<pre><code class="hljs cmake">$ sed '<span class="hljs-number">2</span>s/<span class="hljs-keyword">test</span>/another <span class="hljs-keyword">test</span>/' myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/de2/bc0/f0f/de2bc0f0ff9ed238085298bdde0e0b5e.png"></div><br>
+<i><font color="#999999">Обработка только одной строки, номер который задан при вызове sed</font></i><br>
+<br>
+Второй вариант — диапазон строк:<br>
+<br>
+<pre><code class="hljs cmake">$ sed '<span class="hljs-number">2</span>,<span class="hljs-number">3</span>s/<span class="hljs-keyword">test</span>/another <span class="hljs-keyword">test</span>/' myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/782/882/bed/782882bed5d8f69312c9ba035fb84f2b.png"></div><br>
+<i><font color="#999999">Обработка диапазона строк</font></i><br>
+<br>
+Кроме того, можно вызвать команду замены так, чтобы файл был обработан начиная с некоей строки и до конца:<br>
+<br>
+<pre><code class="hljs cmake">$ sed '<span class="hljs-number">2</span>,$s/<span class="hljs-keyword">test</span>/another <span class="hljs-keyword">test</span>/' myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/64b/51f/ad4/64b51fad408d00d803f80fc8c6ec7859.png"></div><br>
+<i><font color="#999999">Обработка файла начиная со второй строки и до конца</font></i><br>
+<br>
+Для того, чтобы обрабатывать с помощью команды замены только строки, соответствующие заданному фильтру, команду надо вызвать так:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> sed <span class="hljs-string">'/likegeeks/s/bash/csh/'</span> /etc/passwd</code></pre><br>
+По аналогии с тем, что было рассмотрено выше, шаблон передаётся перед именем команды <code>s</code>.<br>
+<br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/51f/531/15d/51f53115d810706487f9affff1281994.png"></div><br>
+<i><font color="#999999">Обработка строк, соответствующих фильтру</font></i><br>
+<br>
+Тут мы использовали очень простой фильтр. Для того, чтобы в полной мере раскрыть возможности данного подхода, можно воспользоваться регулярными выражениями. О них мы поговорим в одном из следующих материалов этой серии.<br>
+<br>
+<h2><font color="#3AC1EF">Удаление строк</font></h2><br>
+Утилита sed годится не только для замены одних последовательностей символов в строках на другие. С её помощью, а именно, используя команду <code>d</code>, можно удалять строки из текстового потока.<br>
+<br>
+Вызов команды выглядит так:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> sed <span class="hljs-string">'3d'</span> myfile</code></pre><br>
+Мы хотим, чтобы из текста была удалена третья строка. Обратите внимание на то, что речь не идёт о файле. Файл останется неизменным, удаление отразится лишь на выводе, который сформирует sed.<br>
+<br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/05a/d70/3f7/05ad703f73023686c4c9ae7dad126252.png"></div><br>
+<i><font color="#999999">Удаление третьей строки</font></i><br>
+<br>
+Если при вызове команды <code>d</code> не указать номер удаляемой строки, удалены будут все строки потока.<br>
+<br>
+Вот как применить команду <code>d</code> к диапазону строк:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> sed <span class="hljs-string">'2,3d'</span> myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/0a5/8ab/5be/0a58ab5be14c11121d761c7e8973dd1d.png"></div><br>
+<i><font color="#999999">Удаление диапазона строк</font></i><br>
+<br>
+А вот как удалить строки, начиная с заданной — и до конца файла:<br>
+<br>
+<pre><code class="hljs dart">$ sed <span class="hljs-string">'3,<span class="hljs-subst">$d</span>'</span> myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/48c/e22/f12/48ce22f12b835645a7b53e138d5591c8.png"></div><br>
+<i><font color="#999999">Удаление строк до конца файла</font></i><br>
+<br>
+Строки можно удалять и по шаблону:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> sed <span class="hljs-string">'/test/d'</span> myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/e7e/ed5/e18/e7eed5e18cac4a22642ed4fce029615d.png"></div><br>
+<i><font color="#999999">Удаление строк по шаблону</font></i><br>
+<br>
+При вызове <code>d</code> можно указывать пару шаблонов — будут удалены строки, в которых встретится шаблон, и те строки, которые находятся между ними:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> sed <span class="hljs-string">'/second/,/fourth/d'</span> myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/706/3df/7b0/7063df7b072328aa6c32bc4701c13a2a.png"></div><br>
+<i><font color="#999999">Удаление диапазона строк с использованием шаблонов</font></i><br>
+<br>
+<h2><font color="#3AC1EF">Вставка текста в поток</font></h2><br>
+С помощью sed можно вставлять данные в текстовый поток, используя команды <code>i</code> и <code>a</code>:<br>
+<br>
+<ul>
+<li>Команда <code>i</code> добавляет новую строку перед заданной.<br>
+</li>
+<li>Команда <code>a</code> добавляет новую строку после заданной.<br>
+</li>
+</ul><br>
+Рассмотрим пример использования команды <code>i</code>:<br>
+<br>
+<pre><code class="hljs bash">$ <span class="hljs-built_in">echo</span> <span class="hljs-string">"Another test"</span> | sed <span class="hljs-string">'i\First test '</span></code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/be9/6cd/803/be96cd803c49925b9516b989f902b3de.png"></div><br>
+<i><font color="#999999">Команда i</font></i><br>
+<br>
+Теперь взглянем на команду <code>a</code>:<br>
+<br>
+<pre><code class="hljs bash">$ <span class="hljs-built_in">echo</span> <span class="hljs-string">"Another test"</span> | sed <span class="hljs-string">'a\First test '</span></code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/10d/8b8/b4f/10d8b8b4f5a0ce85030f0e5563db8127.png"></div><br>
+<i><font color="#999999">Команда a</font></i><br>
+<br>
+Как видно, эти команды добавляют текст до или после данных из потока. Что если надо добавить строку где-нибудь посередине?<br>
+<br>
+Тут нам поможет указание номера опорной строки в потоке, или шаблона. Учтите, что адресация строк в виде диапазона тут не подойдёт. Вызовем команду <code>i</code>, указав номер строки, перед которой надо вставить новую строку:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> sed <span class="hljs-string">'2i\This is the inserted line.'</span> myfile</code></pre><br>
+<br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/094/6be/4ef/0946be4ef914bf39059fd01eb97bd948.png"></div><br>
+<i><font color="#999999">Команда i с указанием номера опорной строки</font></i><br>
+<br>
+Проделаем то же самое с командой <code>a</code>:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> sed <span class="hljs-string">'2a\This is the appended line.'</span> myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/b80/0d3/eb1/b800d3eb18a27f331d8fc9b5b3f014c2.png"></div><br>
+<i><font color="#999999">Команда a с указанием номера опорной строки</font></i><br>
+<br>
+Обратите внимание на разницу в работе команд <code>i</code> и <code>a</code>. Первая вставляет новую строку до указанной, вторая — после.<br>
+<br>
+<h2><font color="#3AC1EF">Замена строк</font></h2><br>
+Команда <code>c</code> позволяет изменить содержимое целой строки текста в потоке данных. При её вызове нужно указать номер строки, вместо которой в поток надо добавить новые данные:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> sed <span class="hljs-string">'3c\This is a modified line.'</span> myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/463/88b/3e2/46388b3e27486dc3ec57e7286529563c.png"></div><br>
+<i><font color="#999999">Замена строки целиком</font></i><br>
+<br>
+Если воспользоваться при вызове команды шаблоном в виде обычного текста или регулярного выражения, заменены будут все соответствующие шаблону строки:<br>
+<br>
+<pre><code class="hljs vhdl">$ sed '/This <span class="hljs-keyword">is</span>/c This <span class="hljs-keyword">is</span> a changed <span class="hljs-literal">line</span> <span class="hljs-keyword">of</span> <span class="hljs-literal">text</span>.' myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/3e9/f61/112/3e9f61112ede9cd01bc9258449a2bb76.png"></div><br>
+<i><font color="#999999">Замена строк по шаблону</font></i><br>
+<br>
+<h2><font color="#3AC1EF">Замена символов</font></h2><br>
+Команда <code>y</code> работает с отдельными символами, заменяя их в соответствии с переданными ей при вызове данными:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> sed <span class="hljs-string">'y/123/567/'</span> myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/08f/6e3/fff/08f6e3fff71b4d8ff29eeb861f45f87e.png"></div><br>
+<i><font color="#999999">Замена символов</font></i><br>
+<br>
+Используя эту команду, нужно учесть, что она применяется ко всему текстовому потоку, ограничить её конкретными вхождениями символов нельзя.<br>
+<br>
+<h2><font color="#3AC1EF">Вывод номеров строк</font></h2><br>
+Если вызвать sed, использовав команду <code>=</code>, утилита выведет номера строк в потоке данных:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> sed <span class="hljs-string">'='</span> myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/8cf/93d/c7d/8cf93dc7dbfff532d258cf84f92dd990.png"></div><br>
+<i><font color="#999999">Вывод номеров строк</font></i><br>
+<br>
+Потоковый редактор вывел номера строк перед их содержимым.<br>
+<br>
+Если передать этой команде шаблон и воспользоваться ключом sed <code>-n</code>, выведены будут только номера строк, соответствующих шаблону:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> sed <span class="hljs-literal">-n</span> <span class="hljs-string">'/test/='</span> myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/cba/747/50f/cba74750fb26c13f9c91d5ebaa14c3bb.png"></div><br>
+<i><font color="#999999">Вывод номеров строк, соответствующих шаблону</font></i><br>
+<br>
+<h2><font color="#3AC1EF">Чтение данных для вставки из файла</font></h2><br>
+Выше мы рассматривали приёмы вставки данных в поток, указывая то, что надо вставить, прямо при вызове sed. В качестве источника данных можно воспользоваться и файлом. Для этого служит команда <code>r</code>, которая позволяет вставлять в поток данные из указанного файла. При её вызове можно указать номер строки, после которой надо вставить содержимое файла, или шаблон.<br>
+<br>
+Рассмотрим пример:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> sed <span class="hljs-string">'3r newfile'</span> myfile</code></pre><br>
+ <br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/c79/cbf/3ad/c79cbf3adeabd2b1fd103ce59a8d27fe.png"></div><br>
+<i><font color="#999999">Вставка в поток содержимого файла</font></i><br>
+<br>
+Тут содержимое файла <code>newfile</code> было вставлено после третьей строки файла <code>myfile</code>.<br>
+<br>
+Вот что произойдёт, если применить при вызове команды <code>r</code> шаблон:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> sed <span class="hljs-string">'/test/r newfile'</span> myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/cbd/bb8/b9d/cbdbb8b9db2f43d1f468db24ccf0647e.png"></div><br>
+<i><font color="#999999">Использование шаблона при вызове команды r</font></i><br>
+<br>
+Содержимое файла будет вставлено после каждой строки, соответствующей шаблону.<br>
+<br>
+<h2><font color="#3AC1EF">Пример</font></h2><br>
+Представим себе такую задачу. Есть файл, в котором имеется некая последовательность символов, сама по себе бессмысленная, которую надо заменить на данные, взятые из другого файла. А именно, пусть это будет файл <code>newfile</code>, в котором роль указателя места заполнения играет последовательность символов <code>DATA</code>. Данные, которые нужно подставить вместо <code>DATA</code>, хранятся в файле <code>data</code>.<br>
+<br>
+Решить эту задачу можно, воспользовавшись командами <code>r</code> и <code>d</code> потокового редактора sed:<br>
+<br>
+<pre><code class="hljs powershell"><span class="hljs-variable">$</span> Sed <span class="hljs-string">'/DATA&gt;/ {
+r newfile
+d}'</span> myfile</code></pre><br>
+<div style="text-align:center;"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/getpro/habr/post_images/5ac/362/4e5/5ac3624e55a40dad7ac8d542f35eb934.png"></div><br>
+<i><font color="#999999">Замена указателя места заполнения на реальные данные</font></i><br>
+<br>
+Как видите, вместо заполнителя <code>DATA</code> sed добавил в выходной поток две строки из файла <code>data</code>.<br>
+<br>
+<h2><font color="#3AC1EF">Итоги</font></h2><br>
+Сегодня мы рассмотрели основы работы с потоковым редактором sed. На самом деле, sed — это огромнейшая тема. Его изучение вполне можно сравнить с изучением нового языка программирования, однако, поняв основы, вы сможете освоить sed на любом необходимом вам уровне. В результате ваши возможности по обработке с его помощью текстов будет ограничивать лишь воображение.<br>
+<br>
+На сегодня это всё. В следующий раз поговорим о языке обработки данных awk.<br>
+<br>
+<a href="https://ruvds.com/ru-rub/#order"><img src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/image-loader.svg" data-src="https://habrastorage.org/files/1ba/550/d25/1ba550d25e8846ce8805de564da6aa63.png"></a><br>
+<br>
+Уважаемые читатели! А вы пользуетесь sed в повседневной работе? Если да — поделитесь пожалуйста опытом.</div></div><div aria-hidden="true" role="dialog" tabindex="-1" class="pswp"><div class="pswp__bg"></div><div class="pswp__scroll-wrap"><div class="pswp__container"><div class="pswp__item"></div><div class="pswp__item"></div><div class="pswp__item"></div></div><div class="pswp__ui pswp__ui--hidden"><div class="pswp__top-bar"><span class="tm-svg-icon__wrapper pswp__button pswp__button--close"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Закрыть</title><use xlink:href="/img/megazord-v24.cee85629.svg#close"></use></svg></span><div class="pswp__preloader"><div class="pswp__preloader__icn"><div class="pswp__preloader__cut"><div class="pswp__preloader__donut"></div></div></div></div></div></div></div></div><!----></div><div class="tm-article-body__tags"><div class="tm-article-body__tags-links"><span class="tm-article-body__tags-title">Теги:</span><span class="tm-article-body__tags-item"><a href="https://habr.com/ru/search/?target_type=posts&amp;order=relevance&amp;q=%5BLinux%5D" class="tm-article-body__tags-item-link">Linux</a></span><span class="tm-article-body__tags-item"><a href="https://habr.com/ru/search/?target_type=posts&amp;order=relevance&amp;q=%5BBash%5D" class="tm-article-body__tags-item-link">Bash</a></span><span class="tm-article-body__tags-item"><a href="https://habr.com/ru/search/?target_type=posts&amp;order=relevance&amp;q=%5B%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B9%20%D1%81%D1%82%D1%80%D0%BE%D0%BA%D0%B8%5D" class="tm-article-body__tags-item-link">сценарий командной строки</a></span><span class="tm-article-body__tags-item"><a href="https://habr.com/ru/search/?target_type=posts&amp;order=relevance&amp;q=%5BBash-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%5D" class="tm-article-body__tags-item-link">Bash-скрипт</a></span><span class="tm-article-body__tags-item"><a href="https://habr.com/ru/search/?target_type=posts&amp;order=relevance&amp;q=%5Bsed%5D" class="tm-article-body__tags-item-link">sed</a></span><span class="tm-article-body__tags-item"><a href="https://habr.com/ru/search/?target_type=posts&amp;order=relevance&amp;q=%5B%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%BE%D0%B2%5D" class="tm-article-body__tags-item-link">обработка текстов</a></span></div><div class="tm-article-body__tags-links"><span class="tm-article-body__tags-title">Хабы:</span><span class="tm-article-body__tags-item"><a href="https://habr.com/ru/company/ruvds/blog/" class="tm-article-body__tags-item-link router-link-active">
+                  Блог компании RUVDS.com
+                </a></span><span class="tm-article-body__tags-item"><a href="https://habr.com/ru/hub/linux/" class="tm-article-body__tags-item-link">
+                  Настройка Linux
+                </a></span><span class="tm-article-body__tags-item"><a href="https://habr.com/ru/hub/s_admin/" class="tm-article-body__tags-item-link">
+                  Серверное администрирование
+                </a></span></div></div></article><div class="tm-article__icons-wrapper" style="display: none;"><div class="tm-data-icons tm-page-article__counters-panel"><div class="tm-article-rating tm-data-icons__item"><div class="tm-votes-meter tm-article-rating__votes-switcher"><svg height="16" width="16" class="tm-svg-img tm-votes-meter__icon tm-votes-meter__icon_medium"><title>Всего голосов 22: ↑18 и ↓4</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-rating"></use></svg><span title="Всего голосов 22: ↑18 и ↓4" class="tm-votes-meter__value tm-votes-meter__value_positive tm-votes-meter__value_medium">+14</span></div><div class="v-portal" style="display: none;"></div></div><!----><!----><button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span title="Добавить в закладки" class="tm-svg-icon__wrapper bookmarks-button__icon"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Добавить в закладки</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-favorite"></use></svg></span><span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter">
+    389
+  </span></button><div class="tm-article-comments-counter-link tm-data-icons__item" title="Читать комментарии"><a href="https://habr.com/ru/company/ruvds/blog/327530/comments/" class="tm-article-comments-counter-link__link"><svg height="16" width="16" class="tm-svg-img tm-article-comments-counter-link__icon"><title>Комментарии</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-comments"></use></svg><span class="tm-article-comments-counter-link__value">
+      34
+    </span></a><a href="https://habr.com/ru/company/ruvds/blog/327530/comments/" class="tm-article-comments-counter-link__link"><span title="Читать новые комментарии" class="tm-article-comments-counter-link__unread-counter">
+      +34
+    </span></a></div><div class="tm-sharing tm-data-icons__item" title="Поделиться"><button type="button" class="tm-sharing__button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="tm-sharing__icon"><path fill="currentColor" d="M10.33.275l9.047 7.572a.2.2 0 010 .306l-9.048 7.572a.2.2 0 01-.328-.153V11c-8 0-9.94 6-9.94 6S-1 5 10 5V.428a.2.2 0 01.328-.153z"></path></svg></button><!----></div><div class="v-portal" style="display: none;"></div></div></div><!----></div><!----><div class="tm-page-article__additional-blocks"><div class="tm-editoral-subscription"><span class="tm-svg-icon__wrapper tm-editoral-subscription__close"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Закрыть</title><use xlink:href="/img/megazord-v24.cee85629.svg#close"></use></svg></span><h3 class="tm-editoral-subscription__title">
+    Редакторский дайджест
+  </h3><p class="tm-editoral-subscription__description">
+    Присылаем лучшие статьи раз&nbsp;в&nbsp;месяц
+  </p><form method="GET" class="tm-editoral-subscription__form"><div class="tm-input-text-decorated tm-editoral-subscription__input tm-input-text-decorated_has-label-after" name="email" placeholder="Электропочта" type="email"><!----><input name="email" placeholder="Электропочта" type="email" class="tm-input-text-decorated__input"><div class="tm-input-text-decorated__label tm-input-text-decorated__label_after"><button type="submit" class="tm-editoral-subscription__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class=""><path fill="currentColor" clip-rule="evenodd" d="M19.707 11.293a1 1 0 010 1.414l-5.5 5.5a1 1 0 01-1.414-1.414L16.586 13H5a1 1 0 110-2h11.586l-3.793-3.793a1 1 0 011.414-1.414l5.5 5.5z"></path></svg></button></div></div><!----></form></div><section class="tm-block tm-block_spacing-bottom"><!----><div class="tm-block__body"><div class="tm-article-author tm-page-article__author"><div class="tm-article-author__company"><div class="tm-article-author__company-card"><div class="tm-company-snippet"><a href="https://habr.com/ru/company/ruvds/profile/" class="tm-company-snippet__logo-link"><div class="tm-entity-image"><img alt="" height="40" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/f27ea85bd62fbd985c308110885af7e0.png" width="40" class="tm-entity-image__pic"></div></a><div class="tm-company-snippet__info"><a href="https://habr.com/ru/company/ruvds/profile/" class="tm-company-snippet__title">RUVDS.com</a><div class="tm-company-snippet__description">VDS/VPS-хостинг. Скидка 10% по коду <b>HABR10</b></div></div></div><div class="tm-article-author__buttons"><!----><!----></div></div><div class="tm-article-author__company-contacts"><a href="https://facebook.com/ruvds" rel="noopener" target="_blank" class="tm-article-author__contact">
+        Facebook
+      </a><a href="https://twitter.com/ru_vds" rel="noopener" target="_blank" class="tm-article-author__contact">
+        Twitter
+      </a><a href="https://vk.com/ru_vds" rel="noopener" target="_blank" class="tm-article-author__contact">
+        ВКонтакте
+      </a></div><div class="tm-article-author__separator"></div></div><div class="tm-user-card tm-article-author__user-card tm-user-card_variant-two-column"><div class="tm-user-card__info-container"><div class="tm-user-card__header"><div class="tm-user-card__header-data"><a href="https://habr.com/ru/users/ru_vds/" class="tm-user-card__userpic tm-user-card__userpic_size-40"><div class="tm-entity-image"><img alt="" src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/e36812d3de38eb3d479d7a13228717ef(1).png" class="tm-entity-image__pic"></div></a><div class="tm-user-card__meta"><div title=" 943 голоса " class="tm-karma tm-user-card__karma"><div class="tm-karma__votes tm-karma__votes_positive">
+    204.5
+  </div><div class="tm-karma__text">
+    Карма
+  </div></div><div class="tm-rating tm-user-card__rating" title="Рейтинг пользователя"><div class="tm-rating__header"><div class="tm-rating__counter">110</div></div><div class="tm-rating__text">
+    Рейтинг
+  </div></div></div></div></div><div class="tm-user-card__info"><div class="tm-user-card__title"><!----><a href="https://habr.com/ru/users/ru_vds/" class="tm-user-card__nickname">
+          @ru_vds
+        </a><!----></div><p class="tm-user-card__short-info">Пользователь</p></div></div><div class="tm-user-card__buttons tm-user-card__buttons_variant-two-column"><!----><!----><!----><!----><!----></div></div><!----></div></div><!----></section><div class="tm-page-article__comments"><div class="tm-article-page-comments"><div class="tm-article-comments-counter-link tm-article-comments-counter-button"><a href="https://habr.com/ru/company/ruvds/blog/327530/comments/" class="tm-article-comments-counter-link__link tm-article-comments-counter-link__link_button-style"><svg height="16" width="16" class="tm-svg-img tm-article-comments-counter-link__icon tm-article-comments-counter-link__icon_contrasted"><title>Комментарии</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-comments"></use></svg><span class="tm-article-comments-counter-link__value tm-article-comments-counter-link__value_contrasted">
+       Комментарии 34 
+    </span></a><!----></div></div></div><!----><section class="tm-block tm-block_spacing-around"><header class="tm-block__header"><h2 class="tm-block__title">Похожие публикации</h2><!----></header><div class="tm-block__body"><ul class="tm-article-list-block__list"><li class="tm-article-list-block__item"><article class="tm-article-snippet-block-block tm-article-snippet-block-block_preview"><div class="tm-article-snippet-block__user-meta"><div class="tm-article-snippet-block__date"><time datetime="2020-12-09T09:47:23.000Z" title="2020-12-09, 16:47">9  декабря  2020 в 16:47</time></div></div><h2 class="tm-article-title tm-article-title_block"><a href="https://habr.com/ru/company/ruvds/blog/529840/" class="tm-article-title__link"><span>Кунг-фу стиля Linux: утилита marker и меню для командной строки</span></a></h2><div class="tm-data-icons"><!----><div class="tm-votes-meter tm-data-icons__item"><svg height="16" width="16" class="tm-svg-img tm-votes-meter__icon tm-votes-meter__icon_small"><title>Всего голосов 29: ↑28 и ↓1</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-rating"></use></svg><span title="Всего голосов 29: ↑28 и ↓1" class="tm-votes-meter__value tm-votes-meter__value_positive tm-votes-meter__value_small">+27</span></div><span class="tm-icon-counter tm-data-icons__item" title="Количество просмотров"><svg height="16" width="16" class="tm-svg-img tm-icon-counter__icon"><title>Просмотры</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-views"></use></svg><span class="tm-icon-counter__value">6.4K</span></span><button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span title="Добавить в закладки" class="tm-svg-icon__wrapper bookmarks-button__icon"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Добавить в закладки</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-favorite"></use></svg></span><span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter">
+    64
+  </span></button><div class="tm-article-comments-counter-link tm-data-icons__item" title="Читать комментарии"><a href="https://habr.com/ru/company/ruvds/blog/529840/comments/" class="tm-article-comments-counter-link__link"><svg height="16" width="16" class="tm-svg-img tm-article-comments-counter-link__icon"><title>Комментарии</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-comments"></use></svg><span class="tm-article-comments-counter-link__value">
+      4
+    </span></a><a href="https://habr.com/ru/company/ruvds/blog/529840/comments/" class="tm-article-comments-counter-link__link"><span title="Читать новые комментарии" class="tm-article-comments-counter-link__unread-counter">
+      +4
+    </span></a></div><!----><div class="v-portal" style="display: none;"></div></div></article></li><li class="tm-article-list-block__item"><article class="tm-article-snippet-block-block tm-article-snippet-block-block_preview"><div class="tm-article-snippet-block__user-meta"><div class="tm-article-snippet-block__date"><time datetime="2017-10-11T09:07:52.000Z" title="2017-10-11, 16:07">11  октября  2017 в 16:07</time></div></div><h2 class="tm-article-title tm-article-title_block"><a href="https://habr.com/ru/company/ruvds/blog/339820/" class="tm-article-title__link"><span>20 приёмов работы в командной строке Linux, которые сэкономят уйму времени</span></a></h2><div class="tm-data-icons"><!----><div class="tm-votes-meter tm-data-icons__item"><svg height="16" width="16" class="tm-svg-img tm-votes-meter__icon tm-votes-meter__icon_small"><title>Всего голосов 82: ↑46 и ↓36</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-rating"></use></svg><span title="Всего голосов 82: ↑46 и ↓36" class="tm-votes-meter__value tm-votes-meter__value_positive tm-votes-meter__value_small">+10</span></div><span class="tm-icon-counter tm-data-icons__item" title="Количество просмотров"><svg height="16" width="16" class="tm-svg-img tm-icon-counter__icon"><title>Просмотры</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-views"></use></svg><span class="tm-icon-counter__value">167K</span></span><button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span title="Добавить в закладки" class="tm-svg-icon__wrapper bookmarks-button__icon"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Добавить в закладки</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-favorite"></use></svg></span><span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter">
+    768
+  </span></button><div class="tm-article-comments-counter-link tm-data-icons__item" title="Читать комментарии"><a href="https://habr.com/ru/company/ruvds/blog/339820/comments/" class="tm-article-comments-counter-link__link"><svg height="16" width="16" class="tm-svg-img tm-article-comments-counter-link__icon"><title>Комментарии</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-comments"></use></svg><span class="tm-article-comments-counter-link__value">
+      87
+    </span></a><a href="https://habr.com/ru/company/ruvds/blog/339820/comments/" class="tm-article-comments-counter-link__link"><span title="Читать новые комментарии" class="tm-article-comments-counter-link__unread-counter">
+      +87
+    </span></a></div><!----><div class="v-portal" style="display: none;"></div></div></article></li><li class="tm-article-list-block__item"><article class="tm-article-snippet-block-block tm-article-snippet-block-block_preview"><div class="tm-article-snippet-block__user-meta"><div class="tm-article-snippet-block__date"><time datetime="2017-08-30T11:57:46.000Z" title="2017-08-30, 18:57">30  августа  2017 в 18:57</time></div></div><h2 class="tm-article-title tm-article-title_block"><a href="https://habr.com/ru/company/ruvds/blog/336764/" class="tm-article-title__link"><span>[в закладки] PDF-версия статей про Bash-скрипты</span></a></h2><div class="tm-data-icons"><!----><div class="tm-votes-meter tm-data-icons__item"><svg height="16" width="16" class="tm-svg-img tm-votes-meter__icon tm-votes-meter__icon_small"><title>Всего голосов 41: ↑35 и ↓6</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-rating"></use></svg><span title="Всего голосов 41: ↑35 и ↓6" class="tm-votes-meter__value tm-votes-meter__value_positive tm-votes-meter__value_small">+29</span></div><span class="tm-icon-counter tm-data-icons__item" title="Количество просмотров"><svg height="16" width="16" class="tm-svg-img tm-icon-counter__icon"><title>Просмотры</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-views"></use></svg><span class="tm-icon-counter__value">39K</span></span><button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span title="Добавить в закладки" class="tm-svg-icon__wrapper bookmarks-button__icon"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Добавить в закладки</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-favorite"></use></svg></span><span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter">
+    510
+  </span></button><div class="tm-article-comments-counter-link tm-data-icons__item" title="Читать комментарии"><a href="https://habr.com/ru/company/ruvds/blog/336764/comments/" class="tm-article-comments-counter-link__link"><svg height="16" width="16" class="tm-svg-img tm-article-comments-counter-link__icon"><title>Комментарии</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-comments"></use></svg><span class="tm-article-comments-counter-link__value">
+      20
+    </span></a><a href="https://habr.com/ru/company/ruvds/blog/336764/comments/" class="tm-article-comments-counter-link__link"><span title="Читать новые комментарии" class="tm-article-comments-counter-link__unread-counter">
+      +20
+    </span></a></div><!----><div class="v-portal" style="display: none;"></div></div></article></li><!----></ul></div><!----></section><!----><section class="tm-block tm-block_spacing-around"><header class="tm-block__header"><h2 class="tm-block__title">Лучшие публикации за сутки</h2><!----></header><div class="tm-block__body"><ul class="tm-article-list-block__list"><li class="tm-article-list-block__item"><article class="tm-article-snippet-block-block tm-article-snippet-block-block_preview"><div class="tm-article-snippet-block__user-meta"><div class="tm-article-snippet-block__date"><time datetime="2021-08-26T09:00:02.000Z" title="2021-08-26, 16:00">вчера в 16:00</time></div></div><h2 class="tm-article-title tm-article-title_block"><a href="https://habr.com/ru/company/ruvds/blog/574742/" class="tm-article-title__link"><span>Сетевые соединения X11</span></a></h2><div class="tm-data-icons"><!----><div class="tm-votes-meter tm-data-icons__item"><svg height="16" width="16" class="tm-svg-img tm-votes-meter__icon tm-votes-meter__icon_small"><title>Всего голосов 48: ↑46 и ↓2</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-rating"></use></svg><span title="Всего голосов 48: ↑46 и ↓2" class="tm-votes-meter__value tm-votes-meter__value_positive tm-votes-meter__value_small">+44</span></div><span class="tm-icon-counter tm-data-icons__item" title="Количество просмотров"><svg height="16" width="16" class="tm-svg-img tm-icon-counter__icon"><title>Просмотры</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-views"></use></svg><span class="tm-icon-counter__value">5.3K</span></span><button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span title="Добавить в закладки" class="tm-svg-icon__wrapper bookmarks-button__icon"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Добавить в закладки</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-favorite"></use></svg></span><span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter">
+    46
+  </span></button><div class="tm-article-comments-counter-link tm-data-icons__item" title="Читать комментарии"><a href="https://habr.com/ru/company/ruvds/blog/574742/comments/" class="tm-article-comments-counter-link__link"><svg height="16" width="16" class="tm-svg-img tm-article-comments-counter-link__icon"><title>Комментарии</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-comments"></use></svg><span class="tm-article-comments-counter-link__value">
+      9
+    </span></a><a href="https://habr.com/ru/company/ruvds/blog/574742/comments/" class="tm-article-comments-counter-link__link"><span title="Читать новые комментарии" class="tm-article-comments-counter-link__unread-counter">
+      +9
+    </span></a></div><!----><div class="v-portal" style="display: none;"></div></div></article></li><li class="tm-article-list-block__item"><article class="tm-article-snippet-block-block tm-article-snippet-block-block_preview"><div class="tm-article-snippet-block__user-meta"><div class="tm-article-snippet-block__date"><time datetime="2021-08-26T13:00:01.000Z" title="2021-08-26, 20:00">вчера в 20:00</time></div></div><h2 class="tm-article-title tm-article-title_block"><a href="https://habr.com/ru/company/ruvds/blog/574352/" class="tm-article-title__link"><span>Осваиваем LaTeX за 30 минут</span></a></h2><div class="tm-data-icons"><!----><div class="tm-votes-meter tm-data-icons__item"><svg height="16" width="16" class="tm-svg-img tm-votes-meter__icon tm-votes-meter__icon_small"><title>Всего голосов 47: ↑43 и ↓4</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-rating"></use></svg><span title="Всего голосов 47: ↑43 и ↓4" class="tm-votes-meter__value tm-votes-meter__value_positive tm-votes-meter__value_small">+39</span></div><span class="tm-icon-counter tm-data-icons__item" title="Количество просмотров"><svg height="16" width="16" class="tm-svg-img tm-icon-counter__icon"><title>Просмотры</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-views"></use></svg><span class="tm-icon-counter__value">5K</span></span><button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span title="Добавить в закладки" class="tm-svg-icon__wrapper bookmarks-button__icon"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Добавить в закладки</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-favorite"></use></svg></span><span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter">
+    117
+  </span></button><div class="tm-article-comments-counter-link tm-data-icons__item" title="Читать комментарии"><a href="https://habr.com/ru/company/ruvds/blog/574352/comments/" class="tm-article-comments-counter-link__link"><svg height="16" width="16" class="tm-svg-img tm-article-comments-counter-link__icon"><title>Комментарии</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-comments"></use></svg><span class="tm-article-comments-counter-link__value">
+      27
+    </span></a><a href="https://habr.com/ru/company/ruvds/blog/574352/comments/" class="tm-article-comments-counter-link__link"><span title="Читать новые комментарии" class="tm-article-comments-counter-link__unread-counter">
+      +27
+    </span></a></div><!----><div class="v-portal" style="display: none;"></div></div></article></li><li class="tm-article-list-block__item"><article class="tm-article-snippet-block-block tm-article-snippet-block-block_preview"><div class="tm-article-snippet-block__user-meta"><div class="tm-article-snippet-block__date"><time datetime="2021-08-26T21:08:54.000Z" title="2021-08-27, 04:08">сегодня в 04:08</time></div></div><h2 class="tm-article-title tm-article-title_block"><a href="https://habr.com/ru/post/571514/" class="tm-article-title__link"><span>Самогонный аппарат — полный автомат. Часть 3. Заключительная</span></a></h2><div class="tm-data-icons"><!----><div class="tm-votes-meter tm-data-icons__item"><svg height="16" width="16" class="tm-svg-img tm-votes-meter__icon tm-votes-meter__icon_small"><title>Всего голосов 38: ↑37 и ↓1</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-rating"></use></svg><span title="Всего голосов 38: ↑37 и ↓1" class="tm-votes-meter__value tm-votes-meter__value_positive tm-votes-meter__value_small">+36</span></div><span class="tm-icon-counter tm-data-icons__item" title="Количество просмотров"><svg height="16" width="16" class="tm-svg-img tm-icon-counter__icon"><title>Просмотры</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-views"></use></svg><span class="tm-icon-counter__value">6.9K</span></span><button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span title="Добавить в закладки" class="tm-svg-icon__wrapper bookmarks-button__icon"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Добавить в закладки</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-favorite"></use></svg></span><span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter">
+    50
+  </span></button><div class="tm-article-comments-counter-link tm-data-icons__item" title="Читать комментарии"><a href="https://habr.com/ru/post/571514/comments/" class="tm-article-comments-counter-link__link"><svg height="16" width="16" class="tm-svg-img tm-article-comments-counter-link__icon"><title>Комментарии</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-comments"></use></svg><span class="tm-article-comments-counter-link__value">
+      7
+    </span></a><a href="https://habr.com/ru/post/571514/comments/" class="tm-article-comments-counter-link__link"><span title="Читать новые комментарии" class="tm-article-comments-counter-link__unread-counter">
+      +7
+    </span></a></div><!----><div class="v-portal" style="display: none;"></div></div></article></li><li class="tm-article-list-block__item"><article class="tm-article-snippet-block-block tm-article-snippet-block-block_preview"><div class="tm-article-snippet-block__user-meta"><div class="tm-article-snippet-block__date"><time datetime="2021-08-26T17:24:20.000Z" title="2021-08-27, 00:24">сегодня в 00:24</time></div></div><h2 class="tm-article-title tm-article-title_block"><a href="https://habr.com/ru/company/kaspersky/blog/574884/" class="tm-article-title__link"><span>Sony Playstation Portable, радость коллекционера</span></a></h2><div class="tm-data-icons"><!----><div class="tm-votes-meter tm-data-icons__item"><svg height="16" width="16" class="tm-svg-img tm-votes-meter__icon tm-votes-meter__icon_small"><title>Всего голосов 33: ↑31 и ↓2</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-rating"></use></svg><span title="Всего голосов 33: ↑31 и ↓2" class="tm-votes-meter__value tm-votes-meter__value_positive tm-votes-meter__value_small">+29</span></div><span class="tm-icon-counter tm-data-icons__item" title="Количество просмотров"><svg height="16" width="16" class="tm-svg-img tm-icon-counter__icon"><title>Просмотры</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-views"></use></svg><span class="tm-icon-counter__value">6.5K</span></span><button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span title="Добавить в закладки" class="tm-svg-icon__wrapper bookmarks-button__icon"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Добавить в закладки</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-favorite"></use></svg></span><span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter">
+    15
+  </span></button><div class="tm-article-comments-counter-link tm-data-icons__item" title="Читать комментарии"><a href="https://habr.com/ru/company/kaspersky/blog/574884/comments/" class="tm-article-comments-counter-link__link"><svg height="16" width="16" class="tm-svg-img tm-article-comments-counter-link__icon"><title>Комментарии</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-comments"></use></svg><span class="tm-article-comments-counter-link__value">
+      15
+    </span></a><a href="https://habr.com/ru/company/kaspersky/blog/574884/comments/" class="tm-article-comments-counter-link__link"><span title="Читать новые комментарии" class="tm-article-comments-counter-link__unread-counter">
+      +15
+    </span></a></div><!----><div class="v-portal" style="display: none;"></div></div></article></li><li class="tm-article-list-block__item"><article class="tm-article-snippet-block-block tm-article-snippet-block-block_preview"><div class="tm-article-snippet-block__user-meta"><div class="tm-article-snippet-block__date"><time datetime="2021-08-26T11:06:06.000Z" title="2021-08-26, 18:06">вчера в 18:06</time></div></div><h2 class="tm-article-title tm-article-title_block"><a href="https://habr.com/ru/company/ods/blog/572264/" class="tm-article-title__link"><span>Анализ вакансий и зарплат в Data Science</span></a></h2><div class="tm-data-icons"><!----><div class="tm-votes-meter tm-data-icons__item"><svg height="16" width="16" class="tm-svg-img tm-votes-meter__icon tm-votes-meter__icon_small"><title>Всего голосов 30: ↑29 и ↓1</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-rating"></use></svg><span title="Всего голосов 30: ↑29 и ↓1" class="tm-votes-meter__value tm-votes-meter__value_positive tm-votes-meter__value_small">+28</span></div><span class="tm-icon-counter tm-data-icons__item" title="Количество просмотров"><svg height="16" width="16" class="tm-svg-img tm-icon-counter__icon"><title>Просмотры</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-views"></use></svg><span class="tm-icon-counter__value">7.8K</span></span><button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span title="Добавить в закладки" class="tm-svg-icon__wrapper bookmarks-button__icon"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Добавить в закладки</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-favorite"></use></svg></span><span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter">
+    31
+  </span></button><div class="tm-article-comments-counter-link tm-data-icons__item" title="Читать комментарии"><a href="https://habr.com/ru/company/ods/blog/572264/comments/" class="tm-article-comments-counter-link__link"><svg height="16" width="16" class="tm-svg-img tm-article-comments-counter-link__icon"><title>Комментарии</title><use xlink:href="/img/megazord-v24.cee85629.svg#counter-comments"></use></svg><span class="tm-article-comments-counter-link__value">
+      11
+    </span></a><a href="https://habr.com/ru/company/ods/blog/572264/comments/" class="tm-article-comments-counter-link__link"><span title="Читать новые комментарии" class="tm-article-comments-counter-link__unread-counter">
+      +11
+    </span></a></div><!----><div class="v-portal" style="display: none;"></div></div></article></li><!----></ul></div><!----></section><!----><!----></div></div></div><div class="tm-page__sidebar"><!----></div></div></div></div></main><!----></div><!----><div class="tm-footer"><div class="tm-page-width"><div class="tm-footer__container"><div class="tm-footer__title"><a href="https://habr.com/ru/" class="tm-svg-icon__wrapper tm-footer__title-link router-link-active"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Хабр</title><use xlink:href="/img/habr-logo-ru.svg#logo"></use></svg></a></div><div class="tm-footer__social"><a class="tm-svg-icon__wrapper tm-social-icons__icon" href="https://www.facebook.com/habrahabr.ru" rel="nofollow noopener noreferrer" target="_blank"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Facebook</title><use xlink:href="/img/social-icons-sprite.svg#social-logo-facebook"></use></svg></a><a class="tm-svg-icon__wrapper tm-social-icons__icon" href="https://twitter.com/habr_com" rel="nofollow noopener noreferrer" target="_blank"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Twitter</title><use xlink:href="/img/social-icons-sprite.svg#social-logo-twitter"></use></svg></a><a class="tm-svg-icon__wrapper tm-social-icons__icon" href="https://vk.com/habr" rel="nofollow noopener noreferrer" target="_blank"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>VK</title><use xlink:href="/img/social-icons-sprite.svg#social-logo-vkontakte"></use></svg></a><a class="tm-svg-icon__wrapper tm-social-icons__icon" href="https://telegram.me/habr_com" rel="nofollow noopener noreferrer" target="_blank"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Telegram</title><use xlink:href="/img/social-icons-sprite.svg#social-logo-telegram"></use></svg></a><a class="tm-svg-icon__wrapper tm-social-icons__icon" href="https://www.youtube.com/channel/UCd_sTwKqVrweTt4oAKY5y4w" rel="nofollow noopener noreferrer" target="_blank"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Youtube</title><use xlink:href="/img/social-icons-sprite.svg#social-logo-youtube"></use></svg></a><a class="tm-svg-icon__wrapper tm-social-icons__icon" href="https://zen.yandex.ru/habr" rel="nofollow noopener noreferrer" target="_blank"><svg height="16" width="16" class="tm-svg-img tm-svg-icon"><title>Яндекс Дзен</title><use xlink:href="/img/social-icons-sprite.svg#social-logo-zen"></use></svg></a></div><div class="v-portal" style="display: none;"></div><button class="tm-footer__link"><svg height="16" width="16" class="tm-svg-img tm-footer__icon"><title>Язык</title><use xlink:href="/img/megazord-v24.cee85629.svg#lang"></use></svg>
+        Настройка языка
+      </button><a href="https://habr.com/ru/about" class="tm-footer__link">
+        О сайте
+      </a><a href="https://habr.com/ru/feedback/" class="tm-footer__link">
+        Техническая поддержка
+      </a><a href="https://habr.com/ru/company/ruvds/blog/327530/?mobile=no" class="tm-footer__link">
+        Полная версия
+      </a><a href="https://habr.com/berserk-mode-nope" class="tm-footer__link">
+        Вернуться на старую версию
+      </a><div class="tm-footer-copyright"><span class="tm-copyright"><span class="tm-copyright__years">© 2006–2021 </span><span class="tm-copyright__name">«<a href="https://company.habr.com/" rel="noopener" target="_blank" class="tm-copyright__link">Habr</a>»</span></span></div></div></div></div><!----><!----></div><div class="vue-portal-target"><!----></div></div>
+
+<script src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/chunk-vendors.1ca41abb.js" defer=""></script><script src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/about.2d3fd602.js" defer=""></script><script src="./Bash-скрипты, часть 7_ sed и обработка текстов _ Блог компании RUVDS.com _ Хабр_files/app.132461d8.js" defer=""></script>
+
+
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    </script>
+  
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(24049213, "init", {
+      defer:true,
+      trackLinks:true,
+      accurateTrackBounce:true,
+      webvisor:false,
+    });
+  </script>
+  <noscript>
+    <div>
+      <img src="https://mc.yandex.ru/watch/24049213" style="position:absolute; left:-9999px;" alt="" />
+    </div>
+  </noscript>
+  
+    <script type="text/javascript">
+      window.addEventListener('load', function () {
+        setTimeout(() => {
+          const img = new Image();
+          img.src = 'https://vk.com/rtrg?p=VK-RTRG-421343-57vKE';
+        }, 0);
+      });
+    </script>
+  
+
+
+<div><div><div class="Vue-Toastification__container top-left"></div></div><div><div class="Vue-Toastification__container top-center"></div></div><div><div class="Vue-Toastification__container top-right"></div></div><div><div class="Vue-Toastification__container bottom-left"></div></div><div><div class="Vue-Toastification__container bottom-center"></div></div><div><div class="Vue-Toastification__container bottom-right"></div></div></div></body></html>

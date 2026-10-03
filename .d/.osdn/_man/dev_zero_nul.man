@@ -1,0 +1,6 @@
+#  /dev/zero и /dev/null
+
+Подавление вывода на stdout.
+
+    cat $filename >/dev/null
+

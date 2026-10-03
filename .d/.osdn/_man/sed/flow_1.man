@@ -1,0 +1,62 @@
+## simple
+По умолчанию sed применяет указанные при вызове правила, выраженные в виде набора команд, к STDIN. Это позволяет передавать данные непосредственно sed.
+
+    $ echo "This is a test" | sed 's/test/another test/'
+    This is a another test
+
+    $ sed -e 's/This/That/; s/test/another test/' ./myfile
+
+## file commands fcom
+
+    cat file
+    This is test
+    This is test
+
+    cat fcom
+    s/This/That/
+    s/test/another test/
+
+    sed -f mycommands file
+
+    cat file
+    That is another test
+    This is test
+
+## flags
+
+    s/pattern/replacement/flags
+
+g           :: all enters
+p           :: print src string
+w <file>    :: write result in file
+
+    $ sed 's/test/another test/w output' myfile
+
+### удалить строки, начиная с заданной — и до конца файла
+
+    $ sed '3,$d' myfile
+
+### заменить /bin/bash на /bin/csh в файле /etc/passwd
+
+    $ sed 's/\/bin\/bash/\/bin\/csh/' /etc/passwd
+    $ sed 's!/bin/bash!/bin/csh!' /etc/passwd
+
+### можно вызвать команду замены так, чтобы файл был обработан начиная с некоей строки и до конца
+
+    $ sed '2,$s/test/another test/' myfile
+
+### обрабатывать с помощью команды замены только строки, соответствующие заданному фильтру, команду надо вызвать так:
+
+    $ sed '/likegeeks/s/bash/csh/' /etc/passwd
+
+### С помощью sed можно вставлять данные в текстовый поток, используя команды i и a:
+
+Команда i добавляет новую строку перед заданной.
+Команда a добавляет новую строку после заданной.
+
+    $ echo "Another test" | sed 'i\First test '
+
+### Команда c позволяет изменить содержимое целой строки текста в потоке данных
+
+    $ sed '3c\This is a modified line.' myfile
+

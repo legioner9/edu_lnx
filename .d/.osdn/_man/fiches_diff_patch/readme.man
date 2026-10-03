@@ -1,0 +1,3 @@
+## [Команда diff в Linux: сравниваем два файла](https://techrocks.ru/2021/09/27/diff-and-patch-commands-in-linux/)
+
+## [9 лучших инструментов для сравнения и различения файлов для Linux](https://ru.linux-console.net/?p=1497)

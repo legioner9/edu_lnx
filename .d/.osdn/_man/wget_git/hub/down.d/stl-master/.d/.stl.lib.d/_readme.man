@@ -1,0 +1,28 @@
+<!-- ### Written by Legioner9 for the universe
+### Part of the STL shell subsystem
+### Location .stl.d/prc.d/boot_stl_fn.d
+
+# ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH} -->
+
+# cr function stl_00_tst in ${STL_LIB_D_PATH}/001_lib.stl_00.arb 
+
+    $ . ${STL_LIB_D_PATH}/001_lib.stl_00.arb/_ord_name_prc_ram.sh tst
+
+# check function stl_00_tst
+## up to mem and check test 
+
+    $ . ${STL_D_PATH}/.stldrc
+
+## work
+
+    $ stl_00_tst 
+
+## help
+
+    $ stl_00_tst -h
+
+## check crash test stl_00_tst - see stack
+
+    $ echo x > ${STL_LIB_D_PATH}/001_lib.stl_00.arb/stl_00_tst.ram/.grot/_tst/pre
+    $ . ${STL_D_PATH}/.stldrc   
+ 

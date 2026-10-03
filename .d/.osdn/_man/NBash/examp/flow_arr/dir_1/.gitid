@@ -1,0 +1,21 @@
+[repo]
+    #st_require
+    #_store 
+    #Lexicon
+    communis
+    #node_modules_
+    #NBase
+    #Node_Way_source_1
+    #AFO_GenerativusFucus
+    #GenerativusFucus
+    #Libellus
+    #node_modules_source_1
+[did]
+    alt
+[urlrepo]
+    /home/st/ProjectRepo
+[urlsbare]
+    /home/st/Bare/1
+    /home/st/Bare/2
+[nameremote]
+    git@github.com:legioner9

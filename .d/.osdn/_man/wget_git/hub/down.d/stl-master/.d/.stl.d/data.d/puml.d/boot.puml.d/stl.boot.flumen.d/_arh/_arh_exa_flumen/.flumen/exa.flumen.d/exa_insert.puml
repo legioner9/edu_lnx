@@ -1,0 +1,50 @@
+@startuml
+
+' Sequence diagram: https://plantuml.com/sequence-diagram
+'   with embedded deployment diagrams using {{}} in notes: https://plantuml.com/deployment-diagram
+
+title Test
+hide footbox
+
+' Tune this to get the box to cover all the groups
+skinparam ParticipantPadding 50
+
+mainframe Data Center 1
+
+  box "Nodes" #FFFFFF
+
+    participant Node1 #FFFFFF
+    participant Node2 #FFFFFF
+    participant Node3 #FFFFFF
+
+    group Virtual Network 1
+
+      group Cluster 1\n└ Application: MyApp
+
+        ' The / on subsequent notes makes sure all notes are horizontally aligned
+
+        rnote over Node1 #FFFFFF
+        {{
+          rectangle Server1
+        }}
+        endrnote
+        
+        / rnote over Node2 #FFFFFF
+        {{
+          rectangle Server2
+        }}
+        endrnote
+
+        / rnote over Node3 #FFFFFF
+        {{
+          rectangle Server3
+        }}
+        endrnote
+
+      end
+
+    end
+
+  end box
+
+@enduml

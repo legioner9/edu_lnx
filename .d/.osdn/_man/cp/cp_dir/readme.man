@@ -1,0 +1,1 @@
+## start_cp.sh copy content from dir_src to dir_dist

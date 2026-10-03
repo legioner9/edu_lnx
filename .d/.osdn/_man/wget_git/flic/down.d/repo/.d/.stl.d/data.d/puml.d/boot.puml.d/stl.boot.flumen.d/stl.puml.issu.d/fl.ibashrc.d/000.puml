@@ -1,0 +1,8 @@
+@startmindmap
+
+file:\~/.bashrc
+
+000: source \~/.stl.d/stl.bashrc.d/bashrc.stl
+;
+
+@endmindmap

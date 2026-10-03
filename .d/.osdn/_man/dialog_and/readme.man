@@ -1,0 +1,6 @@
+## like dialog
+
+zenity
+yad
+
+newt52 -> whiptail

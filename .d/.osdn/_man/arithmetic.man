@@ -1,0 +1,22 @@
+## [Арифметические операции в Bash скрипте](https://www.andreyolegovich.ru/linux/bash/arithmetics.php)
+
+    A=$(( 4 + 5 ))
+    echo $A # 9
+
+    A=$((3+5))
+    echo $A # 8
+
+    B=$(( A + 3 ))
+    echo $B # 11
+
+    B=$(( $A + 4 ))
+    echo $B # 12
+
+    (( B++ ))
+    echo $B # 13
+
+    (( B += 3 ))
+    echo $B # 16
+
+    A=$(( 4 * 5 ))
+    echo $A # 20

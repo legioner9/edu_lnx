@@ -1,0 +1,2 @@
+# cp cntx.res.md ONLY with files from cntx.ins.d to :
+# ${ST_RC_D_DATA_PATH}/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/013_fs4ufl9smpl/_tst/part_1/_dir_tst/__for_copy/copy.md

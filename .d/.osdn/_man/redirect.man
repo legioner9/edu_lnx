@@ -1,0 +1,11 @@
+# bash redirects
+
+    ls -l xxx 2> err/err_1 
+    ls: невозможно получить доступ к 'xfile': Нет такого файла или каталога
+
+    cd fiches_treads
+    ls -l scr_1.sh xxx.x 1> out/out_1 2> err/err_1
+    <out_1>: -rw-r--r--. 1 st st 308 ноя 10 11:13 scr_1.sh
+    <err_1>: ls: невозможно получить доступ к 'xxx.x': Нет такого файла или каталога
+
+    

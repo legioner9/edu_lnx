@@ -1,0 +1,6 @@
+[0;30m[2m[104m[7m'l_00_err_struct2e /home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_00_err_struct2e/tst_dir'[0m
+exec:'${FNN} $*' in file://${STL_D_PATH}/prc.d/${FNN} , line=${LINENO} 
+expl: str_expl
+evnt: nm_err :: 'bdy_err'
+actn: return num_ret >&2
+

@@ -1,0 +1,43 @@
+
+@startmindmap
+
+caption Tasks
+title Onboarding and offboarding tasks
+
++[#lightgreen] Onboarding
+++: Prior to first day;
++++_ <&star>Contract signed
++++_ Employee handbook
++++_ IT equipment reserved
+++ First day
++++_ <&people>Office tour
++++_ <&people>Team intros
++++ Account setup
+++ First week
++++_ <&people>Shadow team members
++++_ Software training
+++ First month
++++_ Assign projects/tasks
++++_ Set goals
++++_ <&people>Get team feedback
+
++[#orange] Offboarding
+++ <&people>Feedback and review
+++[#999999] <s>Exit interview</s>
+++ Tasks/projects reassigned
++++_ <&people>Handover
+++ Account deactivation/deletion
+++ IT hardware return
+
+header
+Currently under review
+endheader
+
+legend right
+  <&star> priority
+  <&people> meetings
+endlegend
+
+center footer Last updated: May
+
+@endmindmap 

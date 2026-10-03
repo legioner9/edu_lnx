@@ -1,0 +1,32 @@
+#!/bin/bash
+
+[[ -d ${HOME}/.d ]] || mkdir ${HOME}/.d
+[[ -d ${HOME}/.d/.lst.d ]] || mkdir ${HOME}/.d/.st.lst 
+[[ -d ${HOME}/.d/.path.d ]] || mkdir ${HOME}/.d/.path.d
+[[ -d ${HOME}/.d/.rc.d ]] || mkdir ${HOME}/.d/.rc.d
+
+if [[ -f ${HOME}/REPOBARE/_repo/st_rc_d/.d/.zip/.st.rc.d.zip ]]; then
+
+    rm ${HOME}/.d/.rc.d/.st.rc.d.zip
+    rm -r ${HOME}/.d/.rc.d/.st.rc.d
+    cp ${HOME}/REPOBARE/_repo/st_rc_d/.d/.zip/.st.rc.d.zip ${HOME}/.d/.rc.d/
+    cd ${HOME}/.d/.rc.d/
+    unzip ${HOME}/.d/.rc.d/.st.rc.d.zip
+    # .d/.rc.d/.st.rc.d
+
+else
+    read -p "NOT_FILE: ${HOME}/REPOBARE/_repo/st_rc_d/.d/.zip/.st.rc.d.zip mast ^C!!!"
+fi
+
+if [[ -f ${HOME}/REPOBARE/_repo/st_rc_d/.d/.zip/.st_rc_d.rc.zip ]]; then
+
+    rm ${HOME}/.d/.rc.d/.st_rc_d.rc.zip
+    rm ${HOME}/.d/.rc.d/.st_rc_d.rc
+    cp ${HOME}/REPOBARE/_repo/st_rc_d/.d/.zip/.st_rc_d.rc.zip ${HOME}
+    cd ${HOME}/.d/.rc.d/
+    unzip ${HOME}/.d/.rc.d/.st_rc_d.rc.zip
+
+else
+    read -p "NOT_FILE: ${HOME}/REPOBARE/_repo/st_rc_d/.d/.zip/.st_rc_d.rc.zip mast ^C!!!"
+fi
+

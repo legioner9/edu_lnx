@@ -1,0 +1,13 @@
+## os_type
+## device_type
+## statistic_type
+## treat_user_type
+## treat_fs_type
+## process_type
+## access_rigth_type
+## network_type
+## archiv_type
+## package_type
+## treat_info_type
+## stream_fs_type
+## os_fs_type

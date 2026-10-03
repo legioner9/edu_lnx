@@ -1,0 +1,11 @@
+# STRCLIB - bash [st]one [rc] [lib]rary
+
+# STRCLIB - app over STRC
+
+## \<repo_path>/.d/.zip/.st.rc.d.zip - хранилище ${HOME}/.d/.rc.d/.st.rc.d
+## sta repo - пользовательские данные для функций \<repo_path>/.d/.arb/lib0.arb
+
+
+### const repo path ${ST_RC_D_PATH} define in ${HOME}/.d/.rc.d/.st_rc_d.rc
+### const data path ${ST_RC_D_DATA_PATH} define in ${ST_RC_D_PATH}/.d/.repo.d/.repo.data
+    

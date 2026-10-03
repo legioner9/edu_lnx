@@ -1,0 +1,2 @@
+## [Useless cat. Consider cmd < file | .. or cmd file | .. instead.](https://github.com/koalaman/shellcheck/wiki/SC2002)
+

@@ -1,0 +1,5 @@
+IFS=' ' read -r -a s_arr <<<"$line"
+
+arr=($line) # if line="sdc asdc vf"
+
+readarray -t lines <<<"$string"

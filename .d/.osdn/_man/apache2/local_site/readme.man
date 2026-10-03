@@ -1,0 +1,49 @@
+    $ mkdir /home/st/www
+    $ cd /home/st/www
+    $ mkdir -p .log .sites/sites-enabled test0.local test1.local test2.local
+
+    $ cd /home/st/www/.sites/sites-enabled/
+    $ ln -s /etc/httpd2/conf/sites-available/default.conf 00000-default.conf
+    $ ln -s /etc/httpd2/conf/sites-available/ports_all.conf ports_all.conf
+
+    $ cat >/home/st/www/.sites/sites-enabled/test0.local.conf
+<VirtualHost *>
+    ServerAdmin webmaster@webserver.local
+    DocumentRoot /home/st/www/test0.local
+    ServerName test0.local
+    ServerAlias www.test0.local
+    ErrorLog  /home/st/www/.log/test0.local-error_log
+    CustomLog /home/st/www/.log/test0.local-access_log common
+    AddDefaultCharset utf-8
+</VirtualHost>
+
+    $ cat >/home/st/www/.sites/sites-enabled/test1.local.conf
+<VirtualHost *>
+    ServerAdmin webmaster@webserver.local
+    DocumentRoot /home/st/www/test1.local
+    ServerName test1.local
+    ServerAlias www.test1.local
+    ErrorLog  /home/st/www/.log/test1.local-error_log
+    CustomLog /home/st/www/.log/test1.local-access_log common
+    AddDefaultCharset utf-8
+</VirtualHost>
+
+    $ cat >/home/st/www/.sites/sites-enabled/test2.local.conf
+<VirtualHost *>
+    ServerAdmin webmaster@webserver.local
+    DocumentRoot /home/st/www/test2.local
+    ServerName test2.local
+    ServerAlias www.test2.local
+    ErrorLog  /home/st/www/.log/test2.local-error_log
+    CustomLog /home/st/www/.log/test2.local-access_log common
+    AddDefaultCharset utf-8
+</VirtualHost>
+
+    $ cat >/home/st/www/test0.local/index.html
+<p>Это тестовый сайт <b>test0.local</b></p>
+
+    $ sudo /etc/init.d/httpd2 restart
+
+    http://test0.local/
+    http://test1.local/
+    http://test2.local/

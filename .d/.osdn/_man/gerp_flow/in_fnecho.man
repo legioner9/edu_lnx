@@ -1,0 +1,13 @@
+     for item in $(ls ../ | grep "$1")
+     do
+        echo -e "${GREEN}\$item = $item${NORMAL}" #print variable
+     done
+
+if "$1" not define => all 
+
+    for name_item in $(d2e "$manpath"/hfiles 2>/dev/null); do
+        if grep -q $match <<<$name_item; then
+            echo $arg_manpath/hfiles/$name_item
+
+        fi
+    done

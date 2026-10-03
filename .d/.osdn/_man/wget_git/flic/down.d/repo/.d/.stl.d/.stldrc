@@ -1,0 +1,149 @@
+#!/bin/bash
+
+### Written by Legioner9 for the universe
+### Part of the STL shell subsystem
+### Location .stl.d
+
+# ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+
+.stldrc.() {
+    local stl_boot_prc_d=${STL_D_PATH}/prc.d/boot_stl_fn.d
+    local return1=0
+
+    cat ${stl_boot_prc_d}/_comment.man
+
+    # up_to_mem l1_c_up
+    source ${stl_boot_prc_d}/l_01_c_up.sh
+
+    # up_to_mem all in ${stl_prc_d}/boot_stl_fn.d
+    l_01_c_up ${stl_boot_prc_d} || {
+        return1=1
+    }
+
+    dotstldrc_boot_stl() {
+
+        local FNN=${FUNCNAME[0]}
+        local PPWD=$PWD
+        local sh_file=${STL_D_PATH}/.stldrc
+        
+        l_00_echo_exec "${FNN}()"
+
+        dotstldrc_upper() { # $1 lib_dir_name
+            l_02_arb_up ${STL_LIB_D_PATH}/"${1}"
+            l_04_arb_prc_up ${STL_LIB_D_PATH}/"${1}"
+
+            l_02_arb_tst ${STL_LIB_D_PATH}/"${1}" || {
+                l_00_echo_ret1 "'$FNN()' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'dotstldrc_arb_tst ${STL_LIB_D_PATH}/${1}' : return 1" >&2
+                return 1
+            }
+        }
+
+        local item=
+
+        for item in $(ls "${STL_LIB_D_PATH}"); do
+            if [[ -d "${STL_LIB_D_PATH}/${item}" ]] && ! [[ "_" == "${item:0:1}" ]] && [[ "arb" == "$(l_01_prs_f -e ${STL_LIB_D_PATH}/${item})" ]]; then
+                echo -e "${GREEN}\$item = '$item'${NORMAL}"
+                if ! dotstldrc_upper "$item"; then
+                    return1=1
+                fi
+            fi
+        done
+
+        if [[ 1 -eq "$return1" ]]; then
+            return 1
+        fi
+
+        return 0
+
+        #! up boot util fn and constants
+        c_up_boot_stl ${STL_D_PATH}/prc.d >/dev/null || {
+            echo "EXEC_FAIL 'c_up_boot_stl ${STL_D_PATH}/prc.d' :: return 1" >&2
+            cd ${PPWD}
+            return 1
+        }
+
+        #! define default ${HOME}/.stl.use.flag
+        [[ -f ${HOME}/.stl.use.flag ]] || {
+            echo "0" >${HOME}/.stl.use.flag
+        }
+
+        #! define use_flag
+        local use_flag=
+        local use_flag_file=${HOME}/.stl.use.flag
+        up_flag_boot_stl_fn ${use_flag_file} use_flag >/dev/null || {
+            err_boot_stl_fn "EXEC_FAIL 'up_flag_boot_stl_fn ${use_flag_file} use_flag' :: return 1"
+            cd ${PPWD}
+            return 1
+        }
+
+        #! ~/.stl.use.flag :: check abort boot stl
+        [[ 0 -eq $use_flag ]] && {
+            # warn_boot_stl_fn "\$use_flag = 0 :: ABORT_OPERATION boot stl :: return 0"
+            cd ${PPWD}
+            return 0
+        }
+
+        #! define log_flag
+        local log_flag=
+        local log_flag_file=${STL_D_PATH}/data.d/flag.d/stlrc.log.flag
+        up_flag_boot_stl_fn ${log_flag_file} log_flag >/dev/null || {
+            err_boot_stl_fn "EXEC_FAIL 'up_flag_boot_stl_fn ${log_flag_file} log_flag' :: return 1"
+            cd ${PPWD}
+            return 1
+        }
+
+        local stl_boot_file=${STL_D_PATH}/flow.d/boot.d/boot.sh
+        [[ -f ${stl_boot_file} ]] || {
+            err_boot_stl_fn "EXEC_FAIL '[[ -f ${stl_boot_file} ]]' :: return 1"
+            cd ${PPWD}
+            return 1
+        }
+
+        [[ 0 -eq $log_flag ]] && [[ -f ${stl_boot_file} ]] && {
+            source ${stl_boot_file} 1>/dev/null || {
+                err_boot_stl_fn "EXEC_FAIL 'source ${stl_boot_file}' :: return 1"
+                cd ${PPWD}
+                return 1
+            }
+
+            cd ${PPWD}
+            return 0
+        }
+
+        local log_file=${STL_D_PATH}/data.d/log.d/stlrc.log
+
+        [[ -d ${STL_D_PATH}/data.d/log.d ]] || {
+            err_boot_stl_fn "EXEC_FAIL '[[ -d ${STL_D_PATH}/data.d/log.d ]]' :: return 1"
+            cd ${PPWD}
+            return 1
+        }
+
+        [[ 1 -eq $log_flag ]] && {
+            source ${stl_boot_file} 1>${log_file} 2>${log_file} || {
+                err_boot_stl_fn "EXEC_FAIL 'source ${stl_boot_file}' :: return 1"
+                cd ${PPWD}
+                return 1
+            }
+
+            cd ${PPWD}
+            return 0
+        }
+
+        #! IFS to default value
+        unset IFS
+        cd ${PPWD}
+        return 0
+    }
+
+    dotstldrc_boot_stl || {
+        l_00_echo_ret1 "in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL 'dotstlrc_boot_stl' :: return 1"
+        cd ${PPWD}
+        return 1
+    }
+
+    #! check for err 'return 1'
+    # echo "check for err 'return 1'" >&2
+    # return 1
+}
+
+.stldrc.

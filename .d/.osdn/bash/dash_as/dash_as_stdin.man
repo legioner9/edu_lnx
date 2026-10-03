@@ -1,0 +1,1 @@
+echo 'task goes here' | cat - todo.txt > temp && mv temp todo.txt

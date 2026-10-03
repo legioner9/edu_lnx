@@ -1,0 +1,3 @@
+# cp cntx.res.md ONLY with files from cntx.ins.d to :
+${REPO_PATH}/stl/README.md
+#${HOME}/.stl.d/data.d/opus.d/repo_readme/readme_copy_repo_stl.md

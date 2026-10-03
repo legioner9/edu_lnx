@@ -1,0 +1,3 @@
+## LC_ALL=C xdg-user-dirs-update --force
+
+## А вообще смотрите/правьте файл: ~/.config/xdg-dirs или user-dirs

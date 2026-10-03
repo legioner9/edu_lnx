@@ -1,0 +1,79 @@
+### Характеристики строки
+
+    ${#string} — Длина строки
+
+### Извлечение подстроки
+
+    ${string:position} — с position до конца
+    ${string:position:length} - с position длиной length символов
+    ${string: -length} - последние length символов
+
+### Удаление части строки
+
+    ${string#substring} — Удаление самой короткой, из найденых, подстроки $substring в строке $string. Поиск ведется сначала строки
+    ${string##substring} — Удаление самой длинной, из найденых, подстроки $substring в строке $string. Поиск ведется сначала строки
+    ${string%substring} — Удаление самой короткой, из найденых, подстроки $substring в строке $string. Поиск ведется с конца строки
+    ${string%%substring} — Удаление самой длинной, из найденых, подстроки $substring в строке $string. Поиск ведется с конца строки
+
+        stringZ=abcABC123ABCabc
+        #       |----|
+        #       |----------|
+        echo ${stringZ#a*C}      
+        # 123ABCabc
+        # Удаление самой короткой подстроки.
+        echo ${stringZ##a*C}     
+        # abc
+        # Удаление самой длинной подстроки.
+
+        stringZ=abcABC123ABCabc
+        #                    ||
+        #        |------------|
+        echo ${stringZ%b*c}      
+        # abcABC123ABCa
+        # Удаляется самое короткое совпадение. Поиск ведется с конца $stringZ
+
+        echo ${stringZ%%b*c}     
+        # a
+        # Удаляется самое длинное совпадение. Поиск ведется с конца $stringZ
+
+
+
+
+### Замена подстроки
+
+    ${string/substring/replacement} — первое вхождение
+
+        stringZ=abcABC123ABCabc
+        echo ${stringZ/abc/xyz}           
+        # xyzABC123ABCabc
+
+    ${string//substring/replacement} — все вхождения
+
+        stringZ=abcABC123ABCabc
+        echo ${stringZ//abc/xyz}           
+        # xyzABC123ABCxyz
+
+    ${var/#Pattern/Replacement} — Если в переменной var найдено совпадение с Pattern, причем совпадающая подстрока расположена в начале строки (префикс), то оно заменяется на Replacement. Поиск ведется с начала строки
+
+    ${var/%Pattern/Replacement} — Если в переменной var найдено совпадение с Pattern, причем совпадающая подстрока расположена в конце строки (суффикс), то оно заменяется на Replacement. Поиск ведется с конца строки
+
+
+        stringZ=abcABC123ABCabc
+        echo ${stringZ/#abc/XYZ}          
+        # XYZABC123ABCabc                                 
+        # Поиск ведется с начала строки
+
+        echo ${stringZ/%abc/XYZ}          
+        # abcABC123ABCXYZ                                  
+        # Поиск ведется с конца строки
+
+### Значение по умолчанию
+
+    ${parameter:-defaul} defaul if parameter not defined or empty (parameter= )
+    ${parameter-defaul} defaul if parameter not defined
+
+        DEFAULT_FILENAME=generic.data
+        filename=${1:-$DEFAULT_FILENAME}
+        #  Если имя файла не задано явно, то последующие операторы будут работать
+        #+ с файлом "generic.data".
+        #

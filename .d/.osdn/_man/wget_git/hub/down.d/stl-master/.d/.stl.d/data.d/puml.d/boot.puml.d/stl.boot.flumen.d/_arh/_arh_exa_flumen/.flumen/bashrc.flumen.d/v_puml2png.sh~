@@ -1,0 +1,3 @@
+puml_ ${HOME}/REPOBARE/_repo/st_rc_d/.d/.flumen/bashrc.flumen.d/v.puml -_drawing
+
+rm -f  ${HOME}/REPOBARE/_repo/st_rc_d/.d/.flumen/bashrc.flumen.d/v.puml.png
