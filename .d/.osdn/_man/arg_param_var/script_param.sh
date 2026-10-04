@@ -11,6 +11,6 @@ esac
 shift
 done
 
-echo $param-a $param_b $param_c
+echo $param_a $param_b $param_c
 
 # ./script_param.sh -a param-a -b param_b -c param_c
