@@ -1,7 +1,0 @@
-test -d ${HOME}
-If echo "LinuxHint.txt"
-then
-        echo "File is not empty"
-else
-       echo "File is empty"
-fi
