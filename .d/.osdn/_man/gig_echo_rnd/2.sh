@@ -22,7 +22,7 @@ fn() {
 
 	}
 
-	e_v() { # $1->rnd $2->nm
+	v_v() { # $1->rnd $2->nm
 		eval "echo \$${2}_${1}"
 	}
 
@@ -40,9 +40,9 @@ fn() {
 
 	eval "local var2_${rnd}"
 
-	g_v ${rnd} var2 "$(e_v ${rnd} val_1)"_add
+	g_v ${rnd} var2 "$(v_v ${rnd} val_1)"_add
 
-	echo "&var2=$(e_v ${rnd} var2)"
+	echo "&var2=$(v_v ${rnd} var2)"
 	echo "*var2=$(n_v ${rnd} var2)"
 	i_v ${rnd} var2
 
