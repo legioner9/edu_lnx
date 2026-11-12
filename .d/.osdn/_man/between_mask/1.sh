@@ -6,4 +6,7 @@ cd ~/rpo/edu_lnx/.d/.osdn/_man/between_mask || {
 	return 1
 }
 
-awk '/##begin/{in_block=1} /##end/{in_block=0} in_block' file.txt
+# grep "##begin" file.txt | grep "/##end/"
+# sed -n '/##beg/,/##e/p' file.txt | grep -v "##beg" | grep -v "##e"
+sed -n '/##beg/,/##e/p' file.txt | grep -Evw "##beg|##e"
+# awk '/^##begin$/,/^##end$/ { print }' file.txt
